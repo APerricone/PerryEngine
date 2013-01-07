@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/select">
+        <file>cursors/arrow_minus.png</file>
+        <file>cursors/arrow_plus.png</file>
+        <file>cursors/arrow_move.png</file>
+        <file>cursors/arrow_rotate.png</file>
+        <file>cursors/arrow_scale.png</file>
+    </qresource>
+</RCC>

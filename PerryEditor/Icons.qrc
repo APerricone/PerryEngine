@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/file">
+        <file>icons/file_icon.png</file>
+        <file>icons/document_icon.png</file>
+        <file>icons/diskette_icon.png</file>
+        <file>icons/door_icon.png</file>
+    </qresource>
+    <qresource prefix="/edit">
+        <file>icons/move_icon.png</file>
+        <file>icons/rotate_icon.png</file>
+        <file>icons/scale_icon.png</file>
+        <file>icons/select_icon.png</file>
+    </qresource>
+    <qresource prefix="/logos">
+        <file>icons/logo.svg</file>
+    </qresource>
+</RCC>
