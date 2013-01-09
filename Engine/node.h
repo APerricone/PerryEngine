@@ -38,6 +38,7 @@ public:
 	bool IsDirty() const { return s_abDirty[m_iMatrix]; }
 
 	void SetLocal(const Matrix4f& m) { s_af16LocalMatrices[m_iMatrix] = m; s_abDirty[m_iMatrix] = true; }
+	void SetWorld(const Matrix4f& m);
 	const Matrix4f& GetLocal() const { return s_af16LocalMatrices[m_iMatrix]; }
 	const Matrix4f& GetWorld() const { return s_af16WorldMatrices[m_iMatrix]; }
 	const Matrix4f& GetInvWorld() const { return s_af16InvWorldMatrices[m_iMatrix]; }

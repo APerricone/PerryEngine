@@ -2,6 +2,7 @@
 #define MOUSEMOVE_H
 
 #include "mouseaction.h"
+#include "matrix.h"
 class CMesh;
 class QCursor;
 
@@ -37,6 +38,8 @@ private:
 		ST_MARKZ
 	} m_eState;
 
+	float3 m_f3StartingPoint;
+	Matrix4f m_f16StartingMatrix;
 };
 
 #endif // MOUSEMOVE_H

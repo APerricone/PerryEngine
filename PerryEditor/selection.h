@@ -15,6 +15,7 @@ public:
 
 	void EvidenceSelection();
 	void GetMatrix(Matrix4f& oDest);
+	void SetMatrix(const Matrix4f& oSrc);
 	floatSphere GetBoundingSphere();
 };
 

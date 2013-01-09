@@ -102,6 +102,8 @@ public:
 	void SetUp(const Point& p) { SquareMatrix<type,3>::SetRow(1,p); }
 	void SetAt(const Point& p) { SquareMatrix<type,3>::SetRow(2,p); } //like rotation 3D
 	void SetPos(const Point& p) { SquareMatrix<type,3>::SetRow(2,p); } // like transform 2D
+
+	void Translate(const Point& t);
 };
 
 template<typename type>
@@ -138,6 +140,8 @@ public:
 	void SetUp(const Point& p) { SquareMatrix<type,4>::SetRow(1,p); }
 	void SetAt(const Point& p) { SquareMatrix<type,4>::SetRow(2,p); }
 	void SetPos(const Point& p) { SquareMatrix<type,4>::SetRow(3,p); }
+
+	void Translate(const Point& t);
 };
 //*/
 template<typename type,int nComp>

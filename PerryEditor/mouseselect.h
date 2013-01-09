@@ -31,6 +31,8 @@ private:
 	float4 m_f4CurrentRight;
 	float4 m_f4CurrentUp;
 	float4 m_f4CurrentAt;
+
+	void Draw(float fAlpha);
 };
 
 #endif // MOUSESELECT_H

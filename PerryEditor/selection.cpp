@@ -35,6 +35,14 @@ void CSelection::GetMatrix(Matrix4f& oDest)
 	oDest /= size();
 }
 
+void CSelection::SetMatrix(const Matrix4f& oSrc)
+{
+	for(iterator i=begin();i!=end();++i)
+	{
+		(*i)->SetWorld(oSrc);
+	}
+}
+
 floatSphere CSelection::GetBoundingSphere()
 {
 	bool oneAdded = false;

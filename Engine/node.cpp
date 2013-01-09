@@ -150,6 +150,17 @@ void CNode::SaveParentId(unsigned int id)
 	}
 }
 
+void CNode::SetWorld(const Matrix4f& m)
+{
+	if( m_pParent )
+	{
+		Matrix4f mm;
+		mm.Multiply(m_pParent->GetInvWorld(),m);
+		SetLocal( mm );
+	} else
+		SetLocal( m );
+}
+
 void CNode::UpdateMatrices()
 {
 	// calculate worlds

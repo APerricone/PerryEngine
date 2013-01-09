@@ -298,6 +298,12 @@ void Matrix3<type>::SetLookAt(const Vector<type,2>& p,const Vector<type,2>& l)
 }
 
 template<typename type>
+void Matrix3<type>::Translate(const Point& t)
+{
+	SetPos( GetPos() + t );
+}
+
+template<typename type>
 void Matrix4<type>::SetLookAt(const Vector<type,3>& p,const Vector<type,3>& l)
 {
 	Vector<type,3> d = (l-p).GetNormalized();
@@ -307,4 +313,10 @@ void Matrix4<type>::SetLookAt(const Vector<type,3>& p,const Vector<type,3>& l)
 	SetRg(d);
 	SetAt(a);
 	SetUp(u);
+}
+
+template<typename type>
+void Matrix4<type>::Translate(const Point& t)
+{
+	SetPos( GetPos() + t );
 }

@@ -12,6 +12,7 @@
 // from Qt
 #include <QCursor>
 #include <QApplication>
+#include <QMouseEvent>
 
 #include "capsule.h"
 
@@ -30,14 +31,14 @@ CMouseMove::CMouseMove(QObject* pParent) :
 	// 100 pixel len
 	// 3 pixel width
 	oCreator.AddCone(float3(0.f,0.f,0.f),0.015f,float3(0.f,0.f,0.8f),0.015f,16,false,false);
-	oCreator.AddCone(float3(0.f,0.f,0.8f),0.1f,float3(0.f,0.f,1.f),0.0f,16,true,false);
+	oCreator.AddCone(float3(0.f,0.f,0.8f),0.045f,float3(0.f,0.f,1.f),0.0f,16,true,false);
 	m_pArrow = new CMesh();
 	oCreator.CreateMesh(*m_pArrow);
 
 	oCreator.Clear();
-	oCreator.AddCone(float3(0.f,0.f,-0.1f),0.015f,float3(0.f,0.f,0.1f),0.015f,16,false,false);
-	oCreator.AddCone(float3(0.f,0.f,-0.1f),0.05f,float3(0.f,0.f,-0.2f),0.0f,16,true,false);
-	oCreator.AddCone(float3(0.f,0.f,0.2f),0.0f,float3(0.f,0.f,0.1f),0.05f,16,false,true);
+	oCreator.AddCone(float3(0.f,0.f,-0.1f),0.007f,float3(0.f,0.f,0.1f),0.007f,16,false,false);
+	oCreator.AddCone(float3(0.f,0.f,-0.1f),0.021f,float3(0.f,0.f,-0.2f),0.0f,16,true,false);
+	oCreator.AddCone(float3(0.f,0.f,0.2f),0.0f,float3(0.f,0.f,0.1f),0.021f,16,false,true);
 	m_pHalfCross = new CMesh();
 	oCreator.CreateMesh(*m_pHalfCross);
 
@@ -80,7 +81,10 @@ void CMouseMove::DrawOverScene()
 	tmp.SetUp(a);
 	tmp.SetAt(r);
 	glMultMatrixf(tmp);
-	glColor4f(1,0,0,1.0f);
+	if( m_eState != ST_MARKX)
+		glColor4f(0.75f,0.125f,0.125f,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	m_pArrow->ReDraw();
 	glPopMatrix();
 	glPushMatrix();
@@ -88,7 +92,10 @@ void CMouseMove::DrawOverScene()
 	tmp.SetUp(r);
 	tmp.SetAt(u);
 	glMultMatrixf(tmp);
-	glColor4f(0,1,0,1.0f);
+	if( m_eState != ST_MARKY)
+		glColor4f(0.125f,0.75f,0.125f,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	m_pArrow->ReDraw();
 	glPopMatrix();
 	glPushMatrix();
@@ -97,7 +104,10 @@ void CMouseMove::DrawOverScene()
 	tmp.SetAt(a);
 	tmp.SetPos(p);
 	glMultMatrixf(tmp);
-	glColor4f(0,0,1,1.0f);
+	if( m_eState != ST_MARKZ)
+		glColor4f(0.125f,0.125f,0.75f,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	m_pArrow->ReDraw();
 	glPopMatrix();
 	m_pArrow->EndDraw();
@@ -175,7 +185,13 @@ void CMouseMove::keyReleaseEvent ( QKeyEvent * event )
 
 void CMouseMove::mousePressEvent( QMouseEvent * event )
 {
-	CMouseActions::GetDefault()->mousePressEvent(event);
+	if( m_eState == ST_NONE)
+	{
+		CMouseActions::GetDefault()->mousePressEvent(event);
+	} else
+	{
+		CSelection::Instance().GetMatrix(m_f16StartingMatrix);
+	}
 }
 
 void CMouseMove::mouseReleaseEvent( QMouseEvent * event )
@@ -183,7 +199,132 @@ void CMouseMove::mouseReleaseEvent( QMouseEvent * event )
 	CMouseActions::GetDefault()->mouseReleaseEvent(event);
 }
 
+float RayPointDistance(
+		const float3 &s,const float3 &d,
+		const float3 &a)
+{
+	// P = s + d*t
+	// find P1 -> a.d = P1.d && P1 = s + d*t
+	// a.d = (s+d*t).d = s.d + d.d*t
+	// t = a.d - s.d / d.d
+	float t = dot((a-s),d) / dot(d,d);
+	float3 P1 = s + d * t;
+	return (a-P1).GetLen();
+}
+
+float RayRayDistance(
+		const float3 &s,const float3 &d,float& t,
+		const float3 &a,const float3 &b,float& r)
+{
+	// P = s + d*t
+	// Q = a + b*r
+	// find P1 and Q1 -> (P1-Q1).d == 0 && (P1-Q1).b == 0
+	// P1-Q1 = s + d*t - (a + b*r) = (s-a) + d*t - b*r
+	// (P1-Q1).d = (s-a).d + d.d*t - b.d*r
+	// (P1-Q1).b = (s-a).b + d.b*t - b.b*r
+	// l = -(s-a).d --- m = d.d --- n =-b.d
+	// o = -(s-a).b --- p = d.b --- q =-b.b
+	float3 sma = s-a;
+	float l =-dot(sma,d);
+	float m = dot(d,d);
+	float n =-dot(b,d);
+	float o =-dot(sma,b);
+	float p = dot(d,b);
+	float q =-dot(b,b);
+	// m*t + n*r = l
+	// p*t + q*r = o
+	float det = m * q - p * n;
+	float dett = l * q - o * n;
+	float detr = m * o - p * l;
+	if( det == 0 )
+	{// parallel
+		if( dett == 0 )
+			return 0; // same
+		else
+			return (s-a).GetLen(); // distanced
+	}
+	t = dett / det;
+	r = detr / det;
+	float3 p1 = s + d*t;
+	float3 q1 = a + b*r;
+	return (p1-q1).GetLen();
+}
+
+float RaySegmentDistance(
+		const float3 &s,const float3 &d,
+		const float3 &a,const float3 &b,float& r)
+{
+	float t;
+	float val = RayRayDistance(s,d,t,a,b,r);
+	if( r>=0 && r<=1 ) return val;
+	if( r<0 )
+		return RayPointDistance(s,d,a);
+	return RayPointDistance(s,d,a+b);
+}
+
 void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 {
-	CMouseActions::GetDefault()->mouseMoveEvent(event);
+	if( CSelection::Instance().size()==0 ) return;
+	Matrix4f mWorld;
+	CSelection::Instance().GetMatrix(mWorld);
+	float s = GetPixelScale( float3(mWorld.GetPos()) );
+	float3 p = float4(mWorld.GetPos()).xyz();
+	float3 r = float4(mWorld.GetRg()).xyz()*s;
+	float3 u = float4(mWorld.GetUp()).xyz()*s;
+	float3 a = float4(mWorld.GetAt()).xyz()*s;
+
+	float3 end = m_pCamera->Get3DPixel(float3(event->x(),event->y(),0.f));
+	float3 start = m_pCamera->GetPosition();
+	float3 dir = end-start;
+
+	if( event->buttons() != Qt::NoButton )
+	{
+		float t,rr;
+		float3 newP;
+		switch(m_eState)
+		{
+		case ST_MARKX:
+			RayRayDistance(start,dir,t,p,r,rr);
+			newP = p+r*rr;
+			break;
+		case ST_MARKY:
+			RayRayDistance(start,dir,t,p,u,rr);
+			newP = p+u*rr;
+			break;
+		case ST_MARKZ:
+			RayRayDistance(start,dir,t,p,a,rr);
+			newP = p+a*rr;
+			break;
+		default:
+			return;
+		}
+		mWorld = m_f16StartingMatrix;
+		mWorld.Translate( newP - m_f3StartingPoint );
+		CSelection::Instance().SetMatrix(mWorld);
+	} else
+	{
+		float rx,dx = RaySegmentDistance(start,dir,p,r,rx);
+		float ry,dy = RaySegmentDistance(start,dir,p,u,ry);
+		float rz,dz = RaySegmentDistance(start,dir,p,a,rz);
+		float d = 1/s;
+		m_eState = ST_NONE;
+		if( dx < d )
+		{
+			m_eState = ST_MARKX;
+			d = dx;
+			m_f3StartingPoint = p + r * rx ;
+		}
+		if( dy < d )
+		{
+			m_eState = ST_MARKY;
+			d = dy;
+			m_f3StartingPoint = p + u * ry ;
+		}
+		if( dz < d )
+		{
+			m_eState = ST_MARKZ;
+			d = dz;
+			m_f3StartingPoint = p + a * rz ;
+		}
+	}
 }

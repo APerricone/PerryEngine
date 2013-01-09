@@ -64,44 +64,15 @@ void CMouseSelect::DrawInsideScene()
 	m_f4CurrentUp = mWorld.GetUp()*s;
 	m_f4CurrentAt = mWorld.GetAt()*s;
 
-	Matrix4f tmp;
-	tmp.SetPos(m_f4CurrentPos);
-	m_pAxe->PreDraw();
-	float4& r = m_f4CurrentRight;
-	float4& u = m_f4CurrentUp;
-	float4& a = m_f4CurrentAt;
-
-	glPushMatrix();
-	tmp.SetRg(u);
-	tmp.SetUp(a);
-	tmp.SetAt(r);
-	glMultMatrixf(tmp);
-	glColor4f(1,0,0,1.0f);
-	m_pAxe->ReDraw();
-	glPopMatrix();
-
-	glPushMatrix();
-	tmp.SetRg(a);
-	tmp.SetUp(r);
-	tmp.SetAt(u);
-	glMultMatrixf(tmp);
-	glColor4f(0,1,0,1.0f);
-	m_pAxe->ReDraw();
-	glPopMatrix();
-
-	glPushMatrix();
-	tmp.SetRg(r);
-	tmp.SetUp(u);
-	tmp.SetAt(a);
-	glMultMatrixf(tmp);
-	glColor4f(0,0,1,1.0f);
-	m_pAxe->ReDraw();
-	glPopMatrix();
-
-	m_pAxe->EndDraw();
+	Draw(1.f);
 }
 
 void CMouseSelect::DrawOverScene()
+{
+	Draw(0.5f);
+}
+
+void CMouseSelect::Draw(float fAlpha)
 {
 	Matrix4f tmp;
 	tmp.SetPos(m_f4CurrentPos);
@@ -115,7 +86,7 @@ void CMouseSelect::DrawOverScene()
 	tmp.SetUp(a);
 	tmp.SetAt(r);
 	glMultMatrixf(tmp);
-	glColor4f(1,0,0,0.5f);
+	glColor4f(1,0,0,fAlpha);
 	m_pAxe->ReDraw();
 	glPopMatrix();
 
@@ -124,7 +95,7 @@ void CMouseSelect::DrawOverScene()
 	tmp.SetUp(r);
 	tmp.SetAt(u);
 	glMultMatrixf(tmp);
-	glColor4f(0,1,0,0.5f);
+	glColor4f(0,1,0,fAlpha);
 	m_pAxe->ReDraw();
 	glPopMatrix();
 
@@ -133,7 +104,7 @@ void CMouseSelect::DrawOverScene()
 	tmp.SetUp(u);
 	tmp.SetAt(a);
 	glMultMatrixf(tmp);
-	glColor4f(0,0,1,0.5f);
+	glColor4f(0,0,1,fAlpha);
 	m_pAxe->ReDraw();
 	glPopMatrix();
 
