@@ -62,6 +62,11 @@ void QLog::ManageBuff()
 	} while(c!=0);
 }
 
+QString QLog::toHtml() const
+{
+	return ui->m_qText->toHtml();
+}
+
 void QLog::on_actionClear_triggered()
 {
 	ui->m_qText->clear();

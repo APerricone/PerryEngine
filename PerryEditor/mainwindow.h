@@ -22,6 +22,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+	void Check();
+
 private slots:
 	void on_actionAbout_Qt_triggered();
 	void on_actionExit_triggered();

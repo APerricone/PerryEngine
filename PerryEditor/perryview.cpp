@@ -26,6 +26,7 @@ CPerryView::CPerryView(QWidget * parent) :
 	setFocusPolicy(Qt::WheelFocus);
 
 	glPrint = StdGlPrint;
+	m_bIsInitialized = false;
 }
 
 CPerryView::~CPerryView()
@@ -86,8 +87,11 @@ void CPerryView::timerEvent(QTimerEvent *e)
 void CPerryView::initializeGL()
 {
 	QGLWidget::initializeGL();
-	CScene::InitStatic();
-
+	if(!CScene::InitStatic())
+	{
+		//return;
+	}
+	m_bIsInitialized = true;
 	m_pScene = new CScene();
 	m_pScene->Init();
 	m_pScene->m_bUsePerCounter = false;
@@ -104,6 +108,7 @@ void CPerryView::initializeGL()
 
 void CPerryView::resizeGL( int width, int height )
 {
+	if(!m_bIsInitialized) return;
 	QGLWidget::resizeGL(width,height);
 	m_pScene->Resize(width,height);
 	m_pCamera->resizeGL( width , height);
@@ -114,6 +119,7 @@ void CPerryView::resizeGL( int width, int height )
 void CPerryView::DrawEditor(void* pThis)
 {
 	CPerryView* pPerryView = reinterpret_cast<CPerryView*>(pThis);
+	if(!pPerryView->IsInitialized()) return;
 
 	pPerryView->DrawGrid();
 	pPerryView->DrawBackground();
@@ -172,6 +178,7 @@ void CPerryView::paintGL()
 	s_pCurrentView = this;
 
 	QGLWidget::paintGL();
+	if(!m_bIsInitialized) return;
 	//pScene->Update();
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );

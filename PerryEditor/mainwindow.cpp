@@ -37,7 +37,17 @@ MainWindow::MainWindow(QWidget *parent) :
 	restoreState(settings.value("windowState").toByteArray());
 	restoreDockWidget(m_qLog);
 	restoreDockWidget(m_qRenderingOptions);
+}
 
+void MainWindow::Check()
+{
+	if(!m_qMainView->IsInitialized())
+	{
+		QString message("Unable to initialize engine<br><br>");
+		message += m_qLog->toHtml();
+		QMessageBox::critical(this,"Perry's Editor",message);
+		close();
+	}
 }
 
 MainWindow::~MainWindow()

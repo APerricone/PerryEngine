@@ -31,6 +31,7 @@ public:
 
 	void SetRenderingOptions(IRenderingOptions* p) { m_qRenderingOptions = p; }
 
+	bool IsInitialized() const { return m_bIsInitialized; }
 signals:
 
 public slots:
@@ -53,6 +54,7 @@ protected:
 	CEditorCamera *m_pCamera;
 	IRenderingOptions *m_qRenderingOptions;
 	CStandardMouseActions *m_pStandardMouseActions;
+	bool m_bIsInitialized;
 private:
 	static CPerryView* s_pCurrentView;
 

@@ -16,6 +16,7 @@ public:
     explicit QLog(QWidget *parent = 0);
     ~QLog();
 
+	QString toHtml() const;
 protected:
 	virtual void InternalMessage(const char *i_pMessage, va_list args);
 	virtual void InternalError(const char *i_pMessage, va_list args);
