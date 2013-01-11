@@ -131,3 +131,11 @@ float CEditorCamera::GetFactorPixel(const float3& p3D) const
 {
 	return GetFactor(p3D) * m_iHeight;
 }
+
+Ray3f CEditorCamera::Get3DRay(const float3& p2D) const
+{
+	float3 end = Get3DPixel(p2D);
+	float3 start = GetPosition();
+	float3 direx = end-start;
+	return Ray3f(start,direx);
+}

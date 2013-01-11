@@ -199,69 +199,6 @@ void CMouseMove::mouseReleaseEvent( QMouseEvent * event )
 	CMouseActions::GetDefault()->mouseReleaseEvent(event);
 }
 
-float RayPointDistance(
-		const float3 &s,const float3 &d,
-		const float3 &a)
-{
-	// P = s + d*t
-	// find P1 -> a.d = P1.d && P1 = s + d*t
-	// a.d = (s+d*t).d = s.d + d.d*t
-	// t = a.d - s.d / d.d
-	float t = dot((a-s),d) / dot(d,d);
-	float3 P1 = s + d * t;
-	return (a-P1).GetLen();
-}
-
-float RayRayDistance(
-		const float3 &s,const float3 &d,float& t,
-		const float3 &a,const float3 &b,float& r)
-{
-	// P = s + d*t
-	// Q = a + b*r
-	// find P1 and Q1 -> (P1-Q1).d == 0 && (P1-Q1).b == 0
-	// P1-Q1 = s + d*t - (a + b*r) = (s-a) + d*t - b*r
-	// (P1-Q1).d = (s-a).d + d.d*t - b.d*r
-	// (P1-Q1).b = (s-a).b + d.b*t - b.b*r
-	// l = -(s-a).d --- m = d.d --- n =-b.d
-	// o = -(s-a).b --- p = d.b --- q =-b.b
-	float3 sma = s-a;
-	float l =-dot(sma,d);
-	float m = dot(d,d);
-	float n =-dot(b,d);
-	float o =-dot(sma,b);
-	float p = dot(d,b);
-	float q =-dot(b,b);
-	// m*t + n*r = l
-	// p*t + q*r = o
-	float det = m * q - p * n;
-	float dett = l * q - o * n;
-	float detr = m * o - p * l;
-	if( det == 0 )
-	{// parallel
-		if( dett == 0 )
-			return 0; // same
-		else
-			return (s-a).GetLen(); // distanced
-	}
-	t = dett / det;
-	r = detr / det;
-	float3 p1 = s + d*t;
-	float3 q1 = a + b*r;
-	return (p1-q1).GetLen();
-}
-
-float RaySegmentDistance(
-		const float3 &s,const float3 &d,
-		const float3 &a,const float3 &b,float& r)
-{
-	float t;
-	float val = RayRayDistance(s,d,t,a,b,r);
-	if( r>=0 && r<=1 ) return val;
-	if( r<0 )
-		return RayPointDistance(s,d,a);
-	return RayPointDistance(s,d,a+b);
-}
-
 void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 {
 	if( CSelection::Instance().size()==0 ) return;
@@ -273,9 +210,7 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 	float3 u = float4(mWorld.GetUp()).xyz()*s;
 	float3 a = float4(mWorld.GetAt()).xyz()*s;
 
-	float3 end = m_pCamera->Get3DPixel(float3(event->x(),event->y(),0.f));
-	float3 start = m_pCamera->GetPosition();
-	float3 dir = end-start;
+	Ray3f camRay(m_pCamera->Get3DRay(float3(event->x(),event->y(),0.f)));
 
 	if( event->buttons() != Qt::NoButton )
 	{
@@ -284,15 +219,15 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 		switch(m_eState)
 		{
 		case ST_MARKX:
-			RayRayDistance(start,dir,t,p,r,rr);
+			camRay.RayDistance(Ray3f(p,r),t,rr);
 			newP = p+r*rr;
 			break;
 		case ST_MARKY:
-			RayRayDistance(start,dir,t,p,u,rr);
+			camRay.RayDistance(Ray3f(p,u),t,rr);
 			newP = p+u*rr;
 			break;
 		case ST_MARKZ:
-			RayRayDistance(start,dir,t,p,a,rr);
+			camRay.RayDistance(Ray3f(p,a),t,rr);
 			newP = p+a*rr;
 			break;
 		default:
@@ -303,9 +238,10 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 		CSelection::Instance().SetMatrix(mWorld);
 	} else
 	{
-		float rx,dx = RaySegmentDistance(start,dir,p,r,rx);
-		float ry,dy = RaySegmentDistance(start,dir,p,u,ry);
-		float rz,dz = RaySegmentDistance(start,dir,p,a,rz);
+		float t;
+		float rx,dx = camRay.SegmentDistance(Ray3f(p,r),t,rx);
+		float ry,dy = camRay.SegmentDistance(Ray3f(p,u),t,ry);
+		float rz,dz = camRay.SegmentDistance(Ray3f(p,a),t,rz);
 		float d = 1/s;
 		m_eState = ST_NONE;
 		if( dx < d )

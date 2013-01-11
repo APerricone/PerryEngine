@@ -33,6 +33,7 @@ set( OUTPUT_NAME_Debug ${PROJ_NAME}_D)
 
 set( SRC_FILES mymacros.h opengl.h ${PROJ_NAME}_config.h)
 set( SRC_FILES ${SRC_FILES} vector.h sphere.h)
+set( SRC_FILES ${SRC_FILES} ray.h ray.inl)
 set( SRC_FILES ${SRC_FILES} camera.h camera.cpp)
 set( SRC_FILES ${SRC_FILES} dynamicmesh.h dynamicmesh.cpp)
 set( SRC_FILES ${SRC_FILES} mesh.h mesh.cpp)

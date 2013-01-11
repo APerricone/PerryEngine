@@ -4,6 +4,9 @@
 #include "vector.h"
 #include <QPoint>
 
+#include "ray.h"
+
+
 class QWheelEvent;
 class QMouseEvent;
 
@@ -21,6 +24,9 @@ public:
 	float3 Get3DPixel(const float3& p2D) const;
 	float3 Get2DPixel(const float3& p3D) const;
 	float GetFactorPixel(const float3& p3D) const;
+
+	Ray3f Get3DRay(const float3& p2D) const;
+
 private:
 	QPoint exPos;
 
