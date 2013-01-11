@@ -96,6 +96,26 @@ type Ray3<type>::RayDistance(const Ray<type,3> &b,type& timeOnThis,type& timeOnB
 	return (p1-q1).GetLen();
 }
 
+template<typename type>
+bool Ray3<type>::PlaneIntersection(const Point &p, const Point &n, type& timeOnThis)
+{
+	// let's call
+	// start -> s
+	// direx -> d
+	// timeOnThis -> t
+	// P1 = s + d*t
+	// P1(dot)n = p(dot)n
+	// s(dot)n + d(dot)n*t = p(dot)n
+	// t = (p(dot)n - s(dot)n) / (d(dot)n)
+	type den = dot(direx,n);
+	if( den == 0 )
+	{
+		return false; // parallel
+	}
+	timeOnThis = dot((p - start),n) / den;
+	return true;
+}
+
 template<typename type,int nComp>
 type Ray<type,nComp>::SegmentDistance(const Ray<type,nComp> &b,type& timeOnThis,type& timeOnB)
 {

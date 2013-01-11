@@ -82,7 +82,7 @@ void CMouseMove::DrawOverScene()
 	tmp.SetAt(r);
 	glMultMatrixf(tmp);
 	if( m_eState != ST_MARKX)
-		glColor4f(0.75f,0.125f,0.125f,1.0f);
+		glColor4f(1,0,0,1.0f);
 	else
 		glColor4f(1,1,1,1.0f);
 	m_pArrow->ReDraw();
@@ -93,7 +93,7 @@ void CMouseMove::DrawOverScene()
 	tmp.SetAt(u);
 	glMultMatrixf(tmp);
 	if( m_eState != ST_MARKY)
-		glColor4f(0.125f,0.75f,0.125f,1.0f);
+		glColor4f(0,1,0,1.0f);
 	else
 		glColor4f(1,1,1,1.0f);
 	m_pArrow->ReDraw();
@@ -105,7 +105,7 @@ void CMouseMove::DrawOverScene()
 	tmp.SetPos(p);
 	glMultMatrixf(tmp);
 	if( m_eState != ST_MARKZ)
-		glColor4f(0.125f,0.125f,0.75f,1.0f);
+		glColor4f(0,0,1,1.0f);
 	else
 		glColor4f(1,1,1,1.0f);
 	m_pArrow->ReDraw();
@@ -114,46 +114,67 @@ void CMouseMove::DrawOverScene()
 
 	m_pHalfCross->PreDraw();
 
-	glColor4f(1,0,0,1.0f);
 	tmp.SetRg(u);
 	tmp.SetUp(a);
 	tmp.SetAt(r);
 	glPushMatrix();
+	if( m_eState != ST_MARKXY)
+		glColor4f(1,0,0,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	tmp.SetPos(p + (r+u) * 0.8f );
 	glMultMatrixf(tmp);
 	m_pHalfCross->ReDraw();
 	glPopMatrix();
 	glPushMatrix();
+	if( m_eState != ST_MARKXZ)
+		glColor4f(1,0,0,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	tmp.SetPos(p + (r+a) * 0.8f );
 	glMultMatrixf(tmp);
 	m_pHalfCross->ReDraw();
 	glPopMatrix();
 
-	glColor4f(0,1,0,1.0f);
 	tmp.SetRg(a);
 	tmp.SetUp(r);
 	tmp.SetAt(u);
 	glPushMatrix();
+	if( m_eState != ST_MARKXY)
+		glColor4f(0,1,0,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	tmp.SetPos(p + (r+u) * 0.8f );
 	glMultMatrixf(tmp);
 	m_pHalfCross->ReDraw();
 	glPopMatrix();
 	glPushMatrix();
+	if( m_eState != ST_MARKYZ)
+		glColor4f(0,1,0,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	tmp.SetPos(p + (u+a) * 0.8f );
 	glMultMatrixf(tmp);
 	m_pHalfCross->ReDraw();
 	glPopMatrix();
 
-	glColor4f(0,0,1,1.0f);
 	tmp.SetRg(r);
 	tmp.SetUp(u);
 	tmp.SetAt(a);
 	glPushMatrix();
+	if( m_eState != ST_MARKXZ)
+		glColor4f(0,0,1,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	tmp.SetPos(p + (r+a) * 0.8f );
 	glMultMatrixf(tmp);
 	m_pHalfCross->ReDraw();
 	glPopMatrix();
 	glPushMatrix();
+	if( m_eState != ST_MARKYZ)
+		glColor4f(0,0,1,1.0f);
+	else
+		glColor4f(1,1,1,1.0f);
 	tmp.SetPos(p + (u+a) * 0.8f );
 	glMultMatrixf(tmp);
 	m_pHalfCross->ReDraw();
@@ -209,6 +230,10 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 	float3 r = float4(mWorld.GetRg()).xyz()*s;
 	float3 u = float4(mWorld.GetUp()).xyz()*s;
 	float3 a = float4(mWorld.GetAt()).xyz()*s;
+	float3 pru = p+(r+u)*0.8f;
+	float3 pra = p+(r+a)*0.8f;
+	float3 pua = p+(u+a)*0.8f;
+
 
 	Ray3f camRay(m_pCamera->Get3DRay(float3(event->x(),event->y(),0.f)));
 
@@ -216,6 +241,7 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 	{
 		float t,rr;
 		float3 newP;
+		float3 movement;
 		switch(m_eState)
 		{
 		case ST_MARKX:
@@ -230,11 +256,47 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 			camRay.RayDistance(Ray3f(p,a),t,rr);
 			newP = p+a*rr;
 			break;
+		case ST_MARKXY:
+			camRay.PlaneIntersection(pru,a,t);
+			newP = camRay.GetPoint(t);
+			break;
+		case ST_MARKXZ:
+			camRay.PlaneIntersection(pra,u,t);
+			newP = camRay.GetPoint(t);
+			break;
+		case ST_MARKYZ:
+			camRay.PlaneIntersection(pua,r,t);
+			newP = camRay.GetPoint(t);
+			break;
+		default:
+			return;
+		}
+		movement = newP - m_f3StartingPoint;
+		switch(m_eState)
+		{
+		case ST_MARKX:
+			movement = r * (dot(movement,r) / (s*s));
+			break;
+		case ST_MARKY:
+			movement = u * (dot(movement,u) / (s*s));
+			break;
+		case ST_MARKZ:
+			movement = a * (dot(movement,a) / (s*s));
+			break;
+		case ST_MARKXY:
+			movement -= a * (dot(movement,a) / (s*s));
+			break;
+		case ST_MARKXZ:
+			movement -= u * (dot(movement,u) / (s*s));
+			break;
+		case ST_MARKYZ:
+			movement -= r * (dot(movement,r) / (s*s));
+			break;
 		default:
 			return;
 		}
 		mWorld = m_f16StartingMatrix;
-		mWorld.Translate( newP - m_f3StartingPoint );
+		mWorld.Translate( movement );
 		CSelection::Instance().SetMatrix(mWorld);
 	} else
 	{
@@ -242,6 +304,9 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 		float rx,dx = camRay.SegmentDistance(Ray3f(p,r),t,rx);
 		float ry,dy = camRay.SegmentDistance(Ray3f(p,u),t,ry);
 		float rz,dz = camRay.SegmentDistance(Ray3f(p,a),t,rz);
+		float rxy,dxy = camRay.PointDistance(pru,rxy);
+		float rxz,dxz = camRay.PointDistance(pra,rxz);
+		float ryz,dyz = camRay.PointDistance(pua,ryz);
 		float d = 1/s;
 		m_eState = ST_NONE;
 		if( dx < d )
@@ -261,6 +326,24 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 			m_eState = ST_MARKZ;
 			d = dz;
 			m_f3StartingPoint = p + a * rz ;
+		}
+		if( dxy < d )
+		{
+			m_eState = ST_MARKXY;
+			d = dxy;
+			m_f3StartingPoint = camRay.GetPoint(rxy) ;
+		}
+		if( dxz < d )
+		{
+			m_eState = ST_MARKXZ;
+			d = dxz;
+			m_f3StartingPoint = camRay.GetPoint(rxz) ;
+		}
+		if( dyz < d )
+		{
+			m_eState = ST_MARKYZ;
+			d = dyz;
+			m_f3StartingPoint = camRay.GetPoint(ryz) ;
 		}
 	}
 }

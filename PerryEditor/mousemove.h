@@ -35,7 +35,10 @@ private:
 		ST_NONE,
 		ST_MARKX,
 		ST_MARKY,
-		ST_MARKZ
+		ST_MARKZ,
+		ST_MARKXY,
+		ST_MARKXZ,
+		ST_MARKYZ
 	} m_eState;
 
 	float3 m_f3StartingPoint;

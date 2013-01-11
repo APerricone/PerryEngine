@@ -19,6 +19,7 @@ public:
 
 	const Point& GetStart() const { return start; }
 	const Point& GetDirex() const { return direx; }
+	Point GetPoint(const type& time) const { return start + direx * time; }
 };
 
 template<typename type>
@@ -42,6 +43,7 @@ public:
 	Ray3(const Point& s,const Point& d) : Ray<type,3>(s,d) {}
 
 	virtual type RayDistance(const Ray<type,3> &b,type& timeOnThis,type& timeOnB);
+	bool PlaneIntersection(const Point &p, const Point &n, type& timeOnThis);
 };
 
 #include "ray.inl"
