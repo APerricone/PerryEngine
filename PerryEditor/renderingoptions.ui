@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>313</width>
-    <height>193</height>
+    <height>210</height>
    </rect>
   </property>
   <property name="locale">
@@ -74,6 +74,16 @@
         <widget class="QCheckBox" name="m_qFXAACheck">
          <property name="text">
           <string>FXAA</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="m_qGridCheck">
+         <property name="text">
+          <string>Grid</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -233,6 +243,22 @@
     <hint type="sourcelabel">
      <x>114</x>
      <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_qGridCheck</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>actionUpdateLayers</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>179</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>

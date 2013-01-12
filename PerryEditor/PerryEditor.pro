@@ -6,20 +6,19 @@
 
 QT       += core gui opengl
 
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 TARGET = PerryEditor
 TEMPLATE = app
 
 # engine
 INCLUDEPATH += ../Engine
 
-CONFIG(debug):
-{
-	LIBS += -L../Engine/build/Debug
-}
-else:
-{
-	LIBS += -L../Engine/build
-}
+#debug {
+#        LIBS += -L../Engine-build/debug
+#} else {
+        LIBS += -L../Engine-build
+#}
 LIBS += -lEngine
 LIBS += -lopengl32 -lglu32
 
@@ -45,7 +44,8 @@ SOURCES += main.cpp \
     mouseselect.cpp \
     selection.cpp \
     standardmouseactions.cpp \
-    mousemove.cpp
+    mousemove.cpp \
+    mouserotate.cpp
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -58,7 +58,7 @@ HEADERS  += mainwindow.h \
     selection.h \
     standardmouseactions.h \
     mousemove.h \
-    capsule.h
+    mouserotate.h
 
 FORMS    += mainwindow.ui \
     qlog.ui \
@@ -82,4 +82,12 @@ RESOURCES += \
 
 
 
+linux-g++{
+    # QMAKE_POST_LINK += $$quote(cp $${FILE} $${DESTDIR}$$escape_expand(\n\t))
+}
 
+win32 {
+    # QMAKE_POST_LINK = mkdir ExeDir &
+    QMAKE_POST_LINK += copy ..\\Engine\\ExeDir\\*.* .
+    #QMAKE_POST_LINK  += dir;
+}

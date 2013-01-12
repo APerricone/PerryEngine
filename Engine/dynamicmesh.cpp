@@ -145,6 +145,65 @@ void CDynamicMesh::AddSphere(const float3& center,const float radius,int nSegmen
 	}
 }
 
+void CDynamicMesh::AddTorus(const float3& center,const float radius1,const float radius2,int nSegment,int nDivision)
+{
+	float stepA = (float)(M_PI*2/nSegment);
+	float stepB = (float)(M_PI*2/nDivision);
+	float a = 0;
+	float cosA[2] = { 1,1};
+	float sinA[2] = { 0,0};
+	float cosB[2] = { 1,1};
+	float sinB[2] = { 0,0};
+	for(int j=0;j<nSegment;j++)
+	{
+		cosA[0] = cosA[1];
+		sinA[0] = sinA[1];
+		a+= stepA;
+		cosA[1] = cosf( a );
+		sinA[1] = sinf( a );
+		float b = 0;
+		cosB[1] = 1;
+		sinB[1] = 0;
+		for(int i=0;i<nDivision;i++)
+		{
+			cosB[0] = cosB[1];
+			sinB[0] = sinB[1];
+			b+= stepB;
+			cosB[1] = cosf( b );
+			sinB[1] = sinf( b );
+
+			float3 normals[4];
+			float3 d;
+			float3 points[4];
+
+			for(int r=0;r<4;r++)
+			{
+				int ia = r/2;
+				int ib = r%2;
+				d.x() = cosB[ib];
+				d.y() = 0;
+				d.z() = sinB[ib];
+				normals[r].x() = sinA[ia] * cosB[ib];
+				normals[r].y() = cosA[ia];
+				normals[r].z() = sinA[ia] * sinB[ib];
+				points[r] = center + d * radius1 + normals[r] * radius2;
+			}
+			Normal( normals[0] );
+			Point( points[0] );
+			Normal( normals[1] );
+			Point( points[1] );
+			Normal( normals[2] );
+			Point( points[2] );
+			Normal( normals[2] );
+			Point( points[2] );
+			Normal( normals[1] );
+			Point( points[1] );
+			Normal( normals[3] );
+			Point( points[3] );
+		}
+	}
+}
+
 void CDynamicMesh::AddQuadForBox(const float3& a,const float3& b,const float3& c,const float3& d,
 		const float2& t1,const float2& t2)
 {

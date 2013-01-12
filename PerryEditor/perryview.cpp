@@ -56,7 +56,8 @@ void CPerryView::SampleScene()
 
 	CModel* pSphere = CModel::CreateModel();
 	mainMesh = pSphere->AddMesh();
-	creator.AddSphere(float3(0,0,0),1.5f,16,32);
+	//creator.AddSphere(float3(0,0,0),1.5f,16,32);
+	creator.AddTorus(float3(0,0,0),3,1.5f,16,32);
 	creator.CreateMesh( *pSphere->GetMesh(mainMesh), true);
 	creator.Clear();
 	pSphere->GetMesh(mainMesh)->CalculateBoundings();
@@ -121,7 +122,15 @@ void CPerryView::DrawEditor(void* pThis)
 	CPerryView* pPerryView = reinterpret_cast<CPerryView*>(pThis);
 	if(!pPerryView->IsInitialized()) return;
 
-	pPerryView->DrawGrid();
+	bool bShowGrid(true);
+	if( pPerryView->m_qRenderingOptions )
+	{
+		bShowGrid = pPerryView->m_qRenderingOptions->GetGridEnabled();
+	}
+	if( bShowGrid )
+	{
+		pPerryView->DrawGrid();
+	}
 	pPerryView->DrawBackground();
 
 	CSelection::Instance().EvidenceSelection();

@@ -26,7 +26,7 @@ public:
 	//! \param alpha se #m_iBpp==1 alpha indica se fare una tex solo alpha o solo luminosità
 	void Create(unsigned int i_iDimx,unsigned int i_iDimy,unsigned int i_iBpp);
 	static CImage* LoadFile(const char* i_sPath,bool bIgnoreExtension = false);
-	bool Save(const char* i_sPath, IImageLoader* i_pLoader = NULL);
+    bool Save(const char* i_sPath, IImageLoader* i_pLoader = 0);
 
 	//! create a 1D texture
 	//! \note height must be 1

@@ -1,17 +1,16 @@
-#ifndef MOUSEMOVE_H
-#define MOUSEMOVE_H
+#ifndef MOUSEROTATE_H
+#define MOUSEROTATE_H
 
 #include "mouseaction.h"
 #include "matrix.h"
 class CMesh;
 class QCursor;
 
-
-class CMouseMove : public IMouseAction
+class CMouseRotate : public IMouseAction
 {
 public:
-	CMouseMove(QObject* pParent);
-	~CMouseMove();
+	CMouseRotate(QObject* pParent);
+	~CMouseRotate();
 
 	virtual void DrawInsideScene();
 	virtual void DrawOverScene();
@@ -24,27 +23,20 @@ public:
 	virtual void mouseMoveEvent( QMouseEvent * event );
 
 private:
-	CMesh* m_pArrow;
-	CMesh* m_pHalfCross;
+	CMesh* m_pCircle;
 	QCursor* m_qMyCursor;
-
-	float2 m_f2AxisLabelPos[3];
 
 	enum eState
 	{
 		ST_NONE,
 		ST_MARKX,
 		ST_MARKY,
-		ST_MARKZ,
-		ST_MARKXY,
-		ST_MARKXZ,
-		ST_MARKYZ
+		ST_MARKZ
 	} m_eState;
 
 	float3 m_f3StartingPoint;
 	Matrix4f m_f16StartingMatrix;
-
-	void Draw(float alpha);
 };
 
-#endif // MOUSEMOVE_H
+
+#endif // MOUSEROTATE_H

@@ -4,6 +4,7 @@
 #include "mouseactions.h"
 #include "mouseselect.h"
 #include "mousemove.h"
+#include "mouserotate.h"
 
 #include <QApplication>
 #include <QToolBar>
@@ -28,6 +29,10 @@ void CStandardMouseActions::InitActions()
 	m_pMouseMove = new CMouseMove(pMain);
 	CMouseActions::AddAction(m_pMouseMove);
 	m_qToolbar->addAction(m_pMouseMove);
+
+	m_pMouseRotate = new CMouseRotate(pMain);
+	CMouseActions::AddAction(m_pMouseRotate);
+	m_qToolbar->addAction(m_pMouseRotate);
 
 	m_pMouseSelect->setChecked(true);
 	CMouseActions::SetDefault(m_pMouseSelect);

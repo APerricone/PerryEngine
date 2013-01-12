@@ -23,9 +23,9 @@ public:
 	//!
 	unsigned int AddMesh();
 	//! \note this pointer will be invalid on meshes resize: don't cache it!
-	CMesh* GetMesh(unsigned int i) { if( i>=m_apMeshes.size() ) return NULL; else return m_apMeshes[i]; }
+    CMesh* GetMesh(unsigned int i) { if( i>=m_apMeshes.size() ) return 0; else return m_apMeshes[i]; }
 	//! \note this pointer will be invalid on meshes resize: don't cache it!
-	CMesh* GetLastMesh() { if( m_apMeshes.empty() ) return NULL; else return m_apMeshes.back(); }
+    CMesh* GetLastMesh() { if( m_apMeshes.empty() ) return 0; else return m_apMeshes.back(); }
 	//!
 	void MeshChanged() { m_bNeedUpdateBS = true; }
 	//!

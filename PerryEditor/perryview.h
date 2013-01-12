@@ -17,6 +17,7 @@ public:
 	virtual bool GetSpecularEnabled() const = 0;
 	virtual bool GetColorEnabled() const = 0;
 	virtual bool GetFXAAEnabled() const = 0;
+	virtual bool GetGridEnabled() const = 0;
 };
 
 class CPerryView : public QGLWidget

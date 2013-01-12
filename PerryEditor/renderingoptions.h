@@ -21,6 +21,7 @@ public:
 	virtual bool GetSpecularEnabled() const { return m_bSpecularEnabled; }
 	virtual bool GetColorEnabled() const { return m_bColorEnabled; }
 	virtual bool GetFXAAEnabled() const { return m_bFXAAEnabled; }
+	virtual bool GetGridEnabled() const { return m_bGridEnabled; }
 
 private slots:
 
@@ -34,6 +35,7 @@ private:
 	bool m_bSpecularEnabled;
 	bool m_bColorEnabled;
 	bool m_bFXAAEnabled;
+	bool m_bGridEnabled;
 };
 
 #endif // GAMMAOPTIONS_H

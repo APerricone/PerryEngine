@@ -22,6 +22,7 @@ public:
 	void AddBox(const float3& min,const float3& max);
 	void AddCone(	const float3& center1,const float radius1,
 					const float3& center2,const float radius2,int nDivision=16,bool base1=true,bool base2=true);
+	void AddTorus(const float3& center,const float radius1,const float radius2,int nSegment=8,int nDivision=16);
 
 	void CalculateNormals();
 

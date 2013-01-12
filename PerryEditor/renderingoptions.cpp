@@ -8,7 +8,8 @@ QRenderingOptions::QRenderingOptions(QWidget *parent) :
 	m_bDiffuseEnabled(true),
 	m_bSpecularEnabled(true),
 	m_bColorEnabled(true),
-	m_bFXAAEnabled(true)
+	m_bFXAAEnabled(true),
+	m_bGridEnabled(true)
 {
     ui->setupUi(this);
 
@@ -28,4 +29,5 @@ void QRenderingOptions::on_actionUpdateLayers_triggered()
 	m_bSpecularEnabled = ui->m_qSpecularCheck->isChecked();
 	m_bColorEnabled = ui->m_qColorCheck->isChecked();
 	m_bFXAAEnabled = ui->m_qFXAACheck->isChecked();
+	m_bGridEnabled = ui->m_qGridCheck->isChecked();
 }
