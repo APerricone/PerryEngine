@@ -54,7 +54,7 @@ float GetA(vec3 pos,float r,vec3 t,vec3 b,float alpha,float fact)
 #endif
 	float zBuff = GetDepth(pSS.xy);
 	float zDiff = zPlane - zBuff;
-	if( zDiff>r*0.1 && zDiff<r*10 )
+        if( zDiff>r*0.1 && zDiff<r*5 )
 	{
 		return min(zDiff,r)/(r*fact);
 		//a-=1/(160.);
@@ -142,7 +142,7 @@ void main()
 	pos = posS;
 #endif
 	
-	float aa1 = 1;//AA_big(pos,t,b,1.0);
+	float aa1 = AA_big(pos,t,b,1.0);
 	float aa2 = AA_little(pos,t,b,0.1);
 	gl_FragData = vec4(1,1,1,0) * aa1 * aa2 * intensity;
 	gl_FragData.w = 1;

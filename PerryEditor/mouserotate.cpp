@@ -64,9 +64,9 @@ void CMouseRotate::DrawOverScene()
 	m_pCircle->PreDraw();
 
 	glPushMatrix();
-	tmp.SetRg(u);
-	tmp.SetUp(a);
-	tmp.SetAt(r);
+	tmp.SetRg(a);
+	tmp.SetUp(r);
+	tmp.SetAt(u);
 	glMultMatrixf(tmp);
 	if( m_eState != ST_MARKX)
 		glColor4f(1,0,0,1.0f);
@@ -76,9 +76,9 @@ void CMouseRotate::DrawOverScene()
 	glPopMatrix();
 
 	glPushMatrix();
-	tmp.SetRg(a);
-	tmp.SetUp(r);
-	tmp.SetAt(u);
+	tmp.SetRg(r);
+	tmp.SetUp(u);
+	tmp.SetAt(a);
 	glMultMatrixf(tmp);
 	if( m_eState != ST_MARKY)
 		glColor4f(0,1,0,1.0f);
@@ -88,10 +88,9 @@ void CMouseRotate::DrawOverScene()
 	glPopMatrix();
 
 	glPushMatrix();
-	tmp.SetRg(r);
-	tmp.SetUp(u);
-	tmp.SetAt(a);
-	tmp.SetPos(p);
+	tmp.SetRg(u);
+	tmp.SetUp(a);
+	tmp.SetAt(r);
 	glMultMatrixf(tmp);
 	if( m_eState != ST_MARKZ)
 		glColor4f(0,0,1,1.0f);
@@ -125,6 +124,19 @@ void CMouseRotate::mousePressEvent( QMouseEvent * event )
 	} else
 	{
 		CSelection::Instance().GetMatrix(m_f16StartingMatrix);
+		m_f3StartingDir = (m_f3StartingPoint-float3(m_f16StartingMatrix.GetPos()));
+		m_f3StartingDir.Normalize();
+		float3 axe;
+		switch(m_eState)
+		{
+		case ST_MARKX: axe = float3(m_f16StartingMatrix.GetRg()); break;
+		case ST_MARKY: axe = float3(m_f16StartingMatrix.GetUp()); break;
+		case ST_MARKZ: axe = float3(m_f16StartingMatrix.GetAt()); break;
+		default:
+			return;
+		}
+		m_f3StartingOrtho = cross( axe, m_f3StartingDir);
+		m_f3StartingOrtho.Normalize();
 	}
 }
 
@@ -143,125 +155,71 @@ void CMouseRotate::mouseMoveEvent( QMouseEvent * event )
 	if( CSelection::Instance().size()==0 ) return;
 	Matrix4f mWorld;
 	CSelection::Instance().GetMatrix(mWorld);
-/*	float s = GetPixelScale( float3(mWorld.GetPos()) );
-	float3 p = float4(mWorld.GetPos()).xyz();
-	float3 r = float4(mWorld.GetRg()).xyz()*s;
-	float3 u = float4(mWorld.GetUp()).xyz()*s;
-	float3 a = float4(mWorld.GetAt()).xyz()*s;
-	float3 pru = p+(r+u)*0.8f;
-	float3 pra = p+(r+a)*0.8f;
-	float3 pua = p+(u+a)*0.8f;
-
 	Ray3f camRay(m_pCamera->Get3DRay(float3(event->x(),event->y(),0.f)));
 
 	if( event->buttons() != Qt::NoButton )
 	{
-		float t,rr;
-		float3 newP;
-		float3 movement;
+		float3 newP,axe;
+		float t;
 		switch(m_eState)
 		{
-		case ST_MARKX:
-			camRay.RayDistance(Ray3f(p,r),t,rr);
-			newP = p+r*rr;
-			break;
-		case ST_MARKY:
-			camRay.RayDistance(Ray3f(p,u),t,rr);
-			newP = p+u*rr;
-			break;
-		case ST_MARKZ:
-			camRay.RayDistance(Ray3f(p,a),t,rr);
-			newP = p+a*rr;
-			break;
-		case ST_MARKXY:
-			camRay.PlaneIntersection(pru,a,t);
-			newP = camRay.GetPoint(t);
-			break;
-		case ST_MARKXZ:
-			camRay.PlaneIntersection(pra,u,t);
-			newP = camRay.GetPoint(t);
-			break;
-		case ST_MARKYZ:
-			camRay.PlaneIntersection(pua,r,t);
-			newP = camRay.GetPoint(t);
-			break;
+		case ST_MARKX: axe=float3(m_f16StartingMatrix.GetRg()); break;
+		case ST_MARKY: axe=float3(m_f16StartingMatrix.GetUp()); break;
+		case ST_MARKZ: axe=float3(m_f16StartingMatrix.GetAt()); break;
 		default:
 			return;
 		}
-		movement = newP - m_f3StartingPoint;
-		switch(m_eState)
-		{
-		case ST_MARKX:
-			movement = r * (dot(movement,r) / (s*s));
-			break;
-		case ST_MARKY:
-			movement = u * (dot(movement,u) / (s*s));
-			break;
-		case ST_MARKZ:
-			movement = a * (dot(movement,a) / (s*s));
-			break;
-		case ST_MARKXY:
-			movement -= a * (dot(movement,a) / (s*s));
-			break;
-		case ST_MARKXZ:
-			movement -= u * (dot(movement,u) / (s*s));
-			break;
-		case ST_MARKYZ:
-			movement -= r * (dot(movement,r) / (s*s));
-			break;
-		default:
+		if(!camRay.PlaneIntersection(float3(m_f16StartingMatrix.GetPos()),axe,t))
 			return;
-		}
-		mWorld = m_f16StartingMatrix;
-		mWorld.Translate( movement );
-		CSelection::Instance().SetMatrix(mWorld);
+		axe.Normalize();
+		newP = camRay.GetPoint(t) - float3(m_f16StartingMatrix.GetPos());
+		newP.Normalize();
+		float cosa(dot(m_f3StartingDir,newP));
+		float sina(dot(m_f3StartingOrtho,newP));
+		Matrix4f rot;
+		rot.RotateAxis(axe,cosa,sina);
+		float4 newPos(m_f16StartingMatrix.GetPos() -
+					rot.Transform( m_f16StartingMatrix.GetPos()));
+		newPos.w() = 1.f;
+		rot.SetPos(newPos);
+		Matrix4f final;
+		final.Multiply(m_f16StartingMatrix,rot);
+		CSelection::Instance().SetMatrix(final);
 	} else
 	{
-		float t;
-		float rx,dx = camRay.SegmentDistance(Ray3f(p,r),t,rx);
-		float ry,dy = camRay.SegmentDistance(Ray3f(p,u),t,ry);
-		float rz,dz = camRay.SegmentDistance(Ray3f(p,a),t,rz);
-		float rxy,dxy = camRay.PointDistance(pru,rxy);
-		float rxz,dxz = camRay.PointDistance(pra,rxz);
-		float ryz,dyz = camRay.PointDistance(pua,ryz);
-		float d = 1/s;
+		float s = GetPixelScale( float3(mWorld.GetPos()) );
+		float3 p = float3(mWorld.GetPos());
+		float3 r = float3(mWorld.GetRg());
+		float3 u = float3(mWorld.GetUp());
+		float3 a = float3(mWorld.GetAt());
+
+		float t[3];
+		bool b[3];
+		b[0] = camRay.PlaneIntersection(p,r,t[0]);
+		b[1] = camRay.PlaneIntersection(p,u,t[1]);
+		b[2] = camRay.PlaneIntersection(p,a,t[2]);
+		float dist = 1/s;
 		m_eState = ST_NONE;
-		if( dx < d )
+		for(int i=0;i<3;i++)
 		{
-			m_eState = ST_MARKX;
-			d = dx;
-			m_f3StartingPoint = p + r * rx ;
+			if( b[i] )
+			{
+				float3 c( camRay.GetPoint(t[i]) );
+				float thisDist((c-p).GetLen());
+				thisDist = fabsf(thisDist-s);
+				if(thisDist<dist)
+				{
+					dist = thisDist;
+					switch(i)
+					{
+					case 0: m_eState = ST_MARKX; break;
+					case 1: m_eState = ST_MARKY; break;
+					case 2: m_eState = ST_MARKZ; break;
+					}
+					m_f3StartingPoint = c;
+				}
+			}
 		}
-		if( dy < d )
-		{
-			m_eState = ST_MARKY;
-			d = dy;
-			m_f3StartingPoint = p + u * ry ;
-		}
-		if( dz < d )
-		{
-			m_eState = ST_MARKZ;
-			d = dz;
-			m_f3StartingPoint = p + a * rz ;
-		}
-		if( dxy < d )
-		{
-			m_eState = ST_MARKXY;
-			d = dxy;
-			m_f3StartingPoint = camRay.GetPoint(rxy) ;
-		}
-		if( dxz < d )
-		{
-			m_eState = ST_MARKXZ;
-			d = dxz;
-			m_f3StartingPoint = camRay.GetPoint(rxz) ;
-		}
-		if( dyz < d )
-		{
-			m_eState = ST_MARKYZ;
-			d = dyz;
-			m_f3StartingPoint = camRay.GetPoint(ryz) ;
-		}
-	}*/
+	}
 }
 

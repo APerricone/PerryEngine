@@ -38,8 +38,8 @@ bool CLight::Compile()
 	m_glFragmentDiffuse = CGLSL::CreateFragmentShaderFromFiles(3,
 		"light.start.frag",
 		//"light.hard.frag",
-		"light.pcf.frag",
-		//"light.pcss.frag",
+		//"light.pcf.frag",
+		"light.pcss.frag",
 		"light.final.frag");
 	m_glProgramDiffuse = CGLSL::LinkProgram(uiVertex,m_glFragmentDiffuse);
 	m_glPosDirDiffuse = glGetUniformLocation(m_glProgramDiffuse, "lightDirPosType");

@@ -12,7 +12,7 @@ CSSAO::CSSAO()
 	m_glIntenityUniform = 0;
 
 	radius = 0.01f;
-	m_fIntensity = 0.5f;
+	SetIntensity(0.5f);
 }
 
 CSSAO::~CSSAO()

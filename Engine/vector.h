@@ -347,3 +347,9 @@ V3<type> operator ^(const V3<type>  &a,const V3<type>  &b)
 		a.z()*b.x()-a.x()*b.z(),
 		a.x()*b.y()-a.y()*b.x());
 };
+
+template <typename type>
+V3<type> cross(const V3<type>  &a,const V3<type>  &b)
+{
+	return a ^ b;
+};

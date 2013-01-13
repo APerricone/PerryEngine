@@ -233,10 +233,10 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 	Matrix4f mWorld;
 	CSelection::Instance().GetMatrix(mWorld);
 	float s = GetPixelScale( float3(mWorld.GetPos()) );
-	float3 p = float4(mWorld.GetPos()).xyz();
-	float3 r = float4(mWorld.GetRg()).xyz()*s;
-	float3 u = float4(mWorld.GetUp()).xyz()*s;
-	float3 a = float4(mWorld.GetAt()).xyz()*s;
+	float3 p = float3(mWorld.GetPos());
+	float3 r = float3(mWorld.GetRg())*s;
+	float3 u = float3(mWorld.GetUp())*s;
+	float3 a = float3(mWorld.GetAt())*s;
 	float3 pru = p+(r+u)*0.8f;
 	float3 pra = p+(r+a)*0.8f;
 	float3 pua = p+(u+a)*0.8f;
