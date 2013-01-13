@@ -90,7 +90,7 @@ void CPerryView::initializeGL()
 	QGLWidget::initializeGL();
 	if(!CScene::InitStatic())
 	{
-		//return;
+		return;
 	}
 	m_bIsInitialized = true;
 	m_pScene = new CScene();

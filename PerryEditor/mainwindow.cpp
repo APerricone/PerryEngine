@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	restoreDockWidget(m_qRenderingOptions);
 }
 
-void MainWindow::Check()
+bool MainWindow::Check()
 {
 	if(!m_qMainView->IsInitialized())
 	{
@@ -47,7 +47,9 @@ void MainWindow::Check()
 		message += m_qLog->toHtml();
 		QMessageBox::critical(this,"Perry's Editor",message);
 		close();
+		return false;
 	}
+	return true;
 }
 
 MainWindow::~MainWindow()

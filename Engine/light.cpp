@@ -31,7 +31,7 @@ void CLight::Deinit()
 	SAFE_DELETE_GL_SHADER(m_glFragmentSpecular);
 }
 
-void CLight::Compile()
+bool CLight::Compile()
 {
 	ILog::Message("\ncompiling light...\n");
 	unsigned int uiVertex = CFullScreenBlit::GetInstance()->GetVertexShader();
@@ -51,6 +51,14 @@ void CLight::Compile()
 	m_glProgramSpecular = CGLSL::LinkProgram(uiVertex,m_glFragmentSpecular);
 	m_glPosDirSpecular = glGetUniformLocation(m_glProgramSpecular, "lightDirPosType");
 
+	if( m_glProgramDiffuse == 0 ||
+		m_glProgramSpecular == 0 ||
+		m_glFragmentDiffuse == 0 ||
+		m_glFragmentSpecular == 0 )
+	{
+		return false;
+	}
+
 	glUseProgram(m_glProgramDiffuse);
 	glUniform1i(glGetUniformLocation(m_glProgramDiffuse, "normalTexture"), 0);
 	glUniform1i(glGetUniformLocation(m_glProgramDiffuse, "depthTexture"), 1);
@@ -64,6 +72,7 @@ void CLight::Compile()
 
 	glUseProgram( 0 );
 	glError();
+	return true;
 }
 
 void CLight::BeginDiffuse(unsigned int glNormal,unsigned int glDepth)

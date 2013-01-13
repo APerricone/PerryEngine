@@ -21,7 +21,7 @@ public:
 	static char* LoadShader(const char *sFileName);
 private:
 	// Shader utils methods
-	static void CompileAndReport(unsigned int uiShader);
-	static void LinkAndReport(unsigned int uiProgram);
+	static bool CompileAndReport(unsigned int uiShader);
+	static bool LinkAndReport(unsigned int uiProgram);
 
 };

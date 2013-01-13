@@ -83,11 +83,9 @@ RESOURCES += \
 
 
 linux-g++{
-    # QMAKE_POST_LINK += $$quote(cp $${FILE} $${DESTDIR}$$escape_expand(\n\t))
+    QMAKE_POST_LINK += cp ../Engine/ExeDir/*.* .
 }
 
 win32 {
-    # QMAKE_POST_LINK = mkdir ExeDir &
     QMAKE_POST_LINK += copy ..\\Engine\\ExeDir\\*.* .
-    #QMAKE_POST_LINK  += dir;
 }

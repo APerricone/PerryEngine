@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-	w.Check();
+	if(!w.Check()) return -1;
 
     return a.exec();
 }

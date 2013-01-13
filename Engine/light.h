@@ -18,7 +18,7 @@ public:
 	void SetPosition(const float3& pos);
 	void SetColor(const float3& c) { m_f3Color = c; }
 
-	static void Compile();
+	static bool Compile();
 	static void Deinit();
 
 	static void BeginDiffuse(unsigned int glNormal,unsigned int glDepth);

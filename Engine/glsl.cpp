@@ -10,11 +10,16 @@ unsigned int CGLSL::CreateVertexShader(unsigned int nSource,const char* sources[
 	if( retValue == 0 )
 	{
 		ILog::Error("Creating vertex shader\n");
-		exit(-1);
+		return 0;
 	}
 	glShaderSource(retValue , nSource,sources, 0);
 	ILog::Message("compiling vertex shader...");
-	CompileAndReport(retValue);
+	if(!CompileAndReport(retValue))
+	{
+
+		glDeleteShader(retValue);
+		retValue = 0;
+	}
 	return retValue;
 }
 
@@ -24,11 +29,15 @@ unsigned int CGLSL::CreateGeometryShader(unsigned int nSource,const char* source
 	if( retValue == 0 )
 	{
 		ILog::Error("Creating fragment shader\n");
-		exit(-1);
+		return 0;
 	}
 	glShaderSource(retValue , nSource,sources, 0);
 	ILog::Message("compiling geometry shader...");
-	CompileAndReport(retValue);
+	if(!CompileAndReport(retValue))
+	{
+		glDeleteShader(retValue);
+		retValue = 0;
+	}
 	return retValue;
 }
 
@@ -38,11 +47,15 @@ unsigned int CGLSL::CreateFragmentShader(unsigned int nSource,const char* source
 	if( retValue == 0 )
 	{
 		ILog::Error("Creating fragment shader\n");
-		exit(-1);
+		return 0;
 	}
 	glShaderSource(retValue , nSource,sources, 0);
 	ILog::Message("compiling fragment shader...");
-	CompileAndReport(retValue);
+	if(!CompileAndReport(retValue))
+	{
+		glDeleteShader(retValue);
+		retValue = 0;
+	}
 	return retValue;
 }
 
@@ -54,14 +67,18 @@ unsigned int CGLSL::LinkProgram(unsigned int vShader,unsigned int fShader)
 	if( retValue == 0 )
 	{
 		ILog::Error("Creating program\n");
-		exit(-1);
+		return 0;
 	}
 	glAttachShader(retValue,vShader);
 	glAttachShader(retValue,fShader);
 	glError();
 
 	ILog::Message("linking...");
-	LinkAndReport(retValue);
+	if(!LinkAndReport(retValue))
+	{
+		glDeleteProgram(retValue);
+		retValue = 0;
+	}
 	return retValue;
 }
 
@@ -71,7 +88,7 @@ unsigned int CGLSL::LinkProgram(unsigned int vShader,unsigned int gShader,unsign
 	if( retValue == 0 )
 	{
 		ILog::Error("Creating program\n");
-		exit(-1);
+		return 0;
 	}
 	glAttachShader(retValue,vShader);
 	glAttachShader(retValue,gShader);
@@ -79,11 +96,15 @@ unsigned int CGLSL::LinkProgram(unsigned int vShader,unsigned int gShader,unsign
 	glError();
 
 	ILog::Message("linking...");
-	LinkAndReport(retValue);
+	if(!LinkAndReport(retValue))
+	{
+		glDeleteProgram(retValue);
+		retValue = 0;
+	}
 	return retValue;
 }
 
-void CGLSL::CompileAndReport(unsigned int uiShader)
+bool CGLSL::CompileAndReport(unsigned int uiShader)
 {
 	glCompileShader(uiShader);
 	GLint ret;
@@ -95,17 +116,16 @@ void CGLSL::CompileAndReport(unsigned int uiShader)
 		ILog::Message("OK\n");
 
 	glGetShaderiv(uiShader, GL_INFO_LOG_LENGTH,&ret);
-	if( ret <= 1 ) return;
+	if( ret <= 1 ) return !bError;
 	char *report = (char *)malloc(ret);
 	
 	glGetShaderInfoLog(uiShader, ret, &ret, report);
 	ILog::Message(report);
 	free(report);
-	if(bError) 
-		exit(-1);
+	return(!bError);
 }
 
-void CGLSL::LinkAndReport(unsigned int uiProgram)
+bool CGLSL::LinkAndReport(unsigned int uiProgram)
 {
 	glLinkProgram(uiProgram);
 	GLint ret;
@@ -117,14 +137,13 @@ void CGLSL::LinkAndReport(unsigned int uiProgram)
 		ILog::Message("OK\n");
 
 	glGetProgramiv(uiProgram, GL_INFO_LOG_LENGTH,&ret);
-	if( ret <= 1 ) return;
+	if( ret <= 1 ) return !bError;
 	char *report = (char *)malloc(ret);
 	
 	glGetProgramInfoLog(uiProgram, ret, &ret, report);
 	ILog::Message(report);
 	free(report);
-	if(bError) 
-		exit(-1);
+	return (!bError);
 }
 
 // **************
@@ -132,6 +151,7 @@ void CGLSL::LinkAndReport(unsigned int uiProgram)
 unsigned int CGLSL::CreateVertexShaderFromFile(const char* sFileName)
 {
 	char* sSource = LoadShader(sFileName);
+	if( sSource==0 ) return 0;
 	unsigned int shaderID = CreateVertexShader(1,(const char**)(&sSource));
 	delete [] sSource;
 	return shaderID;
@@ -140,6 +160,7 @@ unsigned int CGLSL::CreateVertexShaderFromFile(const char* sFileName)
 unsigned int CGLSL::CreateGeometryShaderFromFile(const char* sFileName)
 {
 	char* sSource = LoadShader(sFileName);
+	if( sSource==0 ) return 0;
 	unsigned int shaderID = CreateGeometryShader(1,(const char**)(&sSource));
 	delete [] sSource;
 	return shaderID;
@@ -148,6 +169,7 @@ unsigned int CGLSL::CreateGeometryShaderFromFile(const char* sFileName)
 unsigned int CGLSL::CreateFragmentShaderFromFile(const char* sFileName)
 {
 	char* sSource = LoadShader(sFileName);
+	if( sSource==0 ) return 0;
 	unsigned int shaderID = CreateFragmentShader(1,(const char**)(&sSource));
 	delete [] sSource;
 	return shaderID;
@@ -155,6 +177,7 @@ unsigned int CGLSL::CreateFragmentShaderFromFile(const char* sFileName)
 
 unsigned int CGLSL::CreateVertexShaderFromFiles(int nFile, ...)
 {
+	bool missFile(false);
 	char **asSources = new char*[nFile];
 	va_list vl;
 	va_start(vl,nFile);
@@ -162,18 +185,27 @@ unsigned int CGLSL::CreateVertexShaderFromFiles(int nFile, ...)
 	{
 		const char *sFileName = va_arg(vl,char*);
 		asSources[i] = LoadShader(sFileName);
-	  }
+		if( asSources[i]==0 ) missFile = true;
+	}
 	va_end(vl);
 
-	unsigned int shaderID = CreateVertexShader(nFile,(const char**)(asSources));
+	unsigned int shaderID = 0;
+	if(!missFile)
+	{
+		shaderID = CreateVertexShader(nFile,(const char**)(asSources));
+	}
 	for(int i=0;i<nFile;i++)
-		delete [] asSources[i];
+	{
+		if( asSources[i] )
+			delete [] asSources[i];
+	}
 	delete [] asSources;
 	return shaderID;
 }
 
 unsigned int CGLSL::CreateGeometryShaderFromFiles(int nFile, ...)
 {
+	bool missFile(false);
 	char **asSources = new char*[nFile];
 	va_list vl;
 	va_start(vl,nFile);
@@ -181,18 +213,27 @@ unsigned int CGLSL::CreateGeometryShaderFromFiles(int nFile, ...)
 	{
 		const char *sFileName = va_arg(vl,char*);
 		asSources[i] = LoadShader(sFileName);
-	  }
+		if( asSources[i]==0 ) missFile = true;
+	}
 	va_end(vl);
 
-	unsigned int shaderID = CreateGeometryShader(nFile,(const char**)(asSources));
+	unsigned int shaderID = 0;
+	if(!missFile)
+	{
+		shaderID = CreateGeometryShader(nFile,(const char**)(asSources));
+	}
 	for(int i=0;i<nFile;i++)
-		delete [] asSources[i];
+	{
+		if( asSources[i] )
+			delete [] asSources[i];
+	}
 	delete [] asSources;
 	return shaderID;
 }
 
 unsigned int CGLSL::CreateFragmentShaderFromFiles(int nFile, ...)
 {
+	bool missFile(false);
 	char **asSources = new char*[nFile];
 	va_list vl;
 	va_start(vl,nFile);
@@ -200,12 +241,20 @@ unsigned int CGLSL::CreateFragmentShaderFromFiles(int nFile, ...)
 	{
 		const char *sFileName = va_arg(vl,char*);
 		asSources[i] = LoadShader(sFileName);
-	  }
+		if( asSources[i]==0 ) missFile = true;
+	}
 	va_end(vl);
 
-	unsigned int shaderID = CreateFragmentShader(nFile,(const char**)(asSources));
+	unsigned int shaderID = 0;
+	if(!missFile)
+	{
+		shaderID = CreateFragmentShader(nFile,(const char**)(asSources));
+	}
 	for(int i=0;i<nFile;i++)
-		delete [] asSources[i];
+	{
+		if( asSources[i] )
+			delete [] asSources[i];
+	}
 	delete [] asSources;
 	return shaderID;
 }
@@ -216,7 +265,7 @@ char* CGLSL::LoadShader(const char *sFileName)
 	if( f == NULL )
 	{
 		ILog::Error("Unable to open file \"%s\"",sFileName);
-		exit(-1);
+		return 0;
 	}
 	fseek ( f, 0L , SEEK_END ); 
 	unsigned int size = ftell(f);

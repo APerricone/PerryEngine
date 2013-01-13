@@ -22,7 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-	void Check();
+	bool Check();
 
 private slots:
 	void on_actionAbout_Qt_triggered();

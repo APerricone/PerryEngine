@@ -8,7 +8,7 @@ class CFullScreenBlit
 public:
 	static CFullScreenBlit *GetInstance();
 
-	void Init();
+	bool Init();
 	void Draw();
 	
 	void Quad();

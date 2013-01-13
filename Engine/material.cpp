@@ -30,13 +30,17 @@ CMaterial::~CMaterial()
 	SAFE_DELETE_GL_TEXTURE( m_glWhiteTex );
 }
 
-void CMaterial::CompileInternal()
+bool CMaterial::CompileInternal()
 {
 	ILog::Message("\ncompiling material...\n");
 	m_glVertex = CGLSL::CreateVertexShaderFromFile("material.vert");
 	m_glFragment = CGLSL::CreateFragmentShaderFromFile("material.frag");
 	m_glProgram = CGLSL::LinkProgram(m_glVertex,m_glFragment);
 	glError();
+	if( m_glVertex == 0 || m_glFragment == 0 || m_glProgram == 0)
+	{
+		return false;
+	}
 	
 	m_pCubeTex = new CBestFitCube();
 #ifndef _DEBUG
@@ -56,6 +60,7 @@ void CMaterial::CompileInternal()
 	glUniform1i(glGetUniformLocation(m_glProgram, "bestFitTexture"), 1);
 	glUseProgram( 0 );
 	glError();
+	return true;
 }
 
 void CMaterial::SetItInternal()

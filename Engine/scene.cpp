@@ -125,11 +125,12 @@ bool CScene::InitStatic()
 
 	//BuildFont();
 
-	CFullScreenBlit::GetInstance()->Init();
-	CLight::Compile();
-	CMaterial::Compile();
+	bool bReturn(true);
+	bReturn &= CFullScreenBlit::GetInstance()->Init();
+	bReturn &= CLight::Compile();
+	bReturn &= CMaterial::Compile();
 
-	return true;
+	return bReturn;
 }
 
 void CScene::DeinitStatic()

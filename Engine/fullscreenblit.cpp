@@ -24,15 +24,21 @@ CFullScreenBlit::~CFullScreenBlit()
 	Deinit();
 }
 
-void CFullScreenBlit::Init()
+bool CFullScreenBlit::Init()
 {
 	ILog::Message("\ncompiling blit...\n");
 	m_glVertexShader = CGLSL::CreateVertexShaderFromFile("blit.vert");
 	m_glFragmentShader = CGLSL::CreateFragmentShaderFromFile("blit.frag");
 	m_glProgram = CGLSL::LinkProgram(m_glVertexShader,m_glFragmentShader);
 	glError();
+	if( m_glVertexShader==0 ||
+		m_glFragmentShader == 0 ||
+		m_glProgram == 0 )
+			return false;
 	
 	glGenBuffers(1, &m_glVertexBuffer);
+	glError();
+	if( m_glVertexBuffer==0 ) return false;
 	glBindBuffer(GL_ARRAY_BUFFER_ARB, m_glVertexBuffer);
 	float verticesArray[16];
 	//glTexCoord2f(0,1); glVertex2f(0,0);
@@ -49,6 +55,7 @@ void CFullScreenBlit::Init()
 	glBufferData(GL_ARRAY_BUFFER_ARB, sizeof(float)*4*4,verticesArray, GL_STATIC_DRAW_ARB);
 
 	glBindBuffer(GL_ARRAY_BUFFER_ARB, 0);
+	return true;
 }
 
 void CFullScreenBlit::Deinit()

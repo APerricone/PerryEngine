@@ -12,7 +12,7 @@ class CMaterial
 	~CMaterial();
 	static CMaterial instance;
 public:
-	static void Compile() { instance.CompileInternal(); }
+	static bool Compile() { return instance.CompileInternal(); }
 
 	static void SetIt() { instance.SetItInternal(); }
 	static void Reset() { instance.ResetInternal(); }
@@ -42,7 +42,7 @@ private:
 	unsigned int m_glProgram;
 	unsigned int m_glWhiteTex;
 
-	void CompileInternal();
+	bool CompileInternal();
 	void SetItInternal();
 	void ResetInternal();
 	void UpdateInternal();
