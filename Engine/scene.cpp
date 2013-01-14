@@ -139,7 +139,7 @@ void CScene::DeinitStatic()
 	CFullScreenBlit::GetInstance()->Deinit();
 }
 
-void CScene::Init()
+bool CScene::Init()
 {
 	//CGamma::CreateRefLutPng();
 	m_pLight1 = new CLight(CLight::DIRECTIONAL);
@@ -152,11 +152,28 @@ void CScene::Init()
 	m_pFxaa->Init();
 	
 	m_pGamma = new CGamma();
-	m_pGamma->Init( false );
+	if(!m_pGamma->Init( false ))
+	{
+		ILog::Message("gamma Fail\n");
+		return false;
+	}
 	//m_pGamma->LoadLut("****.png");
 
+	ILog::Message("ssao..");
 	m_pSSAO = new CSSAO();
-	m_pSSAO->Init();
+	if(!m_pSSAO->Init())
+	{
+		ILog::Message("fail..");
+		return false;
+	}
+
+	return true;
+}
+
+bool CScene::ReinitGamma(bool bNylon,bool bExposure,bool bFrame,bool bLut)
+{
+	if(m_pGamma==NULL) return false;
+	return m_pGamma->Reinit(bNylon,bExposure,bFrame,bLut);
 }
 
 void CScene::UpdateStatic()

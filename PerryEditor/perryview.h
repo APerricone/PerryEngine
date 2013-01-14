@@ -18,6 +18,13 @@ public:
 	virtual bool GetColorEnabled() const = 0;
 	virtual bool GetFXAAEnabled() const = 0;
 	virtual bool GetGridEnabled() const = 0;
+
+	virtual bool GetPostChanged() const =0;
+	virtual bool GetNylonEnabled() const =0;
+	virtual bool GetExposureEnabled() const =0;
+	virtual bool GetFrameEnabled() const =0;
+	virtual bool GetLutEnabled() const =0;
+
 };
 
 class CPerryView : public QGLWidget

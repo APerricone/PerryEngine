@@ -10,7 +10,7 @@ public:
 	CSSAO();
 	~CSSAO();
 
-	void Init();
+	bool Init();
 	void Draw(float znear,float zfar,
 		const Matrix4f& proj,const Matrix4f& invProj,
 		unsigned int glNormal,unsigned int glDepth);

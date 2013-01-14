@@ -56,8 +56,8 @@ void CPerryView::SampleScene()
 
 	CModel* pSphere = CModel::CreateModel();
 	mainMesh = pSphere->AddMesh();
-	//creator.AddSphere(float3(0,0,0),1.5f,16,32);
-	creator.AddTorus(float3(0,0,0),3,1.5f,16,32);
+	creator.AddSphere(float3(0,0,0),1.5f,16,32);
+	//creator.AddTorus(float3(0,0,0),3,1.5f,16,32);
 	creator.CreateMesh( *pSphere->GetMesh(mainMesh), true);
 	creator.Clear();
 	pSphere->GetMesh(mainMesh)->CalculateBoundings();
@@ -80,6 +80,14 @@ void CPerryView::timerEvent(QTimerEvent *e)
 		m_pScene->m_bApplyColor = m_qRenderingOptions->GetColorEnabled();
 		m_pScene->SetFXAA(m_qRenderingOptions->GetFXAAEnabled());
 
+		if( m_qRenderingOptions->GetPostChanged() )
+		{
+			m_pScene->ReinitGamma(
+						m_qRenderingOptions->GetNylonEnabled(),
+						m_qRenderingOptions->GetExposureEnabled(),
+						m_qRenderingOptions->GetFrameEnabled(),
+						m_qRenderingOptions->GetLutEnabled());
+		}
 	}
 	CScene::UpdateStatic();
 	updateGL();
@@ -92,9 +100,13 @@ void CPerryView::initializeGL()
 	{
 		return;
 	}
-	m_bIsInitialized = true;
 	m_pScene = new CScene();
-	m_pScene->Init();
+	if(!m_pScene->Init())
+	{
+		delete m_pScene;
+		return;
+	}
+	m_bIsInitialized = true;
 	m_pScene->m_bUsePerCounter = false;
 	SampleScene();
 	m_pScene->SetCustomDrawStep(DrawEditor,this);

@@ -106,9 +106,19 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="m_qNylon">
          <property name="text">
-          <string>Glow</string>
+          <string>Nylon</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="m_qExposure">
+         <property name="text">
+          <string>Exposure</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -118,7 +128,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QCheckBox" name="checkBox_2">
+          <widget class="QCheckBox" name="m_qFrame">
            <property name="text">
             <string>Frame</string>
            </property>
@@ -139,7 +149,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QCheckBox" name="checkBox_3">
+          <widget class="QCheckBox" name="m_qLut">
            <property name="text">
             <string>Lut</string>
            </property>
@@ -165,6 +175,11 @@
   <action name="actionUpdateLayers">
    <property name="text">
     <string>UpdateLayers</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Post">
+   <property name="text">
+    <string>Update Post</string>
    </property>
   </action>
  </widget>
@@ -259,6 +274,70 @@
     <hint type="sourcelabel">
      <x>66</x>
      <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_qNylon</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>actionUpdate_Post</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>208</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_qExposure</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>actionUpdate_Post</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>208</x>
+     <y>102</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_qFrame</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>actionUpdate_Post</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_qLut</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>actionUpdate_Post</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>160</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>

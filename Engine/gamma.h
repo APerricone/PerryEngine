@@ -11,13 +11,15 @@ public:
 	CGamma();
 	~CGamma();
 
-	void Init(bool mrt);
+	bool Init(bool mrt);
 	void Deinit();
 	void Resize(unsigned int i_width,unsigned int i_height);
 	void Draw();
 
 	void BeginDraw();
 	void EndDraw();
+
+	bool Reinit(bool bNylon,bool bExposure,bool bFrame,bool bLut);
 
 	// Lookup Table support
 	static void CreateRefLutPng();

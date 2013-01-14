@@ -60,7 +60,7 @@ vec3 frame(vec3 exColor)
 	float d = dot(distFromCenter,distFromCenter) / 2;
 	return mix(exColor,vec3(0),d);
 }
-
+/*
 void main()
 { 
 	// base color	
@@ -68,7 +68,7 @@ void main()
 	//vec3 color = texture(image, TexCoord.xy).xyz;
 
 	// exposure 
-	//color = exposure(color);
+	color = exposure(color);
 
 	// add frame
 	color = frame(color);
@@ -83,3 +83,4 @@ void main()
 	gl_FragData.xyz = color;
 	gl_FragData.w = getLum( gl_FragData.xyz );
 }
+*/

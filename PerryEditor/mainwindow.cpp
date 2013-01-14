@@ -43,6 +43,7 @@ bool MainWindow::Check()
 {
 	if(!m_qMainView->IsInitialized())
 	{
+		m_qLog->setVisible(true);
 		QString message("Unable to initialize engine<br><br>");
 		message += m_qLog->toHtml();
 		QMessageBox::critical(this,"Perry's Editor",message);

@@ -14,11 +14,11 @@ TEMPLATE = app
 # engine
 INCLUDEPATH += ../Engine
 
-#debug {
-#        LIBS += -L../Engine-build/debug
-#} else {
+debug {
+		LIBS += -L../Engine-build/debug
+} else {
         LIBS += -L../Engine-build
-#}
+}
 LIBS += -lEngine
 LIBS += -lopengl32 -lglu32
 

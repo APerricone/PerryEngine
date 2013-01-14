@@ -244,7 +244,7 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 
 	Ray3f camRay(m_pCamera->Get3DRay(float3(event->x(),event->y(),0.f)));
 
-	if( event->buttons() != Qt::NoButton )
+	if( event->buttons() & Qt::LeftButton )
 	{
 		float t,rr;
 		float3 newP;

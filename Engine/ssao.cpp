@@ -22,12 +22,13 @@ CSSAO::~CSSAO()
 }
 
 
-void CSSAO::Init()
+bool CSSAO::Init()
 {
 	ILog::Message("\ncompiling ssao...\n");
 	unsigned int commonVert = CFullScreenBlit::GetInstance()->GetVertexShader();
 	m_glFragmentShader = CGLSL::CreateFragmentShaderFromFile("ssao.frag");
 	m_glProgram = CGLSL::LinkProgram(commonVert,m_glFragmentShader);
+	if(m_glFragmentShader==0 || m_glProgram==0) return false;
 
 	glUseProgram( m_glProgram );
 	glUniform1i(glGetUniformLocation(m_glProgram, "normalTexture"), 0);
@@ -39,6 +40,7 @@ void CSSAO::Init()
 
 	glUseProgram( 0 );
 	glError();
+	return true;
 }
 
 float CSSAO::GetIntensity() const 

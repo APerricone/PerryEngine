@@ -31,3 +31,12 @@ void QRenderingOptions::on_actionUpdateLayers_triggered()
 	m_bFXAAEnabled = ui->m_qFXAACheck->isChecked();
 	m_bGridEnabled = ui->m_qGridCheck->isChecked();
 }
+
+void QRenderingOptions::on_actionUpdate_Post_triggered()
+{
+	m_bPostChanged = true;
+	m_bNylon = ui->m_qNylon->isChecked();
+	m_bExposure = ui->m_qExposure->isChecked();
+	m_bFrame = ui->m_qFrame->isChecked();
+	m_bLut = ui->m_qLut->isChecked();
+}

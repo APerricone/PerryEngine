@@ -25,7 +25,8 @@ public:
 	static bool InitStatic();
 	static void UpdateStatic();
 	static void DeinitStatic();
-	void Init();
+	bool Init();
+	bool ReinitGamma(bool bNylon,bool bExposure,bool bFrame,bool bLut);
 	void DrawScreen(Camera *i_pCamera,unsigned int i_iWidth,unsigned int i_iHeight);
 	void DrawRT(Camera *i_pCamera,CMRT* i_pRT);
 

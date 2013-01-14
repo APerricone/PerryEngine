@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 CGamma::CGamma()
 {
@@ -31,24 +32,61 @@ void CGamma::EndDraw()
 	m_pSrc->Reset();
 }
 
-void CGamma::Init(bool mrt)
+bool CGamma::Init(bool mrt)
 {
-	ILog::Message("\ncompiling gamma...\n");
-	unsigned int commonVert = CFullScreenBlit::GetInstance()->GetVertexShader();
-	m_glFragmentShader = CGLSL::CreateFragmentShaderFromFile("gamma.frag");
-	m_glProgram = CGLSL::LinkProgram(commonVert,m_glFragmentShader);
+	if(!Reinit(true,true,true,true))
+		return false;
 
-	glUseProgram( m_glProgram );
-	glUniform1i(glGetUniformLocation(m_glProgram, "image"), 0);
-	glUniform1i(glGetUniformLocation(m_glProgram, "lut"), 1);
-	glUseProgram( 0 );
-	glError();
 	if(mrt)
 	{
 		m_pSrc = new CMRT();
 		m_pSrc->Init(100,100);
 		m_pSrc->AddRT();
 	}
+	return true;
+}
+
+bool CGamma::Reinit(bool bNylon,bool bExposure,bool bFrame,bool bLut)
+{
+	ILog::Message("\ncompiling gamma...\n");
+	SAFE_DELETE_GL_PROGRAM(m_glProgram);
+	SAFE_DELETE_GL_SHADER(m_glFragmentShader);
+	bool missFile(false);
+	char **asSources = new char*[2];
+	asSources[0] = CGLSL::LoadShader("gamma.frag");
+	if( asSources[0]==0 )
+		return false;
+	asSources[1] = new char[1000];
+	strcpy(asSources[1],"void main()\n{\n\t// base color\n");
+	if( bNylon )
+	{
+		strcat(asSources[1],"\tvec3 color = nylon();\n");
+	} else
+	{
+		strcat(asSources[1],"\tvec3 color = texture(image, TexCoord.xy).xyz;\n");
+	}
+	if(bExposure) strcat(asSources[1],"\tcolor = exposure(color);\n");
+	if(bFrame) strcat(asSources[1],"\tcolor = frame(color);\n");
+	strcat(asSources[1],"\tcolor = clamp(pow( color,vec3(1/2.2)),0,1-1/32.0);\n");
+	if(bLut) strcat(asSources[1],"\tcolor = texture(lut,color,0).xyz;\n");
+	strcat(asSources[1],"\tgl_FragData.xyz = color;\ngl_FragData.w = getLum( gl_FragData.xyz );\n}\n");
+	ILog::Message("fragment gamma variable part len: %i\n",strlen(asSources[1]));
+	unsigned int commonVert = CFullScreenBlit::GetInstance()->GetVertexShader();
+	m_glFragmentShader = CGLSL::CreateFragmentShader(2,(const char**)(asSources));
+	m_glProgram = CGLSL::LinkProgram(commonVert,m_glFragmentShader);
+
+	delete [] asSources[1];
+	delete [] asSources[0];
+	delete [] asSources;
+
+	if(m_glFragmentShader == 0 || m_glProgram == 0) return false;
+
+	glUseProgram( m_glProgram );
+	glUniform1i(glGetUniformLocation(m_glProgram, "image"), 0);
+	glUniform1i(glGetUniformLocation(m_glProgram, "lut"), 1);
+	glUseProgram( 0 );
+	glError();
+	return true;
 }
 
 void CGamma::Deinit()

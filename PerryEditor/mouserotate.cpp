@@ -157,7 +157,7 @@ void CMouseRotate::mouseMoveEvent( QMouseEvent * event )
 	CSelection::Instance().GetMatrix(mWorld);
 	Ray3f camRay(m_pCamera->Get3DRay(float3(event->x(),event->y(),0.f)));
 
-	if( event->buttons() != Qt::NoButton )
+	if( event->buttons() & Qt::LeftButton )
 	{
 		float3 newP,axe;
 		float t;
