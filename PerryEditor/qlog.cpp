@@ -18,48 +18,29 @@ QLog::~QLog()
 
 void QLog::InternalMessage(const char *i_pMessage, va_list args)
 {
-	vsprintf(m_strBuff,i_pMessage,args);
+	m_strBuff.vsprintf(i_pMessage,args);
 	ManageBuff();
 }
 
 void QLog::InternalError(const char *i_pMessage, va_list args)
 {
-	vsprintf(m_strBuff,i_pMessage,args);
+	QTextCursor oCursor = ui->m_qText->textCursor();
+	oCursor.movePosition(QTextCursor::End);
+	oCursor.insertHtml("<p style=\"color:red;font-weight:bold\">ERROR:</p>");
+	m_strBuff.vsprintf(i_pMessage,args);
 	ManageBuff();
 }
 
 void QLog::ManageBuff()
 {
 	QTextCursor oCursor = ui->m_qText->textCursor();
+	oCursor.clearSelection();
 	oCursor.movePosition(QTextCursor::End);
-	char *pBegin = m_strBuff;
-	char *pEnd = m_strBuff;
-	char c =1;
-	do
-	{
-		c = *pEnd;
-		if(	c == '\n' ||
-			c == '\r' ||
-			c == 0 )
-		{
-			*pEnd=0;
-			oCursor.insertText(pBegin);
-			ui->m_qText->ensureCursorVisible();
-			pBegin = pEnd+1;
-		}
-
-		switch(c)
-		{
-		case '\n':
-			oCursor.insertText("\n");
-			break;
-		case '\r':
-			oCursor.select(QTextCursor::LineUnderCursor);
-			oCursor.removeSelectedText();
-			break;
-		}
-		pEnd++;
-	} while(c!=0);
+	m_strBuff.replace("\n","<br>");
+	m_strBuff.replace("\r","<br>");
+	m_strBuff.replace("\t","&#9;");
+	oCursor.insertHtml(m_strBuff);
+	ui->m_qText->setTextCursor(oCursor);
 }
 
 QString QLog::toHtml() const
@@ -67,17 +48,17 @@ QString QLog::toHtml() const
 	return ui->m_qText->toHtml();
 }
 
-void QLog::on_actionClear_triggered()
-{
-	ui->m_qText->clear();
-}
-
-void QLog::on_actionCopy_triggered()
+void QLog::on_m_qCopyBtn_clicked()
 {
 	QTextCursor oCursor = ui->m_qText->textCursor();
 	oCursor.select(QTextCursor::Document);
 	ui->m_qText->copy();
 	oCursor.clearSelection();
 	oCursor.movePosition(QTextCursor::End);
-	ui->m_qText->ensureCursorVisible();
+	ui->m_qText->setTextCursor(oCursor);
+}
+
+void QLog::on_m_qClearBtn_clicked()
+{
+	ui->m_qText->clear();
 }

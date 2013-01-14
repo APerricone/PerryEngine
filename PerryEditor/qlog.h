@@ -22,13 +22,12 @@ protected:
 	virtual void InternalError(const char *i_pMessage, va_list args);
 
 private slots:
-	void on_actionClear_triggered();
-
-	void on_actionCopy_triggered();
+	void on_m_qCopyBtn_clicked();
+	void on_m_qClearBtn_clicked();
 
 private:
     Ui::QLog *ui;
-	char m_strBuff[1024];
+	QString m_strBuff;
 
 	void ManageBuff();
 };

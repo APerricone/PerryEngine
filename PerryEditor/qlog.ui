@@ -60,57 +60,20 @@
     </item>
     <item>
      <widget class="QTextEdit" name="m_qText">
+      <property name="undoRedoEnabled">
+       <bool>false</bool>
+      </property>
       <property name="readOnly">
        <bool>true</bool>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <action name="actionClear">
-   <property name="text">
-    <string>Clear</string>
-   </property>
-  </action>
-  <action name="actionCopy">
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>m_qClearBtn</sender>
-   <signal>clicked()</signal>
-   <receiver>actionClear</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>459</x>
-     <y>43</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_qCopyBtn</sender>
-   <signal>clicked()</signal>
-   <receiver>actionCopy</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>47</x>
-     <y>43</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
