@@ -66,6 +66,7 @@ CImage* CPngLoader::Load(const char *i_sPath)
 	png_bytepp row_pointers = png_get_rows(png_ptr, info_ptr);
 	CImage *pImage = CreateInEngine();
 	pImage->Create(info_ptr->width,info_ptr->height,info_ptr->channels);
+
 	unsigned char* pBits = pImage->GetBits();
 	for(unsigned int y=0;y<info_ptr->height;y++)
 		memcpy(

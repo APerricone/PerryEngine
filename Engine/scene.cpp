@@ -158,6 +158,7 @@ bool CScene::Init()
 		return false;
 	}
 	//m_pGamma->LoadLut("****.png");
+	//m_pGamma->CreateRefLutPng();
 
 	ILog::Message("ssao..");
 	m_pSSAO = new CSSAO();

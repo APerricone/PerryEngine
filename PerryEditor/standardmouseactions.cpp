@@ -44,4 +44,7 @@ void CStandardMouseActions::InitActions()
 	m_qCombo->insertItem(1,QApplication::translate("MouseActions", "local", 0, QApplication::UnicodeUTF8));
 	m_qCombo->insertItem(2,QApplication::translate("MouseActions", "camera", 0, QApplication::UnicodeUTF8));
 	m_qToolbar->addWidget(m_qCombo);
+	// TODO:
+	m_qCombo->setCurrentIndex(1);
+	m_qCombo->setEnabled(false);
 }

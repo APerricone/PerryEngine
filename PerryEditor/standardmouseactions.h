@@ -15,6 +15,8 @@ public:
 
 	void InitActions();
 
+	QToolBar* GetToolbar() { return m_qToolbar; }
+
 private:
 	QToolBar* m_qToolbar;
 	QComboBox* m_qCombo;

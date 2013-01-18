@@ -6,8 +6,11 @@
 #include "renderingoptions.h"
 #include "Engine_config.h"
 #include "mouseactions.h"
+
 #include <QSettings>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QImageWriter>
 
 MainWindow *MainWindow::s_pInstance;
 
@@ -37,6 +40,12 @@ MainWindow::MainWindow(QWidget *parent) :
 	restoreState(settings.value("windowState").toByteArray());
 	restoreDockWidget(m_qLog);
 	restoreDockWidget(m_qRenderingOptions);
+}
+
+void MainWindow::OpenGLInitialized()
+{
+	ui->m_qToolbarsMenu->addAction(ui->mainToolBar->toggleViewAction());
+	ui->m_qToolbarsMenu->addAction(m_qMainView->GetStandardMouseActionsToolbar()->toggleViewAction());
 }
 
 bool MainWindow::Check()
@@ -101,4 +110,33 @@ void MainWindow::on_action_About_triggered()
 	message += tr("<b>ALT + one of two commands above</b>: remove to selection<br>");
 	message += tr("<p><b>NOTE:</b> These commands are valid when there is not a gizmo actived.<br>");
 	QMessageBox::about(this,"Perry's Editor",message);
+}
+
+void MainWindow::on_actionSave_screenshot_triggered()
+{
+	QFileDialog file;
+	file.setAcceptMode(QFileDialog::AcceptSave);
+
+	QList<QByteArray> list = QImageWriter::supportedImageFormats();
+	QStringList filters;
+	for(int i=0 ; i<list.count() ; i++)
+		filters << list[i].toLower();
+	filters.sort();
+	QString final("Image files (");
+	for(int i=0 ; i<filters.count() ; i++)
+	{
+		final +="*."+ filters[i];
+		if(i!=filters.count()-1)
+			final +=" "; else
+			final +=")";
+	}
+	filters.clear();
+	filters << final;
+
+	file.setFilters(filters);
+
+	if(file.exec() == QDialog::accepted())
+	{
+
+	}
 }

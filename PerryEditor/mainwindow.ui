@@ -47,6 +47,8 @@
     <addaction name="separator"/>
     <addaction name="menuImport"/>
     <addaction name="separator"/>
+    <addaction name="actionSave_screenshot"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
@@ -86,8 +88,8 @@
    <addaction name="menuEdit_2"/>
    <addaction name="m_qMenuTools"/>
    <addaction name="m_qMenuView"/>
-   <addaction name="menu_Help"/>
    <addaction name="m_qToolbarsMenu"/>
+   <addaction name="menu_Help"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <property name="windowTitle">
@@ -107,6 +109,9 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Open_scene">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="Icons.qrc">
      <normaloff>:/file/icons/file_icon.png</normaloff>
@@ -130,6 +135,9 @@
    </property>
   </action>
   <action name="actionSave_scene">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normalon>:/file/icons/diskette_icon.png</normalon>
@@ -140,11 +148,17 @@
    </property>
   </action>
   <action name="actionSave_scene_as">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Save scene as...</string>
    </property>
   </action>
   <action name="actionWavefront_obj">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Wavefront obj...</string>
    </property>
@@ -160,6 +174,9 @@
    </property>
   </action>
   <action name="actionNew_scene">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normalon>:/file/icons/document_icon.png</normalon>
@@ -170,6 +187,9 @@
    </property>
   </action>
   <action name="actionUndo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Undo</string>
    </property>
@@ -178,11 +198,19 @@
    </property>
   </action>
   <action name="actionRedo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Redo</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionSave_screenshot">
+   <property name="text">
+    <string>Save screenshot...</string>
    </property>
   </action>
  </widget>

@@ -28,12 +28,6 @@ LIBS += d:/Lavoro/DOCS/glew-1.6.0/lib/glew32.lib
 LIBS += d:/Lavoro/DOCS/glew-1.6.0/bin/glew32.dll
 # LIBS += -Ld:/Lavoro/DOCS/glew-1.6.0/lib -lglew32
 
-#PNG
-LIBS += -LD:/Lavoro/DOCS/Formats/png/lib -lpng
-LIBS += -LD:/Lavoro/DOCS/Formats/zlib/lib -lz
-
-#" -DPNG_PATH="D:/Lavoro/DOCS/Formats/png" -DZLIB_PATH="D:/Lavoro/DOCS/Formats/zlib"
-
 SOURCES += main.cpp \
 		mainwindow.cpp \
 		perryview.cpp \
@@ -45,7 +39,8 @@ SOURCES += main.cpp \
     selection.cpp \
     standardmouseactions.cpp \
     mousemove.cpp \
-    mouserotate.cpp
+    mouserotate.cpp \
+    qimageloader.cpp
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -58,7 +53,8 @@ HEADERS  += mainwindow.h \
     selection.h \
     standardmouseactions.h \
     mousemove.h \
-    mouserotate.h
+    mouserotate.h \
+    qimageloader.h
 
 FORMS    += mainwindow.ui \
     qlog.ui \

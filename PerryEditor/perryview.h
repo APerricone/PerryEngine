@@ -7,6 +7,7 @@
 
 class CEditorCamera;
 class QBasicTimer;
+class QToolBar;
 class CStandardMouseActions;
 
 class IRenderingOptions
@@ -40,6 +41,8 @@ public:
 	void SetRenderingOptions(IRenderingOptions* p) { m_qRenderingOptions = p; }
 
 	bool IsInitialized() const { return m_bIsInitialized; }
+
+	QToolBar* GetStandardMouseActionsToolbar();
 signals:
 
 public slots:

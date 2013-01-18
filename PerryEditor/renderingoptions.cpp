@@ -9,7 +9,12 @@ QRenderingOptions::QRenderingOptions(QWidget *parent) :
 	m_bSpecularEnabled(true),
 	m_bColorEnabled(true),
 	m_bFXAAEnabled(true),
-	m_bGridEnabled(true)
+	m_bGridEnabled(true),
+	m_bPostChanged(true),
+	m_bNylon(false),
+	m_bExposure(false),
+	m_bFrame(false),
+	m_bLut(false)
 {
     ui->setupUi(this);
 

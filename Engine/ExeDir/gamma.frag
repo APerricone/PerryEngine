@@ -41,7 +41,7 @@ vec3 nylon()
 
 vec3 exposure(vec3 color)
 {
-	vec3 color2 = textureLod(image, TexCoord.xy,20).xyz;
+	vec3 color2 = textureLod(image, vec2(0.5),20).xyz;
 	float lum = getLum(color2);
 	float exp = 0.18/lum;
 	return  1.0f - exp2(-color * exp);

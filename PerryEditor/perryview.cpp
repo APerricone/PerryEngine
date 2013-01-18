@@ -9,6 +9,7 @@
 #include "mouseactions.h"
 #include "standardmouseactions.h"
 #include "selection.h"
+#include "mainwindow.h"
 
 #include <QBasicTimer>
 #include <QMouseEvent>
@@ -27,6 +28,11 @@ CPerryView::CPerryView(QWidget * parent) :
 
 	glPrint = StdGlPrint;
 	m_bIsInitialized = false;
+}
+
+QToolBar* CPerryView::GetStandardMouseActionsToolbar()
+{
+	return m_pStandardMouseActions->GetToolbar();
 }
 
 CPerryView::~CPerryView()
@@ -117,6 +123,9 @@ void CPerryView::initializeGL()
 	CMouseActions::SetCamera(m_pCamera);
 	m_pStandardMouseActions = new CStandardMouseActions();
 	m_pStandardMouseActions->InitActions();
+
+	// it should be an event
+	MainWindow::Instance()->OpenGLInitialized();
 }
 
 void CPerryView::resizeGL( int width, int height )

@@ -24,10 +24,13 @@ public:
 
 	bool Check();
 
+	void OpenGLInitialized();
 private slots:
 	void on_actionAbout_Qt_triggered();
 	void on_actionExit_triggered();
 	void on_action_About_triggered();
+
+	void on_actionSave_screenshot_triggered();
 
 private:
     Ui::MainWindow *ui;
