@@ -13,25 +13,12 @@ void QImageLoader::Register()
 
 void QImageLoader::Unregister()
 {
-	CImage::RegisterLoader(&loader);
+	CImage::UnregisterLoader(&loader);
 }
 
-bool QImageLoader::IsSupported(const char *i_sExtension)
+bool QImageLoader::CanLoad(const char *i_sExtension)
 {
-	QList<QByteArray> l = QImageWriter::supportedImageFormats();
-	QList<QByteArray>::Iterator i;
-	for(i=l.begin();i!=l.end();++i)
-	{
-		if( qstricmp(*i,i_sExtension)==0 )
-			return true;
-	}
-	l = QImageReader::supportedImageFormats();
-	for(i=l.begin();i!=l.end();++i)
-	{
-		if( qstricmp(*i,i_sExtension)==0 )
-			return true;
-	}
-	return false;
+	return CheckIsInList(i_sExtension,QImageReader::supportedImageFormats());
 }
 
 CImage* QImageLoader::Load(const char *i_sPath)
@@ -87,6 +74,11 @@ CImage* QImageLoader::Load(const char *i_sPath)
 	return pImage;
 }
 
+bool QImageLoader::CanSave(const char *i_sExtension)
+{
+	return CheckIsInList(i_sExtension,QImageWriter::supportedImageFormats());
+}
+
 bool QImageLoader::Save(const char *i_sPath,const CImage* i_pImage)
 {
 	QImage::Format f;
@@ -139,5 +131,16 @@ bool QImageLoader::Save(const char *i_sPath,const CImage* i_pImage)
 	}
 
 	return tmp.save(i_sPath);
+}
+
+bool QImageLoader::CheckIsInList(const char *i_sExtension, const QList<QByteArray> &i_qList)
+{
+	QList<QByteArray>::ConstIterator i;
+	for(i=i_qList.begin();i!=i_qList.end();++i)
+	{
+		if( qstricmp(*i,i_sExtension)==0 )
+			return true;
+	}
+	return false;
 }
 

@@ -8,8 +8,11 @@ class IImageLoader
 {
 public:
 	virtual const char* GetName() = 0;
-	virtual bool IsSupported(const char *i_sExtension) = 0;
+
+	virtual bool CanLoad(const char *i_sExtension) = 0;
 	virtual CImage* Load(const char *i_sPath) = 0;
+
+	virtual bool CanSave(const char *i_sExtension) = 0;
 	virtual bool Save(const char *i_sPath,const CImage* i_pImage) = 0;
 
 protected:
@@ -23,7 +26,7 @@ public:
 	CImage();
 	~CImage();
 
-	//! \param alpha se #m_iBpp==1 alpha indica se fare una tex solo alpha o solo luminosit‡
+	//! \param alpha se #m_iBpp==1 alpha indica se fare una tex solo alpha o solo luminosit√†
 	void Create(unsigned int i_iDimx,unsigned int i_iDimy,unsigned int i_iBpp);
 	static CImage* LoadFile(const char* i_sPath,bool bIgnoreExtension = false);
     bool Save(const char* i_sPath, IImageLoader* i_pLoader = 0);

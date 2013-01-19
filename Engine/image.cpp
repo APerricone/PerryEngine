@@ -249,7 +249,7 @@ CImage* CImage::LoadFile(const char* i_sPath,bool bIgnoreExtension)
 			extension++; // skip dot
 			for( i=s_lpLoaders.begin(); i!=s_lpLoaders.end(); ++i)
 			{
-				if( (*i)->IsSupported(extension) )
+				if( (*i)->CanLoad(extension) )
 				{
 					CImage *r = (*i)->Load( i_sPath );
 					if( r )
@@ -296,7 +296,7 @@ bool CImage::Save(const char* i_sPath,IImageLoader* i_pLoader)
 		extension++; // skip dot
 		for( i=s_lpLoaders.begin(); i!=s_lpLoaders.end(); ++i)
 		{
-			if( (*i)->IsSupported(extension) )
+			if( (*i)->CanSave(extension) )
 			{
 				if( (*i)->Save(i_sPath,this) )
 				{

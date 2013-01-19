@@ -6,11 +6,12 @@
 #include "renderingoptions.h"
 #include "Engine_config.h"
 #include "mouseactions.h"
+#include "savescreenshot.h"
 
 #include <QSettings>
 #include <QMessageBox>
-#include <QFileDialog>
-#include <QImageWriter>
+#include <QPushButton>
+#include <QGridLayout>
 
 MainWindow *MainWindow::s_pInstance;
 
@@ -114,28 +115,8 @@ void MainWindow::on_action_About_triggered()
 
 void MainWindow::on_actionSave_screenshot_triggered()
 {
-	QFileDialog file;
-	file.setAcceptMode(QFileDialog::AcceptSave);
-
-	QList<QByteArray> list = QImageWriter::supportedImageFormats();
-	QStringList filters;
-	for(int i=0 ; i<list.count() ; i++)
-		filters << list[i].toLower();
-	filters.sort();
-	QString final("Image files (");
-	for(int i=0 ; i<filters.count() ; i++)
-	{
-		final +="*."+ filters[i];
-		if(i!=filters.count()-1)
-			final +=" "; else
-			final +=")";
-	}
-	filters.clear();
-	filters << final;
-
-	file.setFilters(filters);
-
-	if(file.exec() == QDialog::accepted())
+	QSaveScreenshot file(this);
+	if(file.exec() == QDialog::Accepted)
 	{
 
 	}

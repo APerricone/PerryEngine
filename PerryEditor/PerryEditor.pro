@@ -40,7 +40,8 @@ SOURCES += main.cpp \
     standardmouseactions.cpp \
     mousemove.cpp \
     mouserotate.cpp \
-    qimageloader.cpp
+    qimageloader.cpp \
+    savescreenshot.cpp
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -54,11 +55,13 @@ HEADERS  += mainwindow.h \
     standardmouseactions.h \
     mousemove.h \
     mouserotate.h \
-    qimageloader.h
+    qimageloader.h \
+    savescreenshot.h
 
 FORMS    += mainwindow.ui \
     qlog.ui \
-    renderingoptions.ui
+    renderingoptions.ui \
+    savescreenshot.ui
 
 OTHER_FILES += \
     icons/file_icon.png \

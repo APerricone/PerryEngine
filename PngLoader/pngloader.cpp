@@ -16,7 +16,12 @@ void CPngLoader::Unregister()
 	CImage::UnregisterLoader(&loader);
 }
 
-bool CPngLoader::IsSupported(const char *i_sExtension)
+bool CPngLoader::CanLoad(const char *i_sExtension)
+{
+	return _stricmp(i_sExtension,"png") == 0;
+}
+
+bool CPngLoader::CanSave(const char *i_sExtension)
 {
 	return _stricmp(i_sExtension,"png") == 0;
 }

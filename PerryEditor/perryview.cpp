@@ -62,8 +62,8 @@ void CPerryView::SampleScene()
 
 	CModel* pSphere = CModel::CreateModel();
 	mainMesh = pSphere->AddMesh();
-	creator.AddSphere(float3(0,0,0),1.5f,16,32);
-	//creator.AddTorus(float3(0,0,0),3,1.5f,16,32);
+	//creator.AddSphere(float3(0,0,0),1.5f,16,32);
+	creator.AddTorus(float3(0,0,0),3,1.5f,16,32);
 	creator.CreateMesh( *pSphere->GetMesh(mainMesh), true);
 	creator.Clear();
 	pSphere->GetMesh(mainMesh)->CalculateBoundings();
