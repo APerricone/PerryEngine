@@ -146,7 +146,7 @@ bool CScene::Init()
 	m_pLight1->CreateShadowTexture();
 	m_pLight1->SetPosition(float3(-1.5f,-1.f,-2));
 	m_pLight1->SetBox( float3(-5.f,-1.5f,-3.f),float3(5.f,3.5f,4.f) );
-	m_pLight1->SetColor(float3(10,10,10) );
+	m_pLight1->SetColor( float3(10,10,10) );
 
 	m_pFxaa = new CFXAA();
 	m_pFxaa->Init();

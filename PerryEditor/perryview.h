@@ -43,6 +43,8 @@ public:
 	bool IsInitialized() const { return m_bIsInitialized; }
 
 	QToolBar* GetStandardMouseActionsToolbar();
+
+	void SaveScreenshot(const QString& fileName,const int2& size = int2(0,0), bool lut = false);
 signals:
 
 public slots:

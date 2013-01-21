@@ -58,6 +58,8 @@ protected:
 	static unsigned int m_glProgramSpecular;
 	static unsigned int m_glPosDirDiffuse;
 	static unsigned int m_glPosDirSpecular;
+	static unsigned int m_glColorDiffuse;
+	static unsigned int m_glColorSpecular;
 
 private:
 	CMRT m_cShadow;

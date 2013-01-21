@@ -14,6 +14,8 @@
 #include <QBasicTimer>
 #include <QMouseEvent>
 #include <float.h>
+#include <image.h>
+#include "qimageloader.h"
 
 CPerryView::CPerryView(QWidget * parent) :
 	QGLWidget(parent),
@@ -35,10 +37,30 @@ QToolBar* CPerryView::GetStandardMouseActionsToolbar()
 	return m_pStandardMouseActions->GetToolbar();
 }
 
+void CPerryView::SaveScreenshot(const QString &fileName, const int2 &size, bool lut)
+{
+	CMRT tmp;
+	tmp.Init(size.x(),size.y());
+	tmp.AddRT();
+	resizeGL(size.x(),size.y());
+
+	m_pScene->DrawRT(m_pCamera,&tmp);
+	tmp.Reset();
+
+	CImage *pScreen = CImage::CreateFromTexture2D( tmp.GetTexture(0) );
+	pScreen->Save(fileName.toLatin1());
+	delete pScreen;
+
+	resizeGL(width(),height());
+	glDepthFunc(GL_LEQUAL);
+
+}
+
 CPerryView::~CPerryView()
 {
 	SAFE_DELETE(m_qTimer);
 	SAFE_DELETE(m_pScene);
+	QImageLoader::Unregister();
 	CScene::DeinitStatic();
 }
 
@@ -113,6 +135,7 @@ void CPerryView::initializeGL()
 		return;
 	}
 	m_bIsInitialized = true;
+	QImageLoader::Register();
 	m_pScene->m_bUsePerCounter = false;
 	SampleScene();
 	m_pScene->SetCustomDrawStep(DrawEditor,this);
@@ -181,6 +204,7 @@ void CPerryView::DrawGrid()
 
 void CPerryView::DrawBackground()
 {
+	float v = (float)(pow(0.75,2.2));
 	//glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 	glLoadIdentity();
@@ -188,7 +212,6 @@ void CPerryView::DrawBackground()
 	glPushMatrix();
 	glLoadIdentity();
 	glBegin(GL_QUADS);
-	float v = (float)(pow(0.75,2.2));
 	glColor4f(v,v,v,1);
 	glVertex3f(-1,-1,1);
 	glVertex3f( 1,-1,1);
@@ -198,7 +221,6 @@ void CPerryView::DrawBackground()
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
-
 }
 
 #pragma endregion

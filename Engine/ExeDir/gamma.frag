@@ -43,8 +43,11 @@ vec3 exposure(vec3 color)
 {
 	vec3 color2 = textureLod(image, vec2(0.5),20).xyz;
 	float lum = getLum(color2);
-	float exp = 0.18/lum;
-	return  1.0f - exp2(-color * exp);
+	float expValue = 0.18/lum;
+	//float expValue = 0.5/lum;
+	return  1.0f - exp2(-color * expValue);
+	//return color /* (1+color.a*64)*/ *expValue;
+	//return color *expValue;
 }
 
 vec3 frame(vec3 exColor)

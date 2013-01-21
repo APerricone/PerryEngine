@@ -6,7 +6,6 @@
 
 #include "ray.h"
 
-
 class QWheelEvent;
 class QMouseEvent;
 

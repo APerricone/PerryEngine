@@ -10,10 +10,12 @@
 unsigned int CLight::m_glFragmentDiffuse;
 unsigned int CLight::m_glProgramDiffuse;
 unsigned int CLight::m_glPosDirDiffuse;
+unsigned int CLight::m_glColorDiffuse;
 
 unsigned int CLight::m_glFragmentSpecular;
 unsigned int CLight::m_glProgramSpecular;
 unsigned int CLight::m_glPosDirSpecular;
+unsigned int CLight::m_glColorSpecular;
 
 CLight::CLight(eLightType m_eType) : m_eType(m_eType)
 {
@@ -43,6 +45,8 @@ bool CLight::Compile()
 		"light.final.frag");
 	m_glProgramDiffuse = CGLSL::LinkProgram(uiVertex,m_glFragmentDiffuse);
 	m_glPosDirDiffuse = glGetUniformLocation(m_glProgramDiffuse, "lightDirPosType");
+	m_glColorDiffuse = glGetUniformLocation(m_glProgramDiffuse, "lightCol");
+
 
 	m_glFragmentSpecular = CGLSL::CreateFragmentShaderFromFiles(3,
 		"light.start.frag",
@@ -50,6 +54,7 @@ bool CLight::Compile()
 		"light.specular.frag");
 	m_glProgramSpecular = CGLSL::LinkProgram(uiVertex,m_glFragmentSpecular);
 	m_glPosDirSpecular = glGetUniformLocation(m_glProgramSpecular, "lightDirPosType");
+	m_glColorSpecular = glGetUniformLocation(m_glProgramSpecular, "lightCol");
 
 	if( m_glProgramDiffuse == 0 ||
 		m_glProgramSpecular == 0 ||
@@ -145,6 +150,7 @@ void CLight::DrawDiffuse(const float* invProj)
 	glUseProgram(m_glProgramDiffuse);
 	float4 v(m_f3Position, m_eType == POINT? 0.f:1.f);
 	glUniform4fv(m_glPosDirDiffuse, 1, (float*)(v));
+	glUniform3fv(m_glColorDiffuse, 1, (float*)(m_f3Color));
 	glActiveTexture(GL_TEXTURE2);
 	m_cShadow.SetTextureDepth();
 	glUniform2f(glGetUniformLocation(m_glProgramDiffuse, "zValues"), 
@@ -170,6 +176,7 @@ void CLight::DrawSpecular(const float* invProj,const float3& camPos)
 
 	float4 v(m_f3Position, m_eType == POINT? 0.f:1.f);
 	glUniform4fv(m_glPosDirSpecular, 1, (float*)(v));
+	glUniform3fv(m_glColorSpecular, 1, (float*)(m_f3Color));
 	glUniform3fv(glGetUniformLocation(m_glProgramSpecular, "camPos"), 1, camPos.operator const float *());
 	glError();
 

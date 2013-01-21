@@ -30,5 +30,5 @@ void main()
 
 	vec3 normal = normalize( (texture(normalTexture, TexCoord.xy).xyz*2.)-1. );
 	float lInt = Diffuse(posWS, normal) * aOut;;
-	gl_FragData = vec4( lInt,lInt,lInt, 1); 
+	gl_FragData = vec4( lightCol * lInt, 1);
 }

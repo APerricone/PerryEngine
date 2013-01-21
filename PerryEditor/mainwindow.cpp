@@ -118,6 +118,9 @@ void MainWindow::on_actionSave_screenshot_triggered()
 	QSaveScreenshot file(this);
 	if(file.exec() == QDialog::Accepted)
 	{
-
+		m_qMainView->SaveScreenshot(
+					file.selectedFiles()[0],
+					file.GetCurrentSize(),
+					file.IsLutEnabled()	);
 	}
 }

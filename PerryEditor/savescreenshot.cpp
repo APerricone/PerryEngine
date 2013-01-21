@@ -40,6 +40,7 @@ QSaveScreenshot::QSaveScreenshot(QWidget *parent) :
 	ui->m_qExtraOptions->geometry().height());
 
 	setAcceptMode(QFileDialog::AcceptSave);
+	setDefaultSuffix("jpg");
 
 	QStringList filters;
 	filters << FillFilter(QImageWriter::supportedImageFormats());
@@ -89,9 +90,11 @@ void QSaveScreenshot::on_m_qWidth_valueChanged(int w)
 	if(m_bLock) return;
 	m_bLock = true;
 	ui->m_qPresets->setCurrentIndex(8);
+	m_i2CurrentSize.x() = w;
 	if(ui->m_qLock->isChecked())
 	{
-		ui->m_qHeight->setValue( w / m_fAspectRatio );
+		m_i2CurrentSize.y() = w / m_fAspectRatio;
+		ui->m_qHeight->setValue( m_i2CurrentSize.y() );
 	} else
 	{
 		m_fAspectRatio = float(w) / float(ui->m_qHeight->value());
@@ -104,9 +107,11 @@ void QSaveScreenshot::on_m_qHeight_valueChanged(int h)
 	if(m_bLock) return;
 	m_bLock = true;
 	ui->m_qPresets->setCurrentIndex(8);
+	m_i2CurrentSize.y() = h;
 	if(ui->m_qLock->isChecked())
 	{
-		ui->m_qWidth->setValue( h * m_fAspectRatio );
+		m_i2CurrentSize.x() = h * m_fAspectRatio;
+		ui->m_qWidth->setValue( m_i2CurrentSize.x() );
 	} else
 	{
 		m_fAspectRatio = float(ui->m_qWidth->value()) / float(h);

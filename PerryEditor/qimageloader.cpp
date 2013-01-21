@@ -40,10 +40,10 @@ CImage* QImageLoader::Load(const char *i_sPath)
 	QImage rgba = tmp.convertToFormat(QImage::Format_ARGB32);
 	unsigned char* dest = pImage->GetBits();
 	QRgb *source;
-	for(int y=0;y<tmp.height();y++)
+	for(int y=0;y<rgba.height();y++)
 	{
-		source = (QRgb*)(rgba.scanLine(y));
-		for(int x=0;x<tmp.width();x++)
+		source = (QRgb*)(rgba.scanLine(rgba.height()-1-y));
+		for(int x=0;x<rgba.width();x++)
 		{
 			switch(bpp)
 			{
@@ -107,7 +107,7 @@ bool QImageLoader::Save(const char *i_sPath,const CImage* i_pImage)
 	uchar *dest;
 	for(int y=0;y<tmp.height();y++)
 	{
-		dest = tmp.scanLine(y);
+		dest = tmp.scanLine(tmp.height()-1-y);
 		for(int x=0;x<tmp.width();x++)
 		{
 			switch(bpp)
@@ -126,7 +126,7 @@ bool QImageLoader::Save(const char *i_sPath,const CImage* i_pImage)
 				break;
 			}
 			source+=bpp;
-			dest+=tmp.depth();
+			dest+=tmp.depth()/8;
 		}
 	}
 
