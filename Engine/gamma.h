@@ -23,6 +23,7 @@ public:
 
 	// Lookup Table support
 	static void CreateRefLutPng();
+	static unsigned int GetRefLutTexture();
 	// note: width, heght and depth of 3D Texture must be the same
 	// then the image is: (w*sqrt(d))x(h*sqrt(d)) --> (a*sqrt(a))x(a*sqrt(a))
 	// w=h=sqrt(a^3) --> a = (Cube root(w))^2 

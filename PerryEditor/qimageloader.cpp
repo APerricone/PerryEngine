@@ -39,31 +39,33 @@ CImage* QImageLoader::Load(const char *i_sPath)
 
 	QImage rgba = tmp.convertToFormat(QImage::Format_ARGB32);
 	unsigned char* dest = pImage->GetBits();
-	QRgb *source;
+	unsigned char *source;
 	for(int y=0;y<rgba.height();y++)
 	{
-		source = (QRgb*)(rgba.scanLine(rgba.height()-1-y));
+		source = (rgba.scanLine(y));
+		dest = pImage->GetBits() + y*pImage->GetStride();
 		for(int x=0;x<rgba.width();x++)
 		{
+			QRgb* ss = (QRgb*)source;
 			switch(bpp)
 			{
 			case 1:
-				dest[0]=qRed(*source);
+				dest[0]=qRed(*ss);
 				break;
 			case 2:
-				dest[0]=qRed(*source);
-				dest[1]=qAlpha(*source);
+				dest[0]=qRed(*ss);
+				dest[1]=qAlpha(*ss);
 				break;
 			case 3:
-				dest[0]=qRed(*source);
-				dest[1]=qGreen(*source);
-				dest[2]=qBlue(*source);
+				dest[0]=qRed(*ss);
+				dest[1]=qGreen(*ss);
+				dest[2]=qBlue(*ss);
 				break;
 			case 4:
-				dest[0]=qRed(*source);
-				dest[1]=qGreen(*source);
-				dest[2]=qBlue(*source);
-				dest[3]=qAlpha(*source);
+				dest[0]=qRed(*ss);
+				dest[1]=qGreen(*ss);
+				dest[2]=qBlue(*ss);
+				dest[3]=qAlpha(*ss);
 				break;
 			}
 			dest+=bpp;
@@ -107,7 +109,8 @@ bool QImageLoader::Save(const char *i_sPath,const CImage* i_pImage)
 	uchar *dest;
 	for(int y=0;y<tmp.height();y++)
 	{
-		dest = tmp.scanLine(tmp.height()-1-y);
+		dest = tmp.scanLine(y);
+		source = i_pImage->GetBits() + y*i_pImage->GetStride();
 		for(int x=0;x<tmp.width();x++)
 		{
 			switch(bpp)

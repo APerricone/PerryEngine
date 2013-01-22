@@ -303,7 +303,7 @@ void CMRT::SetSome(unsigned int i_n,...)
 	InternalSet(i_n, buffers);
 }
 
-void CMRT::SetIt()
+void CMRT::SetIt(bool bClear)
 {
 	static const GLenum buffers[] = { GL_COLOR_ATTACHMENT0,
 		GL_COLOR_ATTACHMENT1,GL_COLOR_ATTACHMENT2,GL_COLOR_ATTACHMENT3,
@@ -311,26 +311,29 @@ void CMRT::SetIt()
 		GL_COLOR_ATTACHMENT7,GL_COLOR_ATTACHMENT8,GL_COLOR_ATTACHMENT9,
 		GL_COLOR_ATTACHMENT10,GL_COLOR_ATTACHMENT11,GL_COLOR_ATTACHMENT12,
 		GL_COLOR_ATTACHMENT13,GL_COLOR_ATTACHMENT14,GL_COLOR_ATTACHMENT15 };
-	InternalSet(m_nTexture, buffers);
+	InternalSet(m_nTexture, buffers,bClear);
 }
 
-void CMRT::InternalSet(unsigned int n, const unsigned int* bufs)
+void CMRT::InternalSet(unsigned int n, const unsigned int* bufs,bool bClear)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, m_glFrameBuffer);
 	glViewport(0, 0, m_iWidth, m_iHeight);
 	glDrawBuffers(n,bufs);
 
-	if( m_bDoDepth )
+	if( bClear )
 	{
-		if( m_bCreated[16] )
-			glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-		else
-			glClear( GL_COLOR_BUFFER_BIT );
-	} else
-	{
-		glDisable(GL_DEPTH_TEST);
-		glDepthMask(GL_FALSE);
-		glClear( GL_COLOR_BUFFER_BIT);
+		if( m_bDoDepth )
+		{
+			if( m_bCreated[16] )
+				glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+			else
+				glClear( GL_COLOR_BUFFER_BIT );
+		} else
+		{
+			glDisable(GL_DEPTH_TEST);
+			glDepthMask(GL_FALSE);
+			glClear( GL_COLOR_BUFFER_BIT);
+		}
 	}
 }
 

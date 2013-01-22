@@ -22,7 +22,7 @@ public:
 	void SetTexture(unsigned int i_i);
 	void SetTextureDepth();
 
-	void SetIt();
+	void SetIt(bool bClear = true);
 	void SetSome(unsigned int i_n,...);
 	void Reset();
 
@@ -48,5 +48,5 @@ private:
 
 	void DeInit();
 
-	void InternalSet(unsigned int n, const unsigned int* bufs);
+	void InternalSet(unsigned int n, const unsigned int* bufs, bool bClear = true);
 };

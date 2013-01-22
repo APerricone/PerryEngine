@@ -34,6 +34,8 @@ private slots:
 
 	void on_actionUpdate_Post_triggered();
 
+	void on_pushButton_2_clicked();
+
 private:
 	Ui::QRenderingOptions *ui;
 

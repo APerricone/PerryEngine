@@ -124,3 +124,8 @@ void MainWindow::on_actionSave_screenshot_triggered()
 					file.IsLutEnabled()	);
 	}
 }
+
+void MainWindow::LoadLut(QString i_qPath)
+{
+	m_qMainView->LoadLut(i_qPath);
+}

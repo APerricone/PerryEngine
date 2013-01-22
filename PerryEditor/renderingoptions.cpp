@@ -1,5 +1,9 @@
 #include "renderingoptions.h"
 #include "ui_renderingoptions.h"
+#include "savescreenshot.h"
+#include "mainwindow.h"
+
+#include <QImageReader>
 
 QRenderingOptions::QRenderingOptions(QWidget *parent) :
     QDockWidget(parent),
@@ -44,4 +48,18 @@ void QRenderingOptions::on_actionUpdate_Post_triggered()
 	m_bExposure = ui->m_qExposure->isChecked();
 	m_bFrame = ui->m_qFrame->isChecked();
 	m_bLut = ui->m_qLut->isChecked();
+}
+
+void QRenderingOptions::on_pushButton_2_clicked()
+{
+	QFileDialog file(this);
+	QStringList filters;
+	filters << QSaveScreenshot::FillFilter(QImageReader::supportedImageFormats());
+	file.setNameFilters(filters);
+
+	if(file.exec() == QDialog::Accepted)
+	{
+		((MainWindow*)(parent()))->LoadLut(file.selectedFiles()[0]);
+	}
+
 }

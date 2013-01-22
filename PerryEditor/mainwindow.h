@@ -25,6 +25,9 @@ public:
 	bool Check();
 
 	void OpenGLInitialized();
+
+	void LoadLut(QString i_qPath);
+
 private slots:
 	void on_actionAbout_Qt_triggered();
 	void on_actionExit_triggered();

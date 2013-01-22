@@ -42,6 +42,62 @@ void CImage::Create(unsigned int i_iDimx,unsigned int i_iDimy,unsigned int i_iBp
 
 #pragma endregion
 
+#pragma region Utils
+
+void CImage::Crop(unsigned int i_iX,unsigned int i_iY,unsigned int i_iDimx,unsigned int i_iDimy)
+{
+	if( i_iDimx > m_iDimx || i_iDimy > m_iDimy )
+	{
+		ILog::Error("CImage::Crop cannot increase size\n");
+		return;
+	}
+	if( i_iX >m_iDimx || i_iX+i_iDimx >m_iDimx ||
+		i_iY >m_iDimy || i_iY+i_iDimy >m_iDimy )
+	{
+		ILog::Error("CImage::Crop falls outside the image\n");
+		if( i_iX >m_iDimx || i_iX+i_iDimx >m_iDimx )
+			i_iX = m_iDimx - i_iDimx;
+		if( i_iY >m_iDimy || i_iY+i_iDimy >m_iDimy )
+			i_iY = m_iDimy - i_iDimy;
+	}
+	unsigned char *pExBits = m_pBits; m_pBits = 0;
+	//unsigned int iExDimx = m_iDimx;
+	//unsigned int iExDimy = m_iDimy;
+	unsigned int iExStride = m_iStride;
+	Create(i_iDimx,i_iDimy,m_iBpp);
+	for(unsigned int y=0;y<i_iDimy;y++)
+	{
+		unsigned char* pSource = &(pExBits[ (i_iY + y) * iExStride + i_iX * m_iBpp]);
+		unsigned char* pDest = &(m_pBits[ y * m_iStride ]);
+		memcpy(pDest,pSource,m_iStride);
+	}
+	delete [] pExBits;
+	ILog::Message("CImage::Crop done at %ix%ix%i\n", GetDimx(),GetDimy(),GetBpp() );
+}
+
+
+void CImage::RemoveAlpha()
+{
+	if( m_iBpp != 2 && m_iBpp != 4 && !m_bAlpha) return;
+	if( m_iBpp != 1 && m_bAlpha ) { m_bAlpha=false; return; }
+
+	unsigned char *pExBits = m_pBits; m_pBits = 0;
+	//unsigned int iExDimx = m_iDimx;
+	//unsigned int iExDimy = m_iDimy;
+	unsigned int iExStride = m_iStride;
+	Create(m_iDimx,m_iDimy,m_iBpp-1);
+	for(unsigned int y=0;y<m_iDimy;y++)
+		for(unsigned int x=0;x<m_iDimx;x++)
+	{
+		unsigned char* pSource = &(pExBits[ y * iExStride + x * (m_iBpp+1)]);
+		unsigned char* pDest = &(m_pBits[ y * m_iStride  + x * m_iBpp]);
+		memcpy(pDest,pSource,m_iBpp);
+	}
+	ILog::Message("CImage::RemoveAlpha done at %ix%ix%i\n", GetDimx(),GetDimy(),GetBpp() );
+}
+
+#pragma endregion
+
 #pragma region OpenGL stuff
 //*******************
 //** OPEN GL STUFF **
@@ -120,7 +176,7 @@ unsigned int CImage::GetTexture3D(unsigned int i_iDepthAlongWidth,unsigned int i
 	{
 		unsigned int sx = x + (z % i_iDepthAlongWidth) * dimx;
 		unsigned int sy = y + (z / i_iDepthAlongWidth) * dimy;
-		unsigned char* pSource = &(m_pBits[ ( sx + (sy * m_iDimx ) ) * m_iBpp]);
+		unsigned char* pSource = &(m_pBits[ sx * m_iBpp + sy * m_iStride ]);
 		for(unsigned int p=0;p<m_iBpp;p++)
 		{
 			*pDest = * pSource;
@@ -198,6 +254,7 @@ void CImage::Linearize()
 	unsigned char* pDest = m_pBits;
 	int n = m_iBpp<=2? 1 : 3;
 	for(unsigned int x=0;x<m_iDimx;x++)
+	{
 		for(unsigned int y=0;y<m_iDimy;y++)
 		{
 			for(int i=0;i<n;i++)
@@ -209,6 +266,8 @@ void CImage::Linearize()
 			}
 			pDest+=m_iBpp;
 		}
+		pDest += m_iStride - m_iDimx*m_iBpp;
+	}
 }
 
 void CImage::Delinearize()
@@ -216,6 +275,7 @@ void CImage::Delinearize()
 	unsigned char* pDest = m_pBits;
 	int n = m_iBpp<=2? 1 : 3;
 	for(unsigned int x=0;x<m_iDimx;x++)
+	{
 		for(unsigned int y=0;y<m_iDimy;y++)
 		{
 			for(int i=0;i<n;i++)
@@ -227,6 +287,8 @@ void CImage::Delinearize()
 			}
 			pDest+=m_iBpp;
 		}
+		pDest += m_iStride - m_iDimx*m_iBpp;
+	}
 }
 #pragma endregion
 
@@ -255,7 +317,7 @@ CImage* CImage::LoadFile(const char* i_sPath,bool bIgnoreExtension)
 					if( r )
 					{
 						ILog::Message("\"%s\" loaded by \"%s\": %ix%ix%i\n", i_sPath, (*i)->GetName(),
-							r->GetDimx(),r->GetDimy(),r->GetBits() );
+							r->GetDimx(),r->GetDimy(),r->GetBpp() );
 						return r;
 					}
 				}
@@ -269,7 +331,7 @@ CImage* CImage::LoadFile(const char* i_sPath,bool bIgnoreExtension)
 		if( r )
 		{
 			ILog::Message("\"%s\" loaded by \"%s\": %ix%ix%i\n", i_sPath, (*i)->GetName(),
-				r->GetDimx(),r->GetDimy(),r->GetBits() );
+				r->GetDimx(),r->GetDimy(),r->GetBpp() );
 			return r;
 		}
 	}

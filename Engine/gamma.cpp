@@ -143,7 +143,14 @@ bool CGamma::LoadLut(const char *i_sName,bool bNeutralOnFail)
 {
 	bool bRet=true;
 	CImage* pImage = CImage::LoadFile(i_sName);
-	if( pImage == NULL )
+	if( pImage != NULL )
+	{
+		//pImage->Save("test1.png");
+		pImage->Crop(0,0,64,64);
+		//pImage->Save("test2.png");
+		pImage->RemoveAlpha();
+		//pImage->Save("test3.png");
+	} else
 	{
 		CreateNeutral(pImage);
 		bRet=false;
@@ -185,3 +192,12 @@ void CGamma::CreateNeutral(CImage*& pDest)
 		}
 	}
 }
+
+unsigned int CGamma::GetRefLutTexture()
+{
+	CImage *pRef; CreateNeutral(pRef);
+	unsigned int r = pRef->GetTexture2D();
+	delete pRef;
+	return r;
+}
+

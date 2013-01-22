@@ -16,10 +16,10 @@ public:
 	explicit QSaveScreenshot(QWidget *parent = 0);
 	~QSaveScreenshot();
 	
-	QString FillFilter(const QList<QByteArray> &list);
+	static QString FillFilter(const QList<QByteArray> &list);
 
-	 const int2& GetCurrentSize() const { return m_i2CurrentSize; }
-	 bool IsLutEnabled() const { return m_bLut; }
+	const int2& GetCurrentSize() const { return m_i2CurrentSize; }
+	bool IsLutEnabled() const { return m_bLut; }
 
 private slots:
 	void on_m_qPresets_currentIndexChanged(int index);

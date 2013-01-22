@@ -31,6 +31,9 @@ public:
 	static CImage* LoadFile(const char* i_sPath,bool bIgnoreExtension = false);
     bool Save(const char* i_sPath, IImageLoader* i_pLoader = 0);
 
+	void Crop(unsigned int i_iX,unsigned int i_iY,unsigned int i_iDimx,unsigned int i_iDimy);
+	void RemoveAlpha();
+
 	//! create a 1D texture
 	//! \note height must be 1
 	//! \return -1 on error

@@ -34,5 +34,5 @@ void main()
 	vec4 s = texture(specularTexture, TexCoord.xy);
 	
 	float sInt = Specular(posWS, normal, s.w * 100) * fShadow;
-	gl_FragData = vec4( s.xyz*sInt, 1); 
+	gl_FragData = vec4( s.xyz*sInt*lightCol, 1);
 }

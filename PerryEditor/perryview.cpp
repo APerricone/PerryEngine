@@ -5,6 +5,7 @@
 #include "light.h"
 #include "model.h"
 #include "editorcamera.h"
+#include "gamma.h"
 
 #include "mouseactions.h"
 #include "standardmouseactions.h"
@@ -30,6 +31,7 @@ CPerryView::CPerryView(QWidget * parent) :
 
 	glPrint = StdGlPrint;
 	m_bIsInitialized = false;
+	m_bScreenshotMode = false;
 }
 
 QToolBar* CPerryView::GetStandardMouseActionsToolbar()
@@ -37,15 +39,50 @@ QToolBar* CPerryView::GetStandardMouseActionsToolbar()
 	return m_pStandardMouseActions->GetToolbar();
 }
 
-void CPerryView::SaveScreenshot(const QString &fileName, const int2 &size, bool lut)
+void CPerryView::SaveScreenshot(const QString &fileName, const int2 &size, bool bLut)
 {
 	CMRT tmp;
 	tmp.Init(size.x(),size.y());
 	tmp.AddRT();
 	resizeGL(size.x(),size.y());
 
+	m_bScreenshotMode = true;
 	m_pScene->DrawRT(m_pCamera,&tmp);
-	tmp.Reset();
+	m_bScreenshotMode = false;
+	if(bLut)
+	{
+		tmp.SetIt(false);
+		glDisable(GL_DEPTH_TEST);
+		glMatrixMode(GL_MODELVIEW);
+		glPushMatrix();
+		glLoadIdentity();
+		glMatrixMode(GL_PROJECTION);
+		glPushMatrix();
+		glLoadIdentity();
+		glTranslatef(-1,1,0);
+		glScalef(2.f/size.x(),-2.f/size.y(),1);
+
+		unsigned int glNeutral = CGamma::GetRefLutTexture();
+		glBindTexture(GL_TEXTURE_2D,glNeutral);
+		glEnable(GL_TEXTURE_2D);
+
+		glBegin(GL_QUADS);
+		glColor4f(1,1,1,1);
+		glTexCoord2f(0,0);	glVertex3f( 0, 0,1);
+		glTexCoord2f(0,1);	glVertex3f( 0,64,1);
+		glTexCoord2f(1,1);	glVertex3f(64,64,1);
+		glTexCoord2f(1,0);	glVertex3f(64, 0,1);
+		glEnd();
+		glPopMatrix();
+		glMatrixMode(GL_MODELVIEW);
+		glPopMatrix();
+		glDisable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D,0);
+		glEnable(GL_DEPTH_TEST);
+		glFinish();
+		SAFE_DELETE_GL_TEXTURE(glNeutral)
+		tmp.Reset();
+	}
 
 	CImage *pScreen = CImage::CreateFromTexture2D( tmp.GetTexture(0) );
 	pScreen->Save(fileName.toLatin1());
@@ -54,6 +91,11 @@ void CPerryView::SaveScreenshot(const QString &fileName, const int2 &size, bool 
 	resizeGL(width(),height());
 	glDepthFunc(GL_LEQUAL);
 
+}
+
+void CPerryView::LoadLut(QString i_qPath)
+{
+	m_pScene->LoadLut(i_qPath.toLatin1());
 }
 
 CPerryView::~CPerryView()
@@ -171,16 +213,21 @@ void CPerryView::DrawEditor(void* pThis)
 	{
 		bShowGrid = pPerryView->m_qRenderingOptions->GetGridEnabled();
 	}
+	if( pPerryView->m_bScreenshotMode )
+		bShowGrid = false;
 	if( bShowGrid )
 	{
 		pPerryView->DrawGrid();
 	}
 	pPerryView->DrawBackground();
 
-	CSelection::Instance().EvidenceSelection();
-	CMouseActions::DrawInsideScene();
-	glClear(GL_DEPTH_BUFFER_BIT);
-	CMouseActions::DrawOverScene();
+	if(!pPerryView->m_bScreenshotMode)
+	{
+		CSelection::Instance().EvidenceSelection();
+		CMouseActions::DrawInsideScene();
+		glClear(GL_DEPTH_BUFFER_BIT);
+		CMouseActions::DrawOverScene();
+	}
 
 }
 

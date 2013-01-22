@@ -40,7 +40,7 @@ QSaveScreenshot::QSaveScreenshot(QWidget *parent) :
 	ui->m_qExtraOptions->geometry().height());
 
 	setAcceptMode(QFileDialog::AcceptSave);
-	setDefaultSuffix("jpg");
+	setDefaultSuffix("png");
 
 	QStringList filters;
 	filters << FillFilter(QImageWriter::supportedImageFormats());

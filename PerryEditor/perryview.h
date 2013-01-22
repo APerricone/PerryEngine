@@ -45,6 +45,7 @@ public:
 	QToolBar* GetStandardMouseActionsToolbar();
 
 	void SaveScreenshot(const QString& fileName,const int2& size = int2(0,0), bool lut = false);
+	void LoadLut(QString i_qPath);
 signals:
 
 public slots:
@@ -68,6 +69,7 @@ protected:
 	IRenderingOptions *m_qRenderingOptions;
 	CStandardMouseActions *m_pStandardMouseActions;
 	bool m_bIsInitialized;
+	bool m_bScreenshotMode;
 private:
 	static CPerryView* s_pCurrentView;
 

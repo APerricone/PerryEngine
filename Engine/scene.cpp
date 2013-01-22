@@ -177,6 +177,12 @@ bool CScene::ReinitGamma(bool bNylon,bool bExposure,bool bFrame,bool bLut)
 	return m_pGamma->Reinit(bNylon,bExposure,bFrame,bLut);
 }
 
+bool CScene::LoadLut(const char *i_sName)
+{
+	if(m_pGamma==NULL) return false;
+	return m_pGamma->LoadLut(i_sName);
+}
+
 void CScene::UpdateStatic()
 {
 	CNode::GlobalUpdate();
