@@ -88,12 +88,29 @@ void CImage::RemoveAlpha()
 	Create(m_iDimx,m_iDimy,m_iBpp-1);
 	for(unsigned int y=0;y<m_iDimy;y++)
 		for(unsigned int x=0;x<m_iDimx;x++)
-	{
-		unsigned char* pSource = &(pExBits[ y * iExStride + x * (m_iBpp+1)]);
-		unsigned char* pDest = &(m_pBits[ y * m_iStride  + x * m_iBpp]);
-		memcpy(pDest,pSource,m_iBpp);
-	}
+		{
+			unsigned char* pSource = &(pExBits[ y * iExStride + x * (m_iBpp+1)]);
+			unsigned char* pDest = &(m_pBits[ y * m_iStride  + x * m_iBpp]);
+			memcpy(pDest,pSource,m_iBpp);
+		}
 	ILog::Message("CImage::RemoveAlpha done at %ix%ix%i\n", GetDimx(),GetDimy(),GetBpp() );
+}
+
+void CImage::Mirror(bool i_bHorizontal,bool i_bVertical)
+{
+	unsigned char *pExBits = m_pBits; m_pBits = 0;
+	Create(m_iDimx,m_iDimy,m_iBpp);
+	for(unsigned int y=0;y<m_iDimy;y++)
+		for(unsigned int x=0;x<m_iDimx;x++)
+		{
+			unsigned int ys=y,xs=x;
+			if(i_bHorizontal) xs = m_iDimx-1-x;
+			if(i_bVertical) ys = m_iDimy-1-y;
+			unsigned char* pSource = &(pExBits[ ys * m_iStride + xs * m_iBpp]);
+			unsigned char* pDest = &(m_pBits[ y * m_iStride  + x * m_iBpp]);
+			memcpy(pDest,pSource,m_iBpp);
+		}
+	ILog::Message("CImage::Flip done at %ix%ix%i\n", GetDimx(),GetDimy(),GetBpp() );
 }
 
 #pragma endregion

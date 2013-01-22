@@ -85,6 +85,7 @@ void CPerryView::SaveScreenshot(const QString &fileName, const int2 &size, bool 
 	}
 
 	CImage *pScreen = CImage::CreateFromTexture2D( tmp.GetTexture(0) );
+	pScreen->Mirror(false,true);
 	pScreen->Save(fileName.toLatin1());
 	delete pScreen;
 

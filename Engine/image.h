@@ -32,6 +32,7 @@ public:
     bool Save(const char* i_sPath, IImageLoader* i_pLoader = 0);
 
 	void Crop(unsigned int i_iX,unsigned int i_iY,unsigned int i_iDimx,unsigned int i_iDimy);
+	void Mirror(bool i_bHorizontal,bool i_bVertical);
 	void RemoveAlpha();
 
 	//! create a 1D texture
