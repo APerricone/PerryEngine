@@ -117,8 +117,29 @@ void CMaterial::ResetInternal()
 
 void CMaterial::SetDataInternal(const CMaterial::Data& i_data)
 {
-	glColor4fv( i_data.f4Color.operator const float *() );
-	glMultiTexCoord4fv( GL_TEXTURE1, i_data.f4Specular.operator const float *() );
+	// TODO: move it inside CMaterial::Data initialization
+	float4 newSpec;
+	newSpec.x() = powf(i_data.f4Specular.x(),2.2f);
+	newSpec.y() = powf(i_data.f4Specular.y(),2.2f);
+	newSpec.z() = powf(i_data.f4Specular.z(),2.2f);
+	newSpec.w() = i_data.f4Specular.w();
+	float4 newDiff;
+	newDiff.x() = powf(i_data.f4Color.x(),2.2f);
+	newDiff.y() = powf(i_data.f4Color.y(),2.2f);
+	newDiff.z() = powf(i_data.f4Color.z(),2.2f);
+	newDiff.w() = i_data.f4Color.w();
+	float specI = dot(newSpec,float4(0.299f,0.587f,0.114f,0.f));
+	float diffI = dot(newSpec,float4(0.299f,0.587f,0.114f,0.f));
+	float f = 1.f/(specI+diffI);
+	if( f < 1.0 )
+	{
+		newDiff *= f;
+		newSpec *= f;
+		newSpec.w() = i_data.f4Specular.w();
+		newDiff.w() = i_data.f4Color.w();
+	}
+	glColor4fv( newDiff.operator const float *() );
+	glMultiTexCoord4fv( GL_TEXTURE1, newSpec.operator const float *() );
 	if( i_data.glDiffuseTex )
 	{
 		glBindTexture(GL_TEXTURE_2D, i_data.glDiffuseTex);

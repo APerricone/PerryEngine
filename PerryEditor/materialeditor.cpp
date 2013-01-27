@@ -54,7 +54,7 @@ void QMaterialEditor::selectionChanged(const QList<CNode*>& list)
 									  (int)(255*oMat.f4Specular.y()),
 									  (int)(255*oMat.f4Specular.z())));
 		ui->m_qAlphaValue->setValue( oMat.f4Color.w() * 100);
-		ui->m_qSpecularLevel->setValue( oMat.f4Specular.w() * 100);
+		ui->m_qSpecularLevel->setValue( oMat.f4Specular.w() * 250);
 	} else
 	{
 		ui->m_qDiffuseColor->setStyleSheet("");

@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>QRenderingOptions</class>
  <widget class="QDockWidget" name="QRenderingOptions">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>264</width>
+    <height>205</height>
+   </rect>
+  </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
@@ -131,6 +139,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="pushButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Color...</string>
            </property>

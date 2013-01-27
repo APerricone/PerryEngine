@@ -32,14 +32,14 @@ MainWindow::MainWindow(QWidget *parent) :
 	addDockWidget(Qt::BottomDockWidgetArea,m_qLog);
 	ui->m_qMenuView->addAction(m_qLog->toggleViewAction());
 
+	m_qMaterialEditor = new QMaterialEditor(this);
+	addDockWidget(Qt::RightDockWidgetArea,m_qMaterialEditor);
+	ui->m_qMenuView->addAction(m_qMaterialEditor->toggleViewAction());
+
 	m_qRenderingOptions = new QRenderingOptions(this);
 	addDockWidget(Qt::RightDockWidgetArea,m_qRenderingOptions);
 	ui->m_qMenuView->addAction(m_qRenderingOptions->toggleViewAction());
 	m_qMainView->SetRenderingOptions(m_qRenderingOptions);
-
-	m_qMaterialEditor = new QMaterialEditor(this);
-	addDockWidget(Qt::BottomDockWidgetArea,m_qMaterialEditor);
-	ui->m_qMenuView->addAction(m_qMaterialEditor->toggleViewAction());
 
 	QSettings settings("Perry", "PerryEditor");
 	restoreGeometry(settings.value("geometry").toByteArray());
