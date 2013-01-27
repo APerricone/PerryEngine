@@ -41,7 +41,8 @@ SOURCES += main.cpp \
     mousemove.cpp \
     mouserotate.cpp \
     qimageloader.cpp \
-    savescreenshot.cpp
+	savescreenshot.cpp\
+	materialeditor.cpp 
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -56,12 +57,14 @@ HEADERS  += mainwindow.h \
     mousemove.h \
     mouserotate.h \
     qimageloader.h \
-    savescreenshot.h
+    savescreenshot.h \
+	materialeditor.h 
 
 FORMS    += mainwindow.ui \
     qlog.ui \
     renderingoptions.ui \
-    savescreenshot.ui
+    savescreenshot.ui \
+	materialeditor.ui
 
 OTHER_FILES += \
     icons/file_icon.png \

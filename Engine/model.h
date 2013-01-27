@@ -14,6 +14,7 @@ class CModel : public CNode
 	CModel();
 public:
 	static CModel* CreateModel();
+	static bool IsCModel(const CNode&oNode);
 	virtual ~CModel();
 
 	static void CheckVisibilities(const float4 i_af4Frustum[6]);
@@ -23,13 +24,15 @@ public:
 	//!
 	unsigned int AddMesh();
 	//! \note this pointer will be invalid on meshes resize: don't cache it!
-    CMesh* GetMesh(unsigned int i) { if( i>=m_apMeshes.size() ) return 0; else return m_apMeshes[i]; }
+	CMesh* GetMesh(unsigned int i);
 	//! \note this pointer will be invalid on meshes resize: don't cache it!
     CMesh* GetLastMesh() { if( m_apMeshes.empty() ) return 0; else return m_apMeshes.back(); }
+	unsigned int GetMeshNum() { return m_apMeshes.size(); }
 	//!
 	void MeshChanged() { m_bNeedUpdateBS = true; }
 	//!
 	void SetMaterial(unsigned int i,CMaterial::Data& i_oMaterial);
+	const CMaterial::Data& GetMaterial(unsigned int i) const;
 	//!
 	void SetLastMaterial(CMaterial::Data& i_oMaterial) { SetMaterial(m_apMeshes.size()-1,i_oMaterial); }
 

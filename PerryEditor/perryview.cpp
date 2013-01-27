@@ -135,7 +135,8 @@ void CPerryView::SampleScene()
 	tmp.SetPos(float4(5.f,0.f,0.f,1.f));
 	pSphere->SetLocal(tmp);
 	a.f4Color.Set( 0.8f,0.3f,0.3f,1.f);
-	a.f4Specular.Set(1);
+	a.f4Specular.Set(0.2f);
+	a.f4Specular.w() = 1.f;
 	pSphere->SetMaterial(mainMesh,a);
 	// 30 fps
 	m_qTimer->start(33,this);
@@ -224,7 +225,7 @@ void CPerryView::DrawEditor(void* pThis)
 
 	if(!pPerryView->m_bScreenshotMode)
 	{
-		CSelection::Instance().EvidenceSelection();
+		CSelection::Instance()->EvidenceSelection();
 		CMouseActions::DrawInsideScene();
 		glClear(GL_DEPTH_BUFFER_BIT);
 		CMouseActions::DrawOverScene();
@@ -306,7 +307,7 @@ void CPerryView::wheelEvent( QWheelEvent * event )
 {
 	QGLWidget::wheelEvent(event);
 	bool update;
-	float3 c = CSelection::Instance().GetBoundingSphere().GetCenter();
+	float3 c = CSelection::Instance()->GetBoundingSphere().GetCenter();
 	update = m_pCamera->wheelEvent(event,c);
 	//if(update) updateGL();
 }
@@ -328,7 +329,7 @@ void CPerryView::mouseMoveEvent( QMouseEvent * event )
 	QGLWidget::mouseMoveEvent(event);
 	CMouseActions::mouseMoveEvent(event);
 	bool update;
-	float3 c = CSelection::Instance().GetBoundingSphere().GetCenter();
+	float3 c = CSelection::Instance()->GetBoundingSphere().GetCenter();
 	update = m_pCamera->mouseMoveEvent(event,c);
 	//if(update) updateGL();
 }

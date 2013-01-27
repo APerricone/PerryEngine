@@ -13,6 +13,7 @@
 #include <QApplication>
 #include <QCursor>
 
+
 float IMouseAction::GetPixelScale(const float3& pos)
 {
 	//float3 pS = m_pCamera->Get2DPixel( pos );
@@ -54,10 +55,7 @@ CMouseSelect::~CMouseSelect()
 void CMouseSelect::DrawInsideScene()
 {
 	Matrix4f mWorld;
-	if( CSelection::Instance().size() )
-		CSelection::Instance().GetMatrix(mWorld);
-	else
-		mWorld.Identity();
+	CSelection::Instance()->GetMatrix(mWorld);
 	float s = GetPixelScale( float3( mWorld.GetPos()) );
 	m_f4CurrentPos = mWorld.GetPos(); m_f4CurrentPos[3] = 1.f;
 	m_f4CurrentRight = mWorld.GetRg()*s;
@@ -173,7 +171,8 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 	RayHitTest tmp(m_pCamera->GetPosition(), end - m_pCamera->GetPosition());
 	CNode::ForAllNodeHierarchy(tmp);
 	RayHitTest::Container::Iterator i;
-	CSelection& oSel = CSelection::Instance();
+	const CSelection::List& oSel = CSelection::GetList();
+	CSelection* pSelObj = CSelection::Instance();
 	CNode *pNewNode = NULL;
 	bool next = false;
 	for(i=tmp.m_apHit.begin();i!=tmp.m_apHit.end();++i)
@@ -201,7 +200,7 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 	if( event->modifiers() & Qt::ShiftModifier )
 	{
 		if( pNewNode )
-			oSel.append(pNewNode);
+			pSelObj->AddSelection(pNewNode);
 	} else
 	if( event->modifiers() & Qt::AltModifier )
 	{
@@ -214,12 +213,13 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 				break;
 			}
 		}
-		oSel.removeOne(pNewNode);
+		pSelObj->DelSelection(pNewNode);
 	} else
 	{
-		oSel.clear();
 		if( pNewNode )
-			oSel.append(pNewNode);
+			pSelObj->SetSelection(pNewNode);
+		else
+			pSelObj->ClearSelection();
 	}
 }
 

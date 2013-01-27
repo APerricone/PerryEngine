@@ -49,9 +49,9 @@ void CMouseRotate::DrawInsideScene()
 
 void CMouseRotate::DrawOverScene()
 {
-	if( CSelection::Instance().size()==0 ) return;
+	if( CSelection::GetList().empty() ) return;
 	Matrix4f mWorld;
-	CSelection::Instance().GetMatrix(mWorld);
+	CSelection::Instance()->GetMatrix(mWorld);
 	float s = GetPixelScale( float3(mWorld.GetPos()) );
 	float4 p = mWorld.GetPos(); p[3] = 1.f;
 	float4 r = mWorld.GetRg()*s;
@@ -123,7 +123,7 @@ void CMouseRotate::mousePressEvent( QMouseEvent * event )
 		CMouseActions::GetDefault()->mousePressEvent(event);
 	} else
 	{
-		CSelection::Instance().GetMatrix(m_f16StartingMatrix);
+		CSelection::Instance()->GetMatrix(m_f16StartingMatrix);
 		m_f3StartingDir = (m_f3StartingPoint-float3(m_f16StartingMatrix.GetPos()));
 		m_f3StartingDir.Normalize();
 		float3 axe;
@@ -152,9 +152,9 @@ void CMouseRotate::mouseReleaseEvent( QMouseEvent * event )
 
 void CMouseRotate::mouseMoveEvent( QMouseEvent * event )
 {
-	if( CSelection::Instance().size()==0 ) return;
+	if( CSelection::GetList().empty() ) return;
 	Matrix4f mWorld;
-	CSelection::Instance().GetMatrix(mWorld);
+	CSelection::Instance()->GetMatrix(mWorld);
 	Ray3f camRay(m_pCamera->Get3DRay(float3(event->x(),event->y(),0.f)));
 
 	if( event->buttons() & Qt::LeftButton )
@@ -184,7 +184,7 @@ void CMouseRotate::mouseMoveEvent( QMouseEvent * event )
 		rot.SetPos(newPos);
 		Matrix4f final;
 		final.Multiply(m_f16StartingMatrix,rot);
-		CSelection::Instance().SetMatrix(final);
+		CSelection::Instance()->SetMatrix(final);
 	} else
 	{
 		float s = GetPixelScale( float3(mWorld.GetPos()) );

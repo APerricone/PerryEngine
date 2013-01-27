@@ -52,6 +52,8 @@ public:
 	static void ForAllNodeHierarchy(fn& i_tFn);
 	template<typename fn>
 	void ForAllChildrenHierarchy(fn& i_tFn);
+
+	unsigned int GetClassId() const { return m_iClassId; }
 protected:
 	char *m_strName;
 

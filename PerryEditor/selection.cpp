@@ -3,22 +3,27 @@
 #include "model.h"
 #include "opengl.h"
 
-CSelection CSelection::s_pInstance;
+#include <QApplication>
 
-CSelection& CSelection::Instance()
+CSelection* CSelection::s_pInstance;
+
+CSelection *CSelection::Instance()
 {
+	if( s_pInstance==NULL )
+		s_pInstance = new CSelection(0);
 	return s_pInstance;
 }
 
-CSelection::CSelection()
+CSelection::CSelection(QObject *parent) : QObject(parent)
 {
 }
 
 void CSelection::EvidenceSelection()
 {
+	if(m_lSelection.empty()) return;
 	glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 	glColor4f(1.f,1.f,1.f,1);
-	for(iterator i=begin();i!=end();++i)
+	for(List::iterator i=m_lSelection.begin();i!=m_lSelection.end();++i)
 	{
 		(*i)->Draw(true,false);
 	}
@@ -27,17 +32,22 @@ void CSelection::EvidenceSelection()
 
 void CSelection::GetMatrix(Matrix4f& oDest)
 {
+	if(m_lSelection.empty())
+	{
+		oDest.Identity();
+		return;
+	}
 	oDest.Zero();
-	for(iterator i=begin();i!=end();++i)
+	for(List::iterator i=m_lSelection.begin();i!=m_lSelection.end();++i)
 	{
 		oDest += (*i)->GetWorld();
 	}
-	oDest /= size();
+	oDest /= m_lSelection.size();
 }
 
 void CSelection::SetMatrix(const Matrix4f& oSrc)
 {
-	for(iterator i=begin();i!=end();++i)
+	for(List::iterator i=m_lSelection.begin();i!=m_lSelection.end();++i)
 	{
 		(*i)->SetWorld(oSrc);
 	}
@@ -47,7 +57,7 @@ floatSphere CSelection::GetBoundingSphere()
 {
 	bool oneAdded = false;
 	floatSphere bs;
-	for(iterator i=begin();i!=end();++i)
+	for(List::iterator i=m_lSelection.begin();i!=m_lSelection.end();++i)
 	{
 		CModel *pModel = reinterpret_cast<CModel*>(*i);
 		if( pModel->IsKindModel() )
@@ -64,3 +74,29 @@ floatSphere CSelection::GetBoundingSphere()
 	}
 	return bs;
 }
+
+void CSelection::ClearSelection()
+{
+	m_lSelection.clear();
+	emit selectionChanged(m_lSelection);
+}
+
+void CSelection::SetSelection(CNode* node)
+{
+	m_lSelection.clear();
+	m_lSelection.append(node);
+	emit selectionChanged(m_lSelection);
+}
+
+void CSelection::AddSelection(CNode* node)
+{
+	m_lSelection.append(node);
+	emit selectionChanged(m_lSelection);
+}
+
+void CSelection::DelSelection(CNode* node)
+{
+	m_lSelection.removeOne(node);
+	emit selectionChanged(m_lSelection);
+}
+

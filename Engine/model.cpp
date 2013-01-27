@@ -26,6 +26,11 @@ CModel* CModel::CreateModel()
 	return retValue;
 }
 
+bool CModel::IsCModel(const CNode& oNode)
+{
+	return oNode.GetClassId() == 1;
+}
+
 CModel::~CModel()
 {
 	std::vector<CMaterial::Data>::iterator i;
@@ -126,9 +131,34 @@ unsigned int CModel::AddMesh()
 	return id;
 }
 
+CMesh* CModel::GetMesh(unsigned int i)
+{
+	if( i>=m_apMeshes.size() )
+	{
+		ILog::Error("CModel::GetMesh invalid index %i/%i", i, m_apMeshes.size());
+		return 0;
+	}
+	return m_apMeshes[i];
+}
+
 void CModel::SetMaterial(unsigned int i,CMaterial::Data& i_oMaterial)
 {
+	if(i>=m_aoMaterial.size())
+	{
+		ILog::Error("CModel::SetMaterial invalid index %i/%i", i, m_aoMaterial.size());
+		return;
+	}
 	m_aoMaterial[i] = i_oMaterial;
+}
+
+const CMaterial::Data& CModel::GetMaterial(unsigned int i) const
+{
+	if(i>=m_aoMaterial.size())
+	{
+		ILog::Error("CModel::GetMaterial invalid index %i/%i", i, m_aoMaterial.size());
+		return CMaterial::Data();
+	}
+	return m_aoMaterial[i];
 }
 
 float CModel::LineCollision(const float3& start,const float3& dir,float len)

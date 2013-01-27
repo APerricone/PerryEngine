@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>QRenderingOptions</class>
  <widget class="QDockWidget" name="QRenderingOptions">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>313</width>
-    <height>210</height>
-   </rect>
-  </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
@@ -17,7 +9,7 @@
    <string>Rendering options</string>
   </property>
   <widget class="QWidget" name="dockWidgetContents">
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <layout class="QHBoxLayout" name="_2">
     <item>
      <widget class="QGroupBox" name="groupBox">
       <property name="sizePolicy">

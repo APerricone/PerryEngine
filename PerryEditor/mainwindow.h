@@ -7,6 +7,7 @@
 class CPerryView;
 class QLog;
 class QRenderingOptions;
+class QMaterialEditor;
 
 namespace Ui {
     class MainWindow;
@@ -40,6 +41,7 @@ private:
 	CPerryView *m_qMainView;
 	QLog *m_qLog;
 	QRenderingOptions *m_qRenderingOptions;
+	QMaterialEditor* m_qMaterialEditor;
 
 protected:
 	virtual void closeEvent(QCloseEvent *event);

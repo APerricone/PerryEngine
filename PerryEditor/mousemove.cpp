@@ -61,9 +61,9 @@ void CMouseMove::DrawOverScene()
 
 void CMouseMove::Draw(float alpha)
 {
-	if( CSelection::Instance().size()==0 ) return;
+	if( CSelection::GetList().empty() ) return;
 	Matrix4f mWorld;
-	CSelection::Instance().GetMatrix(mWorld);
+	CSelection::Instance()->GetMatrix(mWorld);
 	float s = GetPixelScale( float3(mWorld.GetPos()) );
 	float4 p = mWorld.GetPos(); p[3] = 1.f;
 	float4 r = mWorld.GetRg()*s;
@@ -188,7 +188,7 @@ void CMouseMove::Draw(float alpha)
 
 void CMouseMove::Draw2D()
 {
-	if( CSelection::Instance().size()==0 ) return;
+	if( CSelection::GetList().empty() ) return;
 	glColor4f(1,0,0,1.0f);
 	glPrint(m_f2AxisLabelPos[0][0]-5,m_f2AxisLabelPos[0][1]-5,"X");
 	glColor4f(0,1,0,1.0f);
@@ -214,7 +214,7 @@ void CMouseMove::mousePressEvent( QMouseEvent * event )
 		CMouseActions::GetDefault()->mousePressEvent(event);
 	} else
 	{
-		CSelection::Instance().GetMatrix(m_f16StartingMatrix);
+		CSelection::Instance()->GetMatrix(m_f16StartingMatrix);
 	}
 }
 
@@ -225,13 +225,13 @@ void CMouseMove::mouseReleaseEvent( QMouseEvent * event )
 
 void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 {
-	if( CSelection::Instance().size()==0 )
+	if( CSelection::GetList().empty() )
 	{
 		m_eState = ST_NONE;
 		return;
 	}
 	Matrix4f mWorld;
-	CSelection::Instance().GetMatrix(mWorld);
+	CSelection::Instance()->GetMatrix(mWorld);
 	float s = GetPixelScale( float3(mWorld.GetPos()) );
 	float3 p = float3(mWorld.GetPos());
 	float3 r = float3(mWorld.GetRg())*s;
@@ -304,7 +304,7 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 		}
 		mWorld = m_f16StartingMatrix;
 		mWorld.Translate( movement );
-		CSelection::Instance().SetMatrix(mWorld);
+		CSelection::Instance()->SetMatrix(mWorld);
 	} else
 	{
 		float t;
