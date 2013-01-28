@@ -130,12 +130,10 @@ void CMaterial::SetDataInternal(const CMaterial::Data& i_data)
 	newDiff.w() = i_data.f4Color.w();
 	float specI = dot(newSpec,float4(0.299f,0.587f,0.114f,0.f));
 	float diffI = dot(newSpec,float4(0.299f,0.587f,0.114f,0.f));
-	float f = 1.f/(specI+diffI);
-	if( f < 1.0 )
+	float f =(specI+diffI);
+	if( f > 1.0 )
 	{
-		newDiff *= f;
-		newSpec *= f;
-		newSpec.w() = i_data.f4Specular.w();
+		newDiff *= (1-specI)/diffI;
 		newDiff.w() = i_data.f4Color.w();
 	}
 	glColor4fv( newDiff.operator const float *() );

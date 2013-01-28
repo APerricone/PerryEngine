@@ -17,6 +17,12 @@ QMaterialEditor::QMaterialEditor(QWidget *parent) :
 
 	connect(CSelection::Instance(), SIGNAL(selectionChanged(const QList<CNode*>&)),
 			this, SLOT(selectionChanged(const QList<CNode*>&)));
+
+	connect(ui->m_qDiffuseColor, SIGNAL(ColorChanged(QColor)),
+			this, SLOT(SetDiffuse(QColor)));
+	connect(ui->m_qSpecularColor, SIGNAL(ColorChanged(QColor)),
+			this, SLOT(SetSpecular(QColor)));
+	bSet = false;
 }
 
 QMaterialEditor::~QMaterialEditor()
@@ -42,81 +48,50 @@ void QMaterialEditor::selectionChanged(const QList<CNode*>& list)
 
 	if(bEnable)
 	{
+		bSet=true;
 		const CMaterial::Data& oMat = m_pModel->GetMaterial(0);
-		ui->m_qDiffuseColor->setStyleSheet(
-					QString().sprintf("background-color: rgb(%i, %i, %i);",
-									  (int)(255*oMat.f4Color.x()),
+		ui->m_qDiffuseColor->SetColor( QColor((int)(255*oMat.f4Color.x()),
 									  (int)(255*oMat.f4Color.y()),
 									  (int)(255*oMat.f4Color.z())));
-		ui->m_qSpecularColor->setStyleSheet(
-					QString().sprintf("background-color: rgb(%i, %i, %i);",
+		ui->m_qSpecularColor->SetColor( QColor(
 									  (int)(255*oMat.f4Specular.x()),
 									  (int)(255*oMat.f4Specular.y()),
 									  (int)(255*oMat.f4Specular.z())));
 		ui->m_qAlphaValue->setValue( oMat.f4Color.w() * 100);
 		ui->m_qSpecularLevel->setValue( oMat.f4Specular.w() * 250);
-	} else
-	{
-		ui->m_qDiffuseColor->setStyleSheet("");
-		ui->m_qSpecularColor->setStyleSheet("");
+		bSet=false;
 	}
 }
 
 
 void QMaterialEditor::SetDiffuse(const QColor& newDiffuse)
 {
+	if( bSet ) return;
+	bSet = true;
 	CMaterial::Data oMat = m_pModel->GetMaterial(0);
 	oMat.f4Color.x() = newDiffuse.redF();
 	oMat.f4Color.y() = newDiffuse.greenF();
 	oMat.f4Color.z() = newDiffuse.blueF();
-	ui->m_qDiffuseColor->setStyleSheet(
-				QString().sprintf("background-color: rgb(%i, %i, %i);",
-								  newDiffuse.red(),
+	ui->m_qDiffuseColor->SetColor( QColor(newDiffuse.red(),
 								  newDiffuse.green(),
 								  newDiffuse.blue()));
 	m_pModel->SetMaterial(0, oMat);
-}
-
-void QMaterialEditor::on_m_qDiffuseColor_clicked()
-{
-	CMaterial::Data oMat = m_pModel->GetMaterial(0);
-	QColor diff; diff.setRgbF(oMat.f4Color.x(),oMat.f4Color.y(),oMat.f4Color.z());
-	QColorDialog dlg(diff,this);
-	dlg.setWindowTitle(tr("Select diffuse color"));
-	connect(	&dlg,SIGNAL(currentColorChanged(const QColor &)),
-				this,SLOT(SetDiffuse(const QColor &)));
-	if( dlg.exec() == QDialog::Rejected )
-		SetDiffuse(diff);
-	disconnect(	&dlg,SIGNAL(currentColorChanged(const QColor &)),
-				this,SLOT(SetDiffuse(const QColor &)));
+	bSet = false;
 }
 
 void QMaterialEditor::SetSpecular(const QColor& newSpecular)
 {
+	if( bSet ) return;
+	bSet = true;
 	CMaterial::Data oMat = m_pModel->GetMaterial(0);
 	oMat.f4Specular.x() = newSpecular.redF();
 	oMat.f4Specular.y() = newSpecular.greenF();
 	oMat.f4Specular.z() = newSpecular.blueF();
-	ui->m_qSpecularColor->setStyleSheet(
-				QString().sprintf("background-color: rgb(%i, %i, %i);",
-								  newSpecular.red(),
+	ui->m_qSpecularColor->SetColor( QColor(newSpecular.red(),
 								  newSpecular.green(),
 								  newSpecular.blue()));
 	m_pModel->SetMaterial(0, oMat);
-}
-
-void QMaterialEditor::on_m_qSpecularColor_clicked()
-{
-	CMaterial::Data oMat = m_pModel->GetMaterial(0);
-	QColor spec; spec.setRgbF(oMat.f4Specular.x(),oMat.f4Specular.y(),oMat.f4Specular.z());
-	QColorDialog dlg(spec,this);
-	dlg.setWindowTitle(tr("Select specular color"));
-	connect(	&dlg,SIGNAL(currentColorChanged(const QColor &)),
-				this,SLOT(SetSpecular(const QColor &)));
-	if( dlg.exec() == QDialog::Rejected )
-		SetSpecular(spec);
-	disconnect(	&dlg,SIGNAL(currentColorChanged(const QColor &)),
-				this,SLOT(SetSpecular(const QColor &)));
+	bSet = false;
 }
 
 void QMaterialEditor::on_m_qSpecularLevel_valueChanged(int val)

@@ -25,15 +25,12 @@ public slots:
 	void SetSpecular(const QColor& newSpecular);
 
 private slots:
-	void on_m_qDiffuseColor_clicked();
-
-	void on_m_qSpecularColor_clicked();
-
 	void on_m_qSpecularLevel_valueChanged(int arg1);
 
 private:
 	Ui::QMaterialEditor *ui;
 	CModel *m_pModel;
+	bool bSet;
 };
 
 #endif // QMATERIALEDITOR_H

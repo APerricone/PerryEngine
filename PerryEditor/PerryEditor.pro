@@ -42,7 +42,8 @@ SOURCES += main.cpp \
     mouserotate.cpp \
     qimageloader.cpp \
 	savescreenshot.cpp\
-	materialeditor.cpp 
+	materialeditor.cpp \ 
+    colorcombobox.cpp
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -58,7 +59,8 @@ HEADERS  += mainwindow.h \
     mouserotate.h \
     qimageloader.h \
     savescreenshot.h \
-	materialeditor.h 
+	materialeditor.h \ 
+    colorcombobox.h
 
 FORMS    += mainwindow.ui \
     qlog.ui \
