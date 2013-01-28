@@ -41,8 +41,8 @@ void QColorComboBox::paintEvent(QPaintEvent *e)
 void QColorComboBox::SetColor(const QColor& c)
 {
 	m_color = c;
-	repaint();
 	emit ColorChanged(m_color);
+	repaint();
 }
 
 void QColorComboBox::mousePressEvent(QMouseEvent *e)
@@ -85,7 +85,7 @@ void QColorComboBox::mousePressEvent(QMouseEvent *e)
 		m_pPopup->SetColor(m_color);
 		m_pPopup->show();
 	}
-}
+	QComboBox::mousePressEvent(e);}
 
 ///////////////////////////////////////////////////////////////////////////////
 // QColorSelector
@@ -185,9 +185,7 @@ void QColorSelector::ManageMousePos(const QPoint& p)
 		l = qBound(0,(p.y()-m_qCenter.y()+dim/2) * 255 / dim,255);
 
 		m_color.setHsl(h,s,255-l);
-		emit ColorChanged(m_color);
-		repaint();
-		return;
+		SetColor(m_color);
 	}
 	if( m_eState == Inside_Circle )
 	{
@@ -196,8 +194,7 @@ void QColorSelector::ManageMousePos(const QPoint& p)
 		h = atan2(float(d.y()),float(d.x())) * 180 / (3.1416f);
 		if( h<0 ) h+=360;
 		m_color.setHsl(h,s,l);
-		emit ColorChanged(m_color);
-		repaint();
+		SetColor(m_color);
 	}
 }
 
@@ -231,19 +228,6 @@ void QColorSelector::SetColor(const QColor& c)
 {
 	m_color = c;
 	emit ColorChanged(m_color);
+	repaint();
 }
 
-/*	lum = GetLum(c);
-	hue = GetHue(c);
-	sat = GetSat(c);
-}
-
-float GetLum(const QColor& c)
-{
-	c.getHsv();
-}
-
-static float GetHue(const QColor& c);
-static float GetSat(const QColor& c);
-static QColor GetColor(float lum,float hue,float sat);
-*/

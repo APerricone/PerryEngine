@@ -28,7 +28,6 @@ protected:
 private:
 	QColor m_color;
 	QColorSelector* m_pPopup;
-	bool m_bPressed;
 };
 
 class QColorSelector : public QWidget

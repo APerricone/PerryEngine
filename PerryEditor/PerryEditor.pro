@@ -43,7 +43,8 @@ SOURCES += main.cpp \
     qimageloader.cpp \
 	savescreenshot.cpp\
 	materialeditor.cpp \ 
-    colorcombobox.cpp
+    colorcombobox.cpp \
+    slidercombobox.cpp
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -60,7 +61,8 @@ HEADERS  += mainwindow.h \
     qimageloader.h \
     savescreenshot.h \
 	materialeditor.h \ 
-    colorcombobox.h
+    colorcombobox.h \
+    slidercombobox.h
 
 FORMS    += mainwindow.ui \
     qlog.ui \

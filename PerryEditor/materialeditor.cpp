@@ -14,6 +14,7 @@ QMaterialEditor::QMaterialEditor(QWidget *parent) :
 {
 	ui->setupUi(this);
 	ui->dockWidgetContents->setEnabled(false);
+	ui->m_qSpecularLevel->setMaximum(250);
 
 	connect(CSelection::Instance(), SIGNAL(selectionChanged(const QList<CNode*>&)),
 			this, SLOT(selectionChanged(const QList<CNode*>&)));
@@ -22,6 +23,7 @@ QMaterialEditor::QMaterialEditor(QWidget *parent) :
 			this, SLOT(SetDiffuse(QColor)));
 	connect(ui->m_qSpecularColor, SIGNAL(ColorChanged(QColor)),
 			this, SLOT(SetSpecular(QColor)));
+
 	bSet = false;
 }
 

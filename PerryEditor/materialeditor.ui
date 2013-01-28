@@ -79,13 +79,6 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="1" colspan="2">
-     <widget class="QSpinBox" name="m_qSpecularLevel">
-      <property name="maximum">
-       <number>250</number>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
@@ -122,6 +115,9 @@
     <item row="2" column="1">
      <widget class="QColorComboBox" name="m_qSpecularColor"/>
     </item>
+    <item row="5" column="1" colspan="2">
+     <widget class="QSliderComboBox" name="m_qSpecularLevel"/>
+    </item>
    </layout>
   </widget>
  </widget>
@@ -130,6 +126,11 @@
    <class>QColorComboBox</class>
    <extends>QComboBox</extends>
    <header>colorcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QSliderComboBox</class>
+   <extends>QComboBox</extends>
+   <header>slidercombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
