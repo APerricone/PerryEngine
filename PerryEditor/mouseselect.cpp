@@ -5,6 +5,8 @@
 #include "dynamicmesh.h"
 #include "opengl.h"
 #include "editorcamera.h"
+#include "undoredo.h"
+#include "undoredoactions.h"
 
 #include <QMultiMap>
 #include <QMouseEvent>
@@ -171,10 +173,11 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 	RayHitTest tmp(m_pCamera->GetPosition(), end - m_pCamera->GetPosition());
 	CNode::ForAllNodeHierarchy(tmp);
 	RayHitTest::Container::Iterator i;
-	const CSelection::List& oSel = CSelection::GetList();
+	CSelection::List oSelCopy = CSelection::GetList();
 	CSelection* pSelObj = CSelection::Instance();
 	CNode *pNewNode = NULL;
 	bool next = false;
+	bool bChanged = false;
 	for(i=tmp.m_apHit.begin();i!=tmp.m_apHit.end();++i)
 	{
 		if(next)
@@ -182,7 +185,7 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 			pNewNode = i.value();
 			next = false;
 		}
-		if( oSel.contains(i.value()) )
+		if( oSelCopy.contains(i.value()) )
 			next = true;
 	}
 	if( next || pNewNode == NULL)
@@ -190,7 +193,7 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 		pNewNode = NULL;
 		for(i=tmp.m_apHit.begin();i!=tmp.m_apHit.end();++i)
 		{
-			if( !oSel.contains(i.value()) )
+			if( !oSelCopy.contains(i.value()) )
 			{
 				pNewNode = i.value();
 				break;
@@ -200,26 +203,35 @@ void CMouseSelect::mousePressEvent( QMouseEvent * event )
 	if( event->modifiers() & Qt::ShiftModifier )
 	{
 		if( pNewNode )
+		{
 			pSelObj->AddSelection(pNewNode);
+			bChanged = true;
+		}
 	} else
 	if( event->modifiers() & Qt::AltModifier )
 	{
 		pNewNode = NULL;
 		for(i=tmp.m_apHit.begin();i!=tmp.m_apHit.end();++i)
 		{
-			if( oSel.contains(i.value()) )
+			if( oSelCopy.contains(i.value()) )
 			{
 				pNewNode = i.value();
 				break;
 			}
 		}
 		pSelObj->DelSelection(pNewNode);
+		bChanged = true;
 	} else
 	{
 		if( pNewNode )
 			pSelObj->SetSelection(pNewNode);
 		else
 			pSelObj->ClearSelection();
+		bChanged = true;
+	}
+	if( bChanged )
+	{
+		CUndoRedoManager::AddAction( new CUndoSelectionChanged(oSelCopy,CSelection::GetList()) );
 	}
 }
 

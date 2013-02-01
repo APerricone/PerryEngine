@@ -27,7 +27,8 @@ private slots:
 
 private:
     Ui::QLog *ui;
-	QString m_strBuff;
+	QString m_strBuff;	
+	bool m_bClearNext;
 
 	void ManageBuff();
 };

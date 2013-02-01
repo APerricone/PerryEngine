@@ -20,6 +20,7 @@ CNode::CNode() : m_pParent(NULL), m_strName(NULL)
 	s_aiParentId.push_back(~0);
 	s_abDirty.push_back(false);
 	m_iClassId = 0;
+	m_bEnabled = true;
 }
 
 CNode* CNode::CreateNode()

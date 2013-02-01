@@ -37,6 +37,8 @@ public:
 
 	typedef QList<CNode*> List;
 	static const QList<CNode*>& GetList() { return s_pInstance->m_lSelection; }
+
+	void SetSelection(const List &list);
 private:
 	List m_lSelection;
 };

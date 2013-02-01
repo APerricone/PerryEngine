@@ -3,6 +3,8 @@
 #include "selection.h"
 #include "mouseactions.h"
 #include "editorcamera.h"
+#include "undoredo.h"
+#include "undoredoactions.h"
 // from Engine
 #include "mesh.h"
 #include "dynamicmesh.h"
@@ -138,16 +140,19 @@ void CMouseRotate::mousePressEvent( QMouseEvent * event )
 		m_f3StartingOrtho = cross( axe, m_f3StartingDir);
 		m_f3StartingOrtho.Normalize();
 	}
+	m_bRotated = false;
 }
 
 void CMouseRotate::mouseReleaseEvent( QMouseEvent * event )
 {
-	if( m_eState == ST_NONE)
+	if(m_eState != ST_NONE && m_bRotated)
 	{
-		CMouseActions::GetDefault()->mouseReleaseEvent(event);
-	} else
-	{
+		Matrix4f mWorld;
+		CSelection::Instance()->GetMatrix(mWorld);
+		CUndoRedoManager::AddAction( new CUndoMatrixChanged(m_f16StartingMatrix,mWorld) );
 	}
+
+	CMouseActions::GetDefault()->mouseReleaseEvent(event);
 }
 
 void CMouseRotate::mouseMoveEvent( QMouseEvent * event )
@@ -185,6 +190,7 @@ void CMouseRotate::mouseMoveEvent( QMouseEvent * event )
 		Matrix4f final;
 		final.Multiply(m_f16StartingMatrix,rot);
 		CSelection::Instance()->SetMatrix(final);
+		m_bRotated = true;
 	} else
 	{
 		float s = GetPixelScale( float3(mWorld.GetPos()) );

@@ -1,6 +1,7 @@
 #include "objloader.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "image.h"
 #include "model.h"
@@ -58,7 +59,7 @@ bool CObjLoader::ParseObj()
 		case 'v': if(!ManageObj_v()) return false; break;
 		case 'f': if(!ManageObj_f()) return false; break;
 		case 'o': if(!ManageObj_o()) return false; break;
-		//case 'g': if(!ManageObj_g()) return false; break;
+		case 'g': if(!ManageObj_g()) return false; break;
 		case 'u': if(!ManageObj_u()) return false; break;
 		}
 
@@ -79,6 +80,8 @@ bool CObjLoader::ParseObj()
 	ILog::Message("\n");
 	fclose(f);
 	CloseMesh();
+	if( m_pDest )
+		m_pDest->Enable();
 	return true;
 }
 
@@ -109,6 +112,7 @@ bool CObjLoader::ManageObj_o()
 {
 	if(m_pDest!=0)
 	{
+		m_pDest->Enable();
 		CloseMesh();
 		m_bCurrHasNormal = false;
 		m_bCurrHasTextures = false;
@@ -117,29 +121,32 @@ bool CObjLoader::ManageObj_o()
 	name=strtok(NULL,"\r\n");
 	m_pDest = CModel::CreateModel();
 	m_pDest->SetName(name);
+	m_pDest->Disable();
 	ILog::Message("adding:%s\n", name);
 	return true;
 }
-/*
+
 bool CObjLoader::ManageObj_g()
 {
 	if(m_pDest==0)
 	{
-		ILog::Erro("found geometry definition outside object definition");
+		ILog::Error("found geometry definition outside object definition");
 		return false;
 	}
 	if( m_pDest->GetLastMesh() )
+	{
 		CloseMesh();
-	m_pDest->AddMesh();
-	m_pDest->GetLastMesh()->Begin();
+		m_pDest->AddMesh();
+	}
 	m_bCurrHasNormal = false;
 	m_bCurrHasTextures = false;
 
-	//char *name=strtok(m_strCurrLine," \r\n");
-	//name=strtok(NULL,"\r\n");
+	char *name=strtok(m_strCurrLine," \r\n");
+	name=strtok(NULL,"\r\n");
+	//m_pDest->GetLastMesh()->SetName(name);
 	return true;
 }
-*/
+
 void CObjLoader::CloseMesh()
 {
 	if( !m_bCurrHasNormal)
@@ -256,7 +263,7 @@ bool CObjLoader::ParseMtl()
 	FILE *f=fopen(filename,"rt");
 	if(f == NULL)
 	{
-		ILog::Error("fail\n");
+		ILog::Error("file not found\n");
 		return false;
 	}
 

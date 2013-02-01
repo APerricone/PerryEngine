@@ -38,7 +38,7 @@ private:
 	bool ManageObj_o();
 	bool ManageObj_u();
 	bool ManageObj_f();
-	//bool ManageObj_g();
+	bool ManageObj_g();
 	void CloseMesh();
 	// 
 	void ManageMtl_K();

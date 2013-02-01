@@ -54,10 +54,14 @@ public:
 	void ForAllChildrenHierarchy(fn& i_tFn);
 
 	unsigned int GetClassId() const { return m_iClassId; }
+
+	void Enable() { m_bEnabled = true; }
+	void Disable() { m_bEnabled = false; }
+	bool IsEnabled() const { return m_bEnabled; }
 protected:
 	char *m_strName;
-
 	unsigned int m_iClassId;
+	bool m_bEnabled;
 
 	//! parent node
 	//! \note If null this node is inside #s_apAllRoot
@@ -126,9 +130,12 @@ inline void CNode::ForAllChildrenHierarchy(fn& i_tFn)
 	ChildrenContainer::iterator iNode;
 	for(iNode=m_apChildren.begin();iNode!=m_apChildren.end();iNode++)
 	{
-		i_tFn(*iNode);
-		if( (*iNode)->m_apChildren.size() != 0)
-			(*iNode)->ForAllChildrenHierarchy(i_tFn);
+		if( (*iNode)->IsEnabled())
+		{
+			i_tFn(*iNode);
+			if( (*iNode)->m_apChildren.size() != 0)
+				(*iNode)->ForAllChildrenHierarchy(i_tFn);
+		}
 	}
 }
 
@@ -138,8 +145,11 @@ inline void CNode::ForAllNodeHierarchy(fn& i_tFn)
 	ChildrenContainer::iterator iNode;
 	for(iNode=s_apAllRoot.begin();iNode!=s_apAllRoot.end();iNode++)
 	{
-		i_tFn(*iNode);
-		if( (*iNode)->m_apChildren.size() != 0)
-			(*iNode)->ForAllChildrenHierarchy(i_tFn);
+		if( (*iNode)->IsEnabled())
+		{
+			i_tFn(*iNode);
+			if( (*iNode)->m_apChildren.size() != 0)
+				(*iNode)->ForAllChildrenHierarchy(i_tFn);
+		}
 	}
 }

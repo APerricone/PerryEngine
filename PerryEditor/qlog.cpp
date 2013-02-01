@@ -2,12 +2,15 @@
 #include "ui_qlog.h"
 #include <stdio.h>
 
+#include <QApplication>
+
 QLog::QLog(QWidget *parent) :
     QDockWidget(parent),
     ui(new Ui::QLog)
 {
     ui->setupUi(this);
 	ILog::SetLog(this);
+	m_bClearNext = false;
 }
 
 QLog::~QLog()
@@ -36,11 +39,21 @@ void QLog::ManageBuff()
 	QTextCursor oCursor = ui->m_qText->textCursor();
 	oCursor.clearSelection();
 	oCursor.movePosition(QTextCursor::End);
+	if( m_bClearNext || ( m_strBuff.left(1)=="\r" ))
+	{
+		oCursor.select(QTextCursor::LineUnderCursor);
+		oCursor.removeSelectedText();
+		ui->m_qText->setTextCursor(oCursor);
+		oCursor = ui->m_qText->textCursor();
+	}
 	m_strBuff.replace("\n","<br>");
-	m_strBuff.replace("\r","<br>");
 	m_strBuff.replace("\t","&#9;");
-	oCursor.insertHtml(m_strBuff);
+
+	QStringList l = m_strBuff.split("\r", QString::SkipEmptyParts);;
+	oCursor.insertHtml(l.last());
+	m_bClearNext = ( m_strBuff.right(1)=="\r" );
 	ui->m_qText->setTextCursor(oCursor);
+	qApp->processEvents();
 }
 
 QString QLog::toHtml() const
@@ -50,12 +63,21 @@ QString QLog::toHtml() const
 
 void QLog::on_m_qCopyBtn_clicked()
 {
+	static int i=0;
+	switch(i)
+	{
+	case 0: ILog::Message("\rTest 123"); break;
+	case 1: ILog::Message("\r123 Test"); break;
+	}
+	i=1-i;
+
+	/*
 	QTextCursor oCursor = ui->m_qText->textCursor();
 	oCursor.select(QTextCursor::Document);
 	ui->m_qText->copy();
 	oCursor.clearSelection();
 	oCursor.movePosition(QTextCursor::End);
-	ui->m_qText->setTextCursor(oCursor);
+	ui->m_qText->setTextCursor(oCursor);*/
 }
 
 void QLog::on_m_qClearBtn_clicked()

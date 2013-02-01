@@ -20,6 +20,7 @@
 
 CPerryView::CPerryView(QWidget * parent) :
 	QGLWidget(parent),
+	m_eIsInitialized(eUninit),
 	m_qTimer(new QBasicTimer)
 {
 	m_pScene = NULL;
@@ -30,8 +31,10 @@ CPerryView::CPerryView(QWidget * parent) :
 	setFocusPolicy(Qt::WheelFocus);
 
 	glPrint = StdGlPrint;
-	m_bIsInitialized = false;
 	m_bScreenshotMode = false;
+
+	// 30 fps
+	m_qTimer->start(33,this);
 }
 
 QToolBar* CPerryView::GetStandardMouseActionsToolbar()
@@ -85,6 +88,7 @@ void CPerryView::SaveScreenshot(const QString &fileName, const int2 &size, bool 
 	}
 
 	CImage *pScreen = CImage::CreateFromTexture2D( tmp.GetTexture(0) );
+	pScreen->RemoveAlpha();
 	pScreen->Mirror(false,true);
 	pScreen->Save(fileName.toLatin1());
 	delete pScreen;
@@ -138,12 +142,12 @@ void CPerryView::SampleScene()
 	a.f4Specular.Set(0.2f);
 	a.f4Specular.w() = 1.f;
 	pSphere->SetMaterial(mainMesh,a);
-	// 30 fps
-	m_qTimer->start(33,this);
 }
 
 void CPerryView::timerEvent(QTimerEvent *e)
 {
+	if(m_eIsInitialized!=eInited) return;
+
 	if( m_qRenderingOptions )
 	{
 		m_pScene->m_bApplySsao = m_qRenderingOptions->GetSSAOEnabled();
@@ -167,6 +171,8 @@ void CPerryView::timerEvent(QTimerEvent *e)
 
 void CPerryView::initializeGL()
 {
+	if(m_eIsInitialized != eUninit) return;
+	m_eIsInitialized = eInitializing;
 	QGLWidget::initializeGL();
 	if(!CScene::InitStatic())
 	{
@@ -178,7 +184,6 @@ void CPerryView::initializeGL()
 		delete m_pScene;
 		return;
 	}
-	m_bIsInitialized = true;
 	QImageLoader::Register();
 	m_pScene->m_bUsePerCounter = false;
 	SampleScene();
@@ -191,13 +196,14 @@ void CPerryView::initializeGL()
 	m_pStandardMouseActions = new CStandardMouseActions();
 	m_pStandardMouseActions->InitActions();
 
-	// it should be an event
-	MainWindow::Instance()->OpenGLInitialized();
+	emit OpenGLInitialized();
+
+	m_eIsInitialized = eInited;
 }
 
 void CPerryView::resizeGL( int width, int height )
 {
-	if(!m_bIsInitialized) return;
+	if(m_eIsInitialized!=eInited) return;
 	QGLWidget::resizeGL(width,height);
 	m_pScene->Resize(width,height);
 	m_pCamera->resizeGL( width , height);
@@ -278,10 +284,12 @@ void CPerryView::DrawBackground()
 
 void CPerryView::paintGL()
 {
+	if(m_eIsInitialized!=eInited) return;
+
 	s_pCurrentView = this;
 
 	QGLWidget::paintGL();
-	if(!m_bIsInitialized) return;
+
 	//pScene->Update();
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );

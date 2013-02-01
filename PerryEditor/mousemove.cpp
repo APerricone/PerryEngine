@@ -3,6 +3,8 @@
 #include "selection.h"
 #include "mouseactions.h"
 #include "editorcamera.h"
+#include "undoredo.h"
+#include "undoredoactions.h"
 // from Engine
 #include "mesh.h"
 #include "dynamicmesh.h"
@@ -216,10 +218,17 @@ void CMouseMove::mousePressEvent( QMouseEvent * event )
 	{
 		CSelection::Instance()->GetMatrix(m_f16StartingMatrix);
 	}
+	m_bMoved = false;
 }
 
 void CMouseMove::mouseReleaseEvent( QMouseEvent * event )
 {
+	if(m_eState != ST_NONE && m_bMoved)
+	{
+		Matrix4f mWorld;
+		CSelection::Instance()->GetMatrix(mWorld);
+		CUndoRedoManager::AddAction( new CUndoMatrixChanged(m_f16StartingMatrix,mWorld) );
+	}
 	CMouseActions::GetDefault()->mouseReleaseEvent(event);
 }
 
@@ -305,6 +314,7 @@ void CMouseMove::mouseMoveEvent( QMouseEvent * event )
 		mWorld = m_f16StartingMatrix;
 		mWorld.Translate( movement );
 		CSelection::Instance()->SetMatrix(mWorld);
+		m_bMoved = true;
 	} else
 	{
 		float t;

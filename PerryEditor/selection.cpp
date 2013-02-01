@@ -88,6 +88,12 @@ void CSelection::SetSelection(CNode* node)
 	emit selectionChanged(m_lSelection);
 }
 
+void CSelection::SetSelection(const List& list)
+{
+	m_lSelection = list;
+	emit selectionChanged(m_lSelection);
+}
+
 void CSelection::AddSelection(CNode* node)
 {
 	m_lSelection.append(node);

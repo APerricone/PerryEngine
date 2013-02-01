@@ -4,10 +4,13 @@
 #include "perryview.h"
 #include "qlog.h"
 #include "renderingoptions.h"
-#include "Engine_config.h"
+#include <Engine_config.h>
 #include "mouseactions.h"
 #include "savescreenshot.h"
 #include "materialeditor.h"
+#include "undoredo.h"
+
+#include <objloader.h>
 
 #include <QSettings>
 #include <QMessageBox>
@@ -24,13 +27,14 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 
 	CMouseActions::Init(this,ui->m_qMenuTools);
+	m_pUndoRedoManager = new CUndoRedoManager();
+	connect(m_pUndoRedoManager,SIGNAL(Changed(CUndoRedoManager*)),this,SLOT(UndoRedo_Changed(CUndoRedoManager*)));
 
 	m_qMainView = new CPerryView(this);
+	connect(m_qMainView,SIGNAL(OpenGLInitialized()),SLOT(OpenGLInitialized()));
 	setCentralWidget(m_qMainView);
 
 	m_qLog = new QLog(this);
-	addDockWidget(Qt::BottomDockWidgetArea,m_qLog);
-	ui->m_qMenuView->addAction(m_qLog->toggleViewAction());
 
 	m_qMaterialEditor = new QMaterialEditor(this);
 	addDockWidget(Qt::RightDockWidgetArea,m_qMaterialEditor);
@@ -41,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->m_qMenuView->addAction(m_qRenderingOptions->toggleViewAction());
 	m_qMainView->SetRenderingOptions(m_qRenderingOptions);
 
+	addDockWidget(Qt::BottomDockWidgetArea,m_qLog);
+	ui->m_qMenuView->addAction(m_qLog->toggleViewAction());
+
 	QSettings settings("Perry", "PerryEditor");
 	restoreGeometry(settings.value("geometry").toByteArray());
 	restoreState(settings.value("windowState").toByteArray());
@@ -50,6 +57,10 @@ void MainWindow::OpenGLInitialized()
 {
 	ui->m_qToolbarsMenu->addAction(ui->mainToolBar->toggleViewAction());
 	ui->m_qToolbarsMenu->addAction(m_qMainView->GetStandardMouseActionsToolbar()->toggleViewAction());
+
+	QSettings settings("Perry", "PerryEditor");
+	restoreGeometry(settings.value("geometry").toByteArray());
+	restoreState(settings.value("windowState").toByteArray());
 }
 
 bool MainWindow::Check()
@@ -69,6 +80,7 @@ bool MainWindow::Check()
 MainWindow::~MainWindow()
 {
     delete ui;
+	delete m_pUndoRedoManager;
 }
 
 void MainWindow::on_actionAbout_Qt_triggered()
@@ -131,4 +143,49 @@ void MainWindow::on_actionSave_screenshot_triggered()
 void MainWindow::LoadLut(QString i_qPath)
 {
 	m_qMainView->LoadLut(i_qPath);
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+	m_pUndoRedoManager->Undo();
+}
+
+void MainWindow::on_actionRedo_triggered()
+{
+	m_pUndoRedoManager->Redo();
+}
+
+void MainWindow::UndoRedo_Changed(CUndoRedoManager* pUndoRedoManager)
+{
+	ui->actionUndo->setEnabled( pUndoRedoManager->CanUndo() );
+	ui->actionRedo->setEnabled( pUndoRedoManager->CanRedo() );
+	ui->actionClear_memory->setEnabled( pUndoRedoManager->CanClearMemory() );
+}
+
+void MainWindow::on_actionClear_memory_triggered()
+{
+	QMessageBox::StandardButton btn =  QMessageBox::question(this,
+		tr("Warning"),tr("this command clears undo buffer"),
+		QMessageBox::Yes | QMessageBox::No,
+		QMessageBox::Yes);
+	if(btn == QMessageBox::Yes)
+	{
+		m_pUndoRedoManager->ClearMemory();
+	}
+}
+
+void MainWindow::on_actionWavefront_obj_triggered()
+{
+	QFileDialog file(this);
+	QStringList filters;
+	filters << "Obj files (*.obj)";
+	file.setNameFilters(filters);
+
+	if(file.exec() == QDialog::Accepted)
+	{
+		CObjLoader tmp;
+		QString fileName = file.selectedFiles()[0];
+		fileName = fileName.left( fileName.length() - 4 );
+		tmp.LoadObj( fileName.toLatin1());
+	}
 }

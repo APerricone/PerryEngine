@@ -14,11 +14,10 @@ TEMPLATE = app
 # engine
 INCLUDEPATH += ../Engine
 
-debug {
-		LIBS += -L../Engine-build/debug
-} else {
-        LIBS += -L../Engine-build
-}
+Release:LIBS += -L../Engine-build/Release
+Debug:LIBS += -L../Engine-build/debug
+
+
 LIBS += -lEngine
 LIBS += -lopengl32 -lglu32
 
@@ -28,6 +27,13 @@ LIBS += d:/Lavoro/DOCS/glew-1.6.0/lib/glew32.lib
 LIBS += d:/Lavoro/DOCS/glew-1.6.0/bin/glew32.dll
 # LIBS += -Ld:/Lavoro/DOCS/glew-1.6.0/lib -lglew32
 
+# OBJ Loader
+INCLUDEPATH += ../ObjLoader
+Release:LIBS += -L../ObjLoader-build/Release
+Debug:LIBS += -L../ObjLoader-build/Debug
+LIBS += -lObjLoader
+
+# ---
 SOURCES += main.cpp \
 		mainwindow.cpp \
 		perryview.cpp \
@@ -44,7 +50,9 @@ SOURCES += main.cpp \
 	savescreenshot.cpp\
 	materialeditor.cpp \ 
     colorcombobox.cpp \
-    slidercombobox.cpp
+    slidercombobox.cpp \
+    undoredo.cpp \
+	undoredoactions.cpp
 
 HEADERS  += mainwindow.h \
 		perryview.h \
@@ -62,7 +70,9 @@ HEADERS  += mainwindow.h \
     savescreenshot.h \
 	materialeditor.h \ 
     colorcombobox.h \
-    slidercombobox.h
+    slidercombobox.h \
+    undoredo.h \
+	undoredoactions.h
 
 FORMS    += mainwindow.ui \
     qlog.ui \
@@ -84,9 +94,6 @@ OTHER_FILES += \
 RESOURCES += \
     Icons.qrc \
     Cursors.qrc
-
-
-
 
 linux-g++{
     QMAKE_POST_LINK += cp ../Engine/ExeDir/*.* .

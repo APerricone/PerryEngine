@@ -38,6 +38,7 @@ private:
 	float3 m_f3StartingDir;
 	float3 m_f3StartingOrtho;
 	Matrix4f m_f16StartingMatrix;
+	bool m_bRotated;
 };
 
 

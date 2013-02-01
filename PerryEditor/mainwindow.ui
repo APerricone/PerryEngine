@@ -78,6 +78,8 @@
     </property>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionClear_memory"/>
    </widget>
    <widget class="QMenu" name="m_qToolbarsMenu">
     <property name="title">
@@ -157,7 +159,7 @@
   </action>
   <action name="actionWavefront_obj">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Wavefront obj...</string>
@@ -188,9 +190,12 @@
   </action>
   <action name="actionUndo">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="iconText">
     <string>Undo</string>
    </property>
    <property name="shortcut">
@@ -199,7 +204,7 @@
   </action>
   <action name="actionRedo">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Redo</string>
@@ -211,6 +216,11 @@
   <action name="actionSave_screenshot">
    <property name="text">
     <string>Save screenshot...</string>
+   </property>
+  </action>
+  <action name="actionClear_memory">
+   <property name="text">
+    <string>Clear memory</string>
    </property>
   </action>
  </widget>

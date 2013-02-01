@@ -97,6 +97,7 @@ void CModel::UpdateBoundings()
 
 void CModel::Draw(bool i_bIgnoreVisibility, bool i_bSetMaterial)
 {
+	if(!m_bEnabled) return;
 	CNode::Draw(i_bIgnoreVisibility,i_bSetMaterial);
 
 	if( !s_abVisible[m_iVisibility] && !i_bIgnoreVisibility ) 

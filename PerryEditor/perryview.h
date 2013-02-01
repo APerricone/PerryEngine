@@ -40,14 +40,14 @@ public:
 
 	void SetRenderingOptions(IRenderingOptions* p) { m_qRenderingOptions = p; }
 
-	bool IsInitialized() const { return m_bIsInitialized; }
+	bool IsInitialized() const { return m_eIsInitialized==eInited; }
 
 	QToolBar* GetStandardMouseActionsToolbar();
 
 	void SaveScreenshot(const QString& fileName,const int2& size = int2(0,0), bool lut = false);
 	void LoadLut(QString i_qPath);
 signals:
-
+	void OpenGLInitialized();
 public slots:
 
 protected:
@@ -63,13 +63,18 @@ protected:
 	virtual void timerEvent(QTimerEvent *e);
 
 
-	QBasicTimer *m_qTimer;
 	CScene *m_pScene;
 	CEditorCamera *m_pCamera;
 	IRenderingOptions *m_qRenderingOptions;
 	CStandardMouseActions *m_pStandardMouseActions;
-	bool m_bIsInitialized;
+	enum InitState
+	{
+		eUninit,
+		eInitializing,
+		eInited
+	}	m_eIsInitialized;
 	bool m_bScreenshotMode;
+	QBasicTimer *m_qTimer;
 private:
 	static CPerryView* s_pCurrentView;
 

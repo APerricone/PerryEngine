@@ -17,6 +17,8 @@ configure_file ( "config.h.in" "${CMAKE_CURRENT_SOURCE_DIR}/${PROJ_NAME}_config.
 
 set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_subdirectory(${CMAKE_SOURCE_DIR}/../Engine ${CMAKE_SOURCE_DIR}/Engine-build)
+
 set( OUTPUT_NAME ${PROJ_NAME})
 set( OUTPUT_NAME_Debug ${PROJ_NAME}_D)
 

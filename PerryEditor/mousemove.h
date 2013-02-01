@@ -43,6 +43,7 @@ private:
 
 	float3 m_f3StartingPoint;
 	Matrix4f m_f16StartingMatrix;
+	float m_bMoved;
 
 	void Draw(float alpha);
 };
