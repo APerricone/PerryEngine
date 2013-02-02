@@ -10,6 +10,7 @@ class CModel;
 class CObjLoader
 {
 public:
+	CObjLoader();
 	~CObjLoader();
 
 	bool LoadObj(const char* i_strFilename);
@@ -17,6 +18,7 @@ public:
 private:
 
 	const char* m_strFilename;
+	char *m_strPath;
 	char m_strCurrLine[1024];
 	//
 	CModel* m_pDest;

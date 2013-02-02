@@ -18,7 +18,7 @@ CNode::CNode() : m_pParent(NULL), m_strName(NULL)
 	s_af16WorldMatrices.push_back(Matrix4f());
 	s_af16InvWorldMatrices.push_back(Matrix4f());
 	s_aiParentId.push_back(~0);
-	s_abDirty.push_back(false);
+	s_abDirty.push_back(true);
 	m_iClassId = 0;
 	m_bEnabled = true;
 }

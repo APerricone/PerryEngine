@@ -6,11 +6,19 @@
 #include "image.h"
 #include "model.h"
 #include "log.h"
+#include "mymacros.h"
 
 #include <time.h>
 
+CObjLoader::CObjLoader() :
+	m_strPath(0)
+{
+
+}
+
 CObjLoader::~CObjLoader()
 {
+	SAFE_DELETE_ARRAY(m_strPath);
 	std::vector<char*>::iterator i;
 	for( i = m_astrMaterialNames.begin();
 		 i != m_astrMaterialNames.end(); ++i)
@@ -22,9 +30,17 @@ CObjLoader::~CObjLoader()
 bool CObjLoader::LoadObj(const char* i_strFilename)
 {
 	m_strFilename = i_strFilename;
+	int l = strlen(m_strFilename);
+	m_strPath = new char[l+1];
+	strcpy(m_strPath,m_strFilename);
+	char *sl;
+	sl = strrchr(m_strPath,'\\'); if(sl!=0) (*(sl+1))=0;
+	sl = strrchr(m_strPath,'/'); if(sl!=0) (*(sl+1))=0;
+
 	m_pDest = NULL;
 	if( !ParseMtl() ) return false;
 	if( !ParseObj() ) return false;
+
 	return true;
 }
 
@@ -112,16 +128,16 @@ bool CObjLoader::ManageObj_o()
 {
 	if(m_pDest!=0)
 	{
-		m_pDest->Enable();
 		CloseMesh();
+		m_pDest->Enable();
 		m_bCurrHasNormal = false;
 		m_bCurrHasTextures = false;
 	}
 	char *name=strtok(m_strCurrLine," \r\n");
 	name=strtok(NULL,"\r\n");
 	m_pDest = CModel::CreateModel();
-	m_pDest->SetName(name);
 	m_pDest->Disable();
+	m_pDest->SetName(name);
 	ILog::Message("adding:%s\n", name);
 	return true;
 }
@@ -298,6 +314,9 @@ void CObjLoader::ManageMtl_K()
 			&m_aMaterials.back().f4Specular.x(),
 			&m_aMaterials.back().f4Specular.y(),
 			&m_aMaterials.back().f4Specular.z());
+		m_aMaterials.back().f4Specular.x() *= 0.1f;
+		m_aMaterials.back().f4Specular.y() *= 0.1f;
+		m_aMaterials.back().f4Specular.z() *= 0.1f;
 	}
 	// ignore: Ka - Ke
 }
@@ -308,7 +327,7 @@ void CObjLoader::ManageMtl_N()
 	{
 		float t;
 		sscanf(m_strCurrLine,"Ns %f",&t);
-		m_aMaterials.back().f4Specular.w() = t/ 100.f;
+		m_aMaterials.back().f4Specular.w() = t/ 250.f;
 	}
 }
 
@@ -320,7 +339,11 @@ void CObjLoader::ManageMtl_m()
 		{
 			char *name=strtok(m_strCurrLine," \r\n");
 			name=strtok(NULL,"\r\n");
-			CImage *pImage = CImage::LoadFile(name);
+			char* completeFileName = new char[strlen(m_strPath)+strlen(name)+2];
+			strcpy(completeFileName,m_strPath);
+			strcat(completeFileName,name);
+			CImage *pImage = CImage::LoadFile(completeFileName);
+			delete [] completeFileName;
 			if( pImage )
 			{
 				m_aMaterials.back().glDiffuseTex = pImage->GetTexture2D();

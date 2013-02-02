@@ -27,7 +27,7 @@ CImage* QImageLoader::Load(const char *i_sPath)
 	QImage tmp(i_sPath);
 	if( tmp.isNull() )
 	{
-		ILog::Message("Error");
+		ILog::Message("Error\n");
 		return 0;
 	}
 
