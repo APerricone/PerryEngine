@@ -1,0 +1,3847 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Message File version v4.4.00-11 - Last Updated 03/02/2023 (up to WI8 v4.4.00-11) -->
+<Messages>
+	<Msg_1>
+		<JPN>Number of pixel defects</JPN>
+	</Msg_1>
+	<Msg_2>
+		<JPN>Define logo control parameters</JPN>
+	</Msg_2>
+	<Msg_3>
+		<JPN>Main parameters</JPN>
+	</Msg_3>
+	<Msg_4>
+		<JPN>Cell size</JPN>
+	</Msg_4>
+	<Msg_5>
+		<JPN>Shift on X axis</JPN>
+	</Msg_5>
+	<Msg_6>
+		<JPN>Shift on Y axis</JPN>
+	</Msg_6>
+	<Msg_7>
+		<JPN>Horizontal partitioning size</JPN>
+	</Msg_7>
+	<Msg_8>
+		<JPN>Vertical partitioning size</JPN>
+	</Msg_8>
+	<Msg_9>
+		<JPN>Enable function</JPN>
+	</Msg_9>
+	<Msg_10>
+		<JPN>Controls activation menu</JPN>
+	</Msg_10>
+	<Msg_11>
+		<JPN>Locator stroke menu</JPN>
+	</Msg_11>
+	<Msg_12>
+		<JPN>-PROTOCOL-</JPN>
+	</Msg_12>
+	<Msg_13>
+		<JPN>LABEL</JPN>
+	</Msg_13>
+	<Msg_14>
+		<JPN>Active camera:</JPN>
+	</Msg_14>
+	<Msg_15>
+		<JPN>Monitoring active</JPN>
+	</Msg_15>
+	<Msg_16>
+		<JPN>Choose all</JPN>
+	</Msg_16>
+	<Msg_17>
+		<JPN>Show always</JPN>
+	</Msg_17>
+	<Msg_18>
+		<JPN>Show never</JPN>
+	</Msg_18>
+	<Msg_19>
+		<JPN>Show errors only</JPN>
+	</Msg_19>
+	<Msg_20>
+		<JPN>Change password</JPN>
+	</Msg_20>
+	<Msg_21>
+		<JPN>Production name</JPN>
+	</Msg_21>
+	<Msg_22>
+		<JPN>New password:</JPN>
+	</Msg_22>
+	<Msg_23>
+		<JPN>Repeat new password:</JPN>
+	</Msg_23>
+	<Msg_24>
+		<JPN>Do you really want to quit the application?</JPN>
+	</Msg_24>
+	<Msg_25>
+		<JPN>Linked database:</JPN>
+	</Msg_25>
+	<Msg_26>
+		<JPN>Database area match number:</JPN>
+	</Msg_26>
+	<Msg_27>
+		<JPN>Database key/Matching area setting</JPN>
+	</Msg_27>
+	<Msg_28>
+		<JPN>Database key area</JPN>
+	</Msg_28>
+	<Msg_29>
+		<JPN>Database range comparison</JPN>
+	</Msg_29>
+	<Msg_30>
+		<JPN>Do you want to quit the font/character acquisition procedure?</JPN>
+	</Msg_30>
+	<Msg_31>
+		<JPN>Save calibration?</JPN>
+	</Msg_31>
+	<Msg_32>
+		<JPN>Saving calibration data</JPN>
+	</Msg_32>
+	<Msg_33>
+		<JPN>Enable database comparison</JPN>
+	</Msg_33>
+	<Msg_34>
+		<JPN>Total images:</JPN>
+	</Msg_34>
+	<Msg_35>
+		<JPN>Good images:</JPN>
+	</Msg_35>
+	<Msg_36>
+		<JPN>Total Faults:</JPN>
+	</Msg_36>
+	<Msg_37>
+		<JPN>P-time:</JPN>
+	</Msg_37>
+	<Msg_38>
+		<JPN>- DEFINING KEY / DATABASE MATCHING -</JPN>
+	</Msg_38>
+	<Msg_39>
+		<JPN>Database key</JPN>
+	</Msg_39>
+	<Msg_40>
+		<JPN>Database matching</JPN>
+	</Msg_40>
+	<Msg_41>
+		<JPN>-MISSING-</JPN>
+	</Msg_41>
+	<Msg_42>
+		<JPN>-NOT PERFORMED-</JPN>
+	</Msg_42>
+	<Msg_43>
+		<JPN>Enter password</JPN>
+	</Msg_43>
+	<Msg_44>
+		<JPN>Graphical controls</JPN>
+	</Msg_44>
+	<Msg_45>
+		<JPN>Code decoding controls</JPN>
+	</Msg_45>
+	<Msg_46>
+		<JPN>Camera is missing or not properly configured</JPN>
+	</Msg_46>
+	<Msg_47>
+		<JPN>SHOW ERRORS ONLY</JPN>
+	</Msg_47>
+	<Msg_48>
+		<JPN>FULL VISUALIZATION</JPN>
+	</Msg_48>
+	<Msg_49>
+		<JPN>VISUALIZATION DISABLED</JPN>
+	</Msg_49>
+	<Msg_50>
+		<JPN>Change visualization</JPN>
+	</Msg_50>
+	<Msg_51>
+		<JPN>Startup error</JPN>
+	</Msg_51>
+	<Msg_52>
+		<JPN>Error reading configuration file. Missing or corrupted file.</JPN>
+	</Msg_52>
+	<Msg_53>
+		<JPN>Max. Incorrect characters</JPN>
+	</Msg_53>
+	<Msg_54>
+		<JPN>Error</JPN>
+	</Msg_54>
+	<Msg_55>
+		<JPN>No production available. Create default production</JPN>
+	</Msg_55>
+	<Msg_56>
+		<JPN>Error production '%s' file reading. Missing or corrupted file.</JPN>
+	</Msg_56>
+	<Msg_57>
+		<JPN>Error production '%s' file writing</JPN>
+	</Msg_57>
+	<Msg_58>
+		<JPN>Error production '%s' associated database reading. Missing or corrupted file.</JPN>
+	</Msg_58>
+	<Msg_59>
+		<JPN>Configuration parameters</JPN>
+	</Msg_59>
+	<Msg_60>
+		<JPN>Encoder resolution</JPN>
+	</Msg_60>
+	<Msg_61>
+		<JPN>Inspection tolerances</JPN>
+	</Msg_61>
+	<Msg_62>
+		<JPN>Logo parameters</JPN>
+	</Msg_62>
+	<Msg_63>
+		<JPN>Advanced parameters</JPN>
+	</Msg_63>
+	<Msg_64>
+		<JPN>Encoder wheel diameter</JPN>
+	</Msg_64>
+	<Msg_65>
+		<JPN>Language</JPN>
+	</Msg_65>
+	<Msg_66>
+		<JPN>Password:</JPN>
+	</Msg_66>
+	<Msg_67>
+		<JPN>Illumination mode</JPN>
+	</Msg_67>
+	<Msg_68>
+		<JPN>Production '%s' has NO Templates. Creating default Template.</JPN>
+	</Msg_68>
+	<Msg_69>
+		<JPN>Error reading synchronization template '%s' associated to production '%s'. Missing or corrupted file.</JPN>
+	</Msg_69>
+	<Msg_70>
+		<JPN>Expression</JPN>
+	</Msg_70>
+	<Msg_71>
+		<JPN>Empty database. Insert at least one character.</JPN>
+	</Msg_71>
+	<Msg_72>
+		<JPN>Font acquisition procedure aborted</JPN>
+	</Msg_72>
+	<Msg_73>
+		<JPN>Inter-string space</JPN>
+	</Msg_73>
+	<Msg_74>
+		<JPN>Error - The Database includes repeated characters.</JPN>
+	</Msg_74>
+	<Msg_75>
+		<JPN>-  ANCHOR POINT %s  TEST -</JPN>
+	</Msg_75>
+	<Msg_76>
+		<JPN>- SAVING in progress...</JPN>
+	</Msg_76>
+	<Msg_77>
+		<JPN>Enables default template code</JPN>
+	</Msg_77>
+	<Msg_78>
+		<JPN>Controls enabling mark</JPN>
+	</Msg_78>
+	<Msg_79>
+		<JPN>Enable function</JPN>
+	</Msg_79>
+	<Msg_80>
+		<JPN>Extraction threshold</JPN>
+	</Msg_80>
+	<Msg_81>
+		<JPN>Filling factor</JPN>
+	</Msg_81>
+	<Msg_82>
+		<JPN>Error writing Register file '%s'.</JPN>
+	</Msg_82>
+	<Msg_83>
+		<JPN>Incremental Step</JPN>
+	</Msg_83>
+	<Msg_84>
+		<JPN>WI-DPKG license file missing</JPN>
+	</Msg_84>
+	<Msg_85>
+		<JPN>ERROR FILE READING</JPN>
+	</Msg_85>
+	<Msg_86>
+		<JPN>Unauthorized access</JPN>
+	</Msg_86>
+	<Msg_87>
+		<JPN>Hardware Authentication Error</JPN>
+	</Msg_87>
+	<Msg_88>
+		<JPN>FILE WRITING ERROR</JPN>
+	</Msg_88>
+	<Msg_89>
+		<JPN>Configuration file writing error</JPN>
+	</Msg_89>
+	<Msg_90>
+		<JPN>Marker</JPN>
+	</Msg_90>
+	<Msg_91>
+		<JPN>SERIAL PORT TIMEOUT</JPN>
+	</Msg_91>
+	<Msg_92>
+		<JPN>SERIAL PORT ERROR</JPN>
+	</Msg_92>
+	<Msg_93>
+		<JPN>SERIAL PORT WARNING</JPN>
+	</Msg_93>
+	<Msg_94>
+		<JPN>Camera %d serial port not responding [CMD:"%s"]. Application will close</JPN>
+	</Msg_94>
+	<Msg_95>
+		<JPN>Camera %d Serial port communication error  [CMD:"%s"].Application will close</JPN>
+	</Msg_95>
+	<Msg_96>
+		<JPN>Camera %d serial port not responding [CMD:"%s"]. Procedure will be aborted</JPN>
+	</Msg_96>
+	<Msg_97>
+		<JPN>Camera %d serial port communication error [CMD:"%s"].  Procedure will be aborted</JPN>
+	</Msg_97>
+	<Msg_98>
+		<JPN>WHITE BALANCE</JPN>
+	</Msg_98>
+	<Msg_99>
+		<JPN>RESET WHITE BALANCE</JPN>
+	</Msg_99>
+	<Msg_100>
+		<JPN>- TOLERANCES DEFINITION -</JPN>
+	</Msg_100>
+	<Msg_101>
+		<JPN>Required page length exceeds maximum dimensions. Forced to maximum allowed value of %.2f inches</JPN>
+	</Msg_101>
+	<Msg_102>
+		<JPN>Image source selection</JPN>
+	</Msg_102>
+	<Msg_103>
+		<JPN>Image source</JPN>
+	</Msg_103>
+	<Msg_104>
+		<JPN>Acquisition from camera</JPN>
+	</Msg_104>
+	<Msg_105>
+		<JPN>Acquire from Disc</JPN>
+	</Msg_105>
+	<Msg_106>
+		<JPN>- CONTROL REGION DEFINITION -</JPN>
+	</Msg_106>
+	<Msg_107>
+		<JPN>- EXCLUSION AREA %d/%d DEFINITION -</JPN>
+	</Msg_107>
+	<Msg_108>
+		<JPN>Zoom +</JPN>
+	</Msg_108>
+	<Msg_109>
+		<JPN>Zoom -</JPN>
+	</Msg_109>
+	<Msg_110>
+		<JPN>Reset zoom</JPN>
+	</Msg_110>
+	<Msg_111>
+		<JPN>Right</JPN>
+	</Msg_111>
+	<Msg_112>
+		<JPN>Wrong password format. Char number [0-9]</JPN>
+	</Msg_112>
+	<Msg_113>
+		<JPN>Wrong account format.  Char number [1-9]</JPN>
+	</Msg_113>
+	<Msg_114>
+		<JPN>Wrong account</JPN>
+	</Msg_114>
+	<Msg_115>
+		<JPN>- TEMPLATE SELECTION -</JPN>
+	</Msg_115>
+	<Msg_116>
+		<JPN>- ACCOUNT ERROR -</JPN>
+	</Msg_116>
+	<Msg_117>
+		<JPN>Noise filter</JPN>
+	</Msg_117>
+	<Msg_118>
+		<JPN>Wrong password</JPN>
+	</Msg_118>
+	<Msg_119>
+		<JPN>Password error</JPN>
+	</Msg_119>
+	<Msg_120>
+		<JPN>Left</JPN>
+	</Msg_120>
+	<Msg_121>
+		<JPN>Up</JPN>
+	</Msg_121>
+	<Msg_122>
+		<JPN>Shutdown</JPN>
+	</Msg_122>
+	<Msg_123>
+		<JPN>Enable registration mark reader</JPN>
+	</Msg_123>
+	<Msg_124>
+		<JPN>Down</JPN>
+	</Msg_124>
+	<Msg_125>
+		<JPN>DX+</JPN>
+	</Msg_125>
+	<Msg_126>
+		<JPN>Camera</JPN>
+	</Msg_126>
+	<Msg_127>
+		<JPN>DX-</JPN>
+	</Msg_127>
+	<Msg_128>
+		<JPN>DY+</JPN>
+	</Msg_128>
+	<Msg_129>
+		<JPN>DY-</JPN>
+	</Msg_129>
+	<Msg_130>
+		<JPN>Forward</JPN>
+	</Msg_130>
+	<Msg_131>
+		<JPN>Back</JPN>
+	</Msg_131>
+	<Msg_132>
+		<JPN>New Image acquisition</JPN>
+	</Msg_132>
+	<Msg_133>
+		<JPN>Save</JPN>
+	</Msg_133>
+	<Msg_134>
+		<JPN>Current production:</JPN>
+	</Msg_134>
+	<Msg_135>
+		<JPN>Current template:</JPN>
+	</Msg_135>
+	<Msg_136>
+		<JPN>Tolerance menu</JPN>
+	</Msg_136>
+	<Msg_137>
+		<JPN>Modify tolerances</JPN>
+	</Msg_137>
+	<Msg_138>
+		<JPN>Next area</JPN>
+	</Msg_138>
+	<Msg_139>
+		<JPN>Previous area</JPN>
+	</Msg_139>
+	<Msg_140>
+		<JPN>Template menu</JPN>
+	</Msg_140>
+	<Msg_141>
+		<JPN>Template code menu</JPN>
+	</Msg_141>
+	<Msg_142>
+		<JPN>Calibration menu</JPN>
+	</Msg_142>
+	<Msg_143>
+		<JPN>Camera +</JPN>
+	</Msg_143>
+	<Msg_144>
+		<JPN>Camera -</JPN>
+	</Msg_144>
+	<Msg_145>
+		<JPN>Error max. num. of cells</JPN>
+	</Msg_145>
+	<Msg_146>
+		<JPN>- MODEL IMAGE ACQUISITION -</JPN>
+	</Msg_146>
+	<Msg_147>
+		<JPN>ON CYCLE UP</JPN>
+	</Msg_147>
+	<Msg_148>
+		<JPN>ON PAPER MOVEMENT</JPN>
+	</Msg_148>
+	<Msg_149>
+		<JPN>FORCED ON</JPN>
+	</Msg_149>
+	<Msg_150>
+		<JPN>Save as...</JPN>
+	</Msg_150>
+	<Msg_151>
+		<JPN>Remote connection</JPN>
+	</Msg_151>
+	<Msg_152>
+		<JPN>Remote host address</JPN>
+	</Msg_152>
+	<Msg_153>
+		<JPN>Page</JPN>
+	</Msg_153>
+	<Msg_154>
+		<JPN>Contrast for extraction</JPN>
+	</Msg_154>
+	<Msg_155>
+		<JPN>- DECODING IN PROGRESS... -</JPN>
+	</Msg_155>
+	<Msg_156>
+		<JPN>Control unit parameters</JPN>
+	</Msg_156>
+	<Msg_157>
+		<JPN>Log directory</JPN>
+	</Msg_157>
+	<Msg_158>
+		<JPN>OK:</JPN>
+	</Msg_158>
+	<Msg_159>
+		<JPN>KO:</JPN>
+	</Msg_159>
+	<Msg_160>
+		<JPN>Shutter +</JPN>
+	</Msg_160>
+	<Msg_161>
+		<JPN>Shutter -</JPN>
+	</Msg_161>
+	<Msg_162>
+		<JPN>Gain +</JPN>
+	</Msg_162>
+	<Msg_163>
+		<JPN>Gain -</JPN>
+	</Msg_163>
+	<Msg_164>
+		<JPN>Focus</JPN>
+	</Msg_164>
+	<Msg_165>
+		<JPN>Image margins</JPN>
+	</Msg_165>
+	<Msg_166>
+		<JPN>Apply</JPN>
+	</Msg_166>
+	<Msg_167>
+		<JPN>Running</JPN>
+	</Msg_167>
+	<Msg_168>
+		<JPN>Alarm limits</JPN>
+	</Msg_168>
+	<Msg_169>
+		<JPN>Max consecutive errors</JPN>
+	</Msg_169>
+	<Msg_170>
+		<JPN>Error ratio percentage</JPN>
+	</Msg_170>
+	<Msg_171>
+		<JPN>Control enabling area</JPN>
+	</Msg_171>
+	<Msg_172>
+		<JPN>Measuring window</JPN>
+	</Msg_172>
+	<Msg_173>
+		<JPN>Production coding menu</JPN>
+	</Msg_173>
+	<Msg_174>
+		<JPN>Visualization</JPN>
+	</Msg_174>
+	<Msg_175>
+		<JPN>Key operator options</JPN>
+	</Msg_175>
+	<Msg_176>
+		<JPN>- ANCHOR POINT AREA DEFINITION -</JPN>
+	</Msg_176>
+	<Msg_177>
+		<JPN>Flip Image</JPN>
+	</Msg_177>
+	<Msg_178>
+		<JPN>Allow exit to windows</JPN>
+	</Msg_178>
+	<Msg_179>
+		<JPN>Background filter</JPN>
+	</Msg_179>
+	<Msg_180>
+		<JPN>Inconsistent database format %s linked to Production %s. Please check production settings, The link to the database will be disabled.</JPN>
+	</Msg_180>
+	<Msg_181>
+		<JPN>Enable</JPN>
+	</Msg_181>
+	<Msg_182>
+		<JPN>Confirm that you want to save the template keeping  database %s matching disabled?</JPN>
+	</Msg_182>
+	<Msg_183>
+		<JPN>Enable defocusing</JPN>
+	</Msg_183>
+	<Msg_184>
+		<JPN>Enable encoder</JPN>
+	</Msg_184>
+	<Msg_185>
+		<JPN>Master camera:</JPN>
+	</Msg_185>
+	<Msg_186>
+		<JPN>Production '%s' loading in progress.</JPN>
+	</Msg_186>
+	<Msg_187>
+		<JPN>Do you want to save the new font database ?</JPN>
+	</Msg_187>
+	<Msg_188>
+		<JPN>Saving font database</JPN>
+	</Msg_188>
+	<Msg_189>
+		<JPN>Enable key operator Login</JPN>
+	</Msg_189>
+	<Msg_190>
+		<JPN>Image saving frequency every:</JPN>
+	</Msg_190>
+	<Msg_191>
+		<JPN>Enabled with control regions</JPN>
+	</Msg_191>
+	<Msg_192>
+		<JPN>Errors only</JPN>
+	</Msg_192>
+	<Msg_193>
+		<JPN>Off (display disabled)</JPN>
+	</Msg_193>
+	<Msg_194>
+		<JPN>Automatic code type</JPN>
+	</Msg_194>
+	<Msg_195>
+		<JPN>FOCUS:</JPN>
+	</Msg_195>
+	<Msg_196>
+		<JPN>Overlapping zone +</JPN>
+	</Msg_196>
+	<Msg_197>
+		<JPN>Overlapping zone -</JPN>
+	</Msg_197>
+	<Msg_198>
+		<JPN>Vertical offset +</JPN>
+	</Msg_198>
+	<Msg_199>
+		<JPN>Vertical offset -</JPN>
+	</Msg_199>
+	<Msg_200>
+		<JPN>SOCKET ERROR</JPN>
+	</Msg_200>
+	<Msg_201>
+		<JPN>Input/output</JPN>
+	</Msg_201>
+	<Msg_202>
+		<JPN>Serial input</JPN>
+	</Msg_202>
+	<Msg_203>
+		<JPN>SHOW ERROR HISTORY</JPN>
+	</Msg_203>
+	<Msg_204>
+		<JPN>Activate</JPN>
+	</Msg_204>
+	<Msg_205>
+		<JPN>- CHECK REGISTRATION MARK ENCAPSULATION -</JPN>
+	</Msg_205>
+	<Msg_206>
+		<JPN>Set &amp;Password</JPN>
+	</Msg_206>
+	<Msg_207>
+		<JPN>Calibration</JPN>
+	</Msg_207>
+	<Msg_208>
+		<JPN>Change password</JPN>
+	</Msg_208>
+	<Msg_209>
+		<JPN>New password</JPN>
+	</Msg_209>
+	<Msg_210>
+		<JPN>Repeat new password</JPN>
+	</Msg_210>
+	<Msg_211>
+		<JPN>I/O Signals settings</JPN>
+	</Msg_211>
+	<Msg_212>
+		<JPN>Left limit</JPN>
+	</Msg_212>
+	<Msg_213>
+		<JPN>Left limit</JPN>
+	</Msg_213>
+	<Msg_214>
+		<JPN>Right limit</JPN>
+	</Msg_214>
+	<Msg_215>
+		<JPN>Right limit</JPN>
+	</Msg_215>
+	<Msg_216>
+		<JPN>I/O Signals</JPN>
+	</Msg_216>
+	<Msg_217>
+		<JPN>Enable Input trigger</JPN>
+	</Msg_217>
+	<Msg_218>
+		<JPN>Enable Reject</JPN>
+	</Msg_218>
+	<Msg_219>
+		<JPN>Reject output level</JPN>
+	</Msg_219>
+	<Msg_220>
+		<JPN>KO signal active HIGH</JPN>
+	</Msg_220>
+	<Msg_221>
+		<JPN>OK signal active HIGH</JPN>
+	</Msg_221>
+	<Msg_222>
+		<JPN>Register mark sig. delay:</JPN>
+	</Msg_222>
+	<Msg_223>
+		<JPN>Cancel</JPN>
+	</Msg_223>
+	<Msg_224>
+		<JPN>OK</JPN>
+	</Msg_224>
+	<Msg_225>
+		<JPN>Calibration parameter</JPN>
+	</Msg_225>
+	<Msg_226>
+		<JPN>Resolution (pixel size)</JPN>
+	</Msg_226>
+	<Msg_227>
+		<JPN>Horizontal resolution</JPN>
+	</Msg_227>
+	<Msg_228>
+		<JPN>Vertical resolution</JPN>
+	</Msg_228>
+	<Msg_229>
+		<JPN>Socket status :</JPN>
+	</Msg_229>
+	<Msg_230>
+		<JPN>Exposure value</JPN>
+	</Msg_230>
+	<Msg_231>
+		<JPN>Spectro-Photometer status:</JPN>
+	</Msg_231>
+	<Msg_232>
+		<JPN>- INITIALIZATION -</JPN>
+	</Msg_232>
+	<Msg_233>
+		<JPN>- CONTROL AREAS REPOSITIONING -</JPN>
+	</Msg_233>
+	<Msg_234>
+		<JPN>- CONFIRM LOCALIZATION -</JPN>
+	</Msg_234>
+	<Msg_235>
+		<JPN>- DEFINE  JETOUT CONTROL SUBREGION %d/%d -</JPN>
+	</Msg_235>
+	<Msg_236>
+		<JPN>DISABLED</JPN>
+	</Msg_236>
+	<Msg_237>
+		<JPN>&amp;File</JPN>
+	</Msg_237>
+	<Msg_238>
+		<JPN>Functions</JPN>
+	</Msg_238>
+	<Msg_239>
+		<JPN>Production</JPN>
+	</Msg_239>
+	<Msg_240>
+		<JPN>Template</JPN>
+	</Msg_240>
+	<Msg_241>
+		<JPN>Select typology</JPN>
+	</Msg_241>
+	<Msg_242>
+		<JPN>Operating manual</JPN>
+	</Msg_242>
+	<Msg_243>
+		<JPN>Info</JPN>
+	</Msg_243>
+	<Msg_244>
+		<JPN>Login...</JPN>
+	</Msg_244>
+	<Msg_245>
+		<JPN>Logout...</JPN>
+	</Msg_245>
+	<Msg_246>
+		<JPN>Exit [F9]</JPN>
+	</Msg_246>
+	<Msg_247>
+		<JPN>Start [F1]</JPN>
+	</Msg_247>
+	<Msg_248>
+		<JPN>Stop</JPN>
+	</Msg_248>
+	<Msg_249>
+		<JPN>Reset [F2]</JPN>
+	</Msg_249>
+	<Msg_250>
+		<JPN>New production...</JPN>
+	</Msg_250>
+	<Msg_251>
+		<JPN>Select production [F3]</JPN>
+	</Msg_251>
+	<Msg_252>
+		<JPN>Edit Production [F4]</JPN>
+	</Msg_252>
+	<Msg_253>
+		<JPN>PRODUCTION coding area</JPN>
+	</Msg_253>
+	<Msg_254>
+		<JPN>Save image</JPN>
+	</Msg_254>
+	<Msg_255>
+		<JPN>Display font menu</JPN>
+	</Msg_255>
+	<Msg_256>
+		<JPN>Freeze Image</JPN>
+	</Msg_256>
+	<Msg_257>
+		<JPN>Select template [F5]</JPN>
+	</Msg_257>
+	<Msg_258>
+		<JPN>Edit template [F6]</JPN>
+	</Msg_258>
+	<Msg_259>
+		<JPN>Select template ++</JPN>
+	</Msg_259>
+	<Msg_260>
+		<JPN>Select template --</JPN>
+	</Msg_260>
+	<Msg_261>
+		<JPN>Font acquisition</JPN>
+	</Msg_261>
+	<Msg_262>
+		<JPN>Show fonts</JPN>
+	</Msg_262>
+	<Msg_263>
+		<JPN>TEMPLATE coding area</JPN>
+	</Msg_263>
+	<Msg_264>
+		<JPN>Anchor point</JPN>
+	</Msg_264>
+	<Msg_265>
+		<JPN>Locator stroke</JPN>
+	</Msg_265>
+	<Msg_266>
+		<JPN>Character encapsulation problems (%d found of %d required)</JPN>
+	</Msg_266>
+	<Msg_267>
+		<JPN>Tolerances [F7]</JPN>
+	</Msg_267>
+	<Msg_268>
+		<JPN>Sys configuration [F10]</JPN>
+	</Msg_268>
+	<Msg_269>
+		<JPN>Sys Calibration [F11]</JPN>
+	</Msg_269>
+	<Msg_270>
+		<JPN>MAX. FOCUS:</JPN>
+	</Msg_270>
+	<Msg_271>
+		<JPN>Pause</JPN>
+	</Msg_271>
+	<Msg_272>
+		<JPN>UnFreeze</JPN>
+	</Msg_272>
+	<Msg_273>
+		<JPN>Freeze</JPN>
+	</Msg_273>
+	<Msg_274>
+		<JPN>Main menu</JPN>
+	</Msg_274>
+	<Msg_275>
+		<JPN>Send error %s</JPN>
+	</Msg_275>
+	<Msg_276>
+		<JPN>Error %s</JPN>
+	</Msg_276>
+	<Msg_277>
+		<JPN>- DEFINE TEMPLATE CODING AREA -</JPN>
+	</Msg_277>
+	<Msg_278>
+		<JPN>Spectro-Photometer communication</JPN>
+	</Msg_278>
+	<Msg_279>
+		<JPN>Spectro-Photometer IP address</JPN>
+	</Msg_279>
+	<Msg_280>
+		<JPN>Spectro-Photometer calibration</JPN>
+	</Msg_280>
+	<Msg_281>
+		<JPN>Control area rotation</JPN>
+	</Msg_281>
+	<Msg_282>
+		<JPN>Angle</JPN>
+	</Msg_282>
+	<Msg_283>
+		<JPN>No rotation</JPN>
+	</Msg_283>
+	<Msg_284>
+		<JPN>%d degree rotation</JPN>
+	</Msg_284>
+	<Msg_285>
+		<JPN>READING ERROR</JPN>
+	</Msg_285>
+	<Msg_286>
+		<JPN>ENCAPSULATION PROBLEM</JPN>
+	</Msg_286>
+	<Msg_287>
+		<JPN>Rotation proceeds clockwise</JPN>
+	</Msg_287>
+	<Msg_288>
+		<JPN>Font tolerances</JPN>
+	</Msg_288>
+	<Msg_289>
+		<JPN>Reading reliability parameter</JPN>
+	</Msg_289>
+	<Msg_290>
+		<JPN>Reliability tolerance</JPN>
+	</Msg_290>
+	<Msg_291>
+		<JPN>Anchor point menu</JPN>
+	</Msg_291>
+	<Msg_292>
+		<JPN>Contrast verification</JPN>
+	</Msg_292>
+	<Msg_293>
+		<JPN>Enable contrast verification</JPN>
+	</Msg_293>
+	<Msg_294>
+		<JPN>Contrast tolerance</JPN>
+	</Msg_294>
+	<Msg_295>
+		<JPN>Character  separation filter</JPN>
+	</Msg_295>
+	<Msg_296>
+		<JPN>- PRODUCTION CODING AREA DEFINITION -</JPN>
+	</Msg_296>
+	<Msg_297>
+		<JPN>- INITIALIZATION/SELECTION PRODUCTION CODING AREA TYPE -</JPN>
+	</Msg_297>
+	<Msg_298>
+		<JPN>- DEFINE CODING AREA PARAMETERS -</JPN>
+	</Msg_298>
+	<Msg_299>
+		<JPN>- INITIALIZATION/SELECTION TEMPLATE CODING AREA TYPE -</JPN>
+	</Msg_299>
+	<Msg_300>
+		<JPN>- OCR DEFINITION  -</JPN>
+	</Msg_300>
+	<Msg_301>
+		<JPN>Font reading management</JPN>
+	</Msg_301>
+	<Msg_302>
+		<JPN>Remove start character</JPN>
+	</Msg_302>
+	<Msg_303>
+		<JPN>Remove stop character</JPN>
+	</Msg_303>
+	<Msg_304>
+		<JPN>First character to remove</JPN>
+	</Msg_304>
+	<Msg_305>
+		<JPN>Remove character at pos. A:</JPN>
+	</Msg_305>
+	<Msg_306>
+		<JPN>Second character to Remove</JPN>
+	</Msg_306>
+	<Msg_307>
+		<JPN>Remove character at pos. B:</JPN>
+	</Msg_307>
+	<Msg_308>
+		<JPN>Characters position from left to right.</JPN>
+	</Msg_308>
+	<Msg_309>
+		<JPN>Reading interval</JPN>
+	</Msg_309>
+	<Msg_310>
+		<JPN>Extraction starts at character n.</JPN>
+	</Msg_310>
+	<Msg_311>
+		<JPN>up to character n.</JPN>
+	</Msg_311>
+	<Msg_312>
+		<JPN>Database directory</JPN>
+	</Msg_312>
+	<Msg_313>
+		<JPN>Reference L*a*b Patch</JPN>
+	</Msg_313>
+	<Msg_314>
+		<JPN>- DECODING/READING TEST -</JPN>
+	</Msg_314>
+	<Msg_315>
+		<JPN>Control  area from</JPN>
+	</Msg_315>
+	<Msg_316>
+		<JPN>- DECODING/READING TEST - SAVING IN PROGRESS... -</JPN>
+	</Msg_316>
+	<Msg_317>
+		<JPN>L*a*b COLOR BAR VISUALIZATION</JPN>
+	</Msg_317>
+	<Msg_318>
+		<JPN>Select area type</JPN>
+	</Msg_318>
+	<Msg_319>
+		<JPN>Tolerances</JPN>
+	</Msg_319>
+	<Msg_320>
+		<JPN>Logo/Image control</JPN>
+	</Msg_320>
+	<Msg_321>
+		<JPN>Uniform Area control (white)</JPN>
+	</Msg_321>
+	<Msg_322>
+		<JPN>Postal barcode</JPN>
+	</Msg_322>
+	<Msg_323>
+		<JPN>OCR-MICR code control</JPN>
+	</Msg_323>
+	<Msg_324>
+		<JPN>1D Barcode control</JPN>
+	</Msg_324>
+	<Msg_325>
+		<JPN>2D Barcode control</JPN>
+	</Msg_325>
+	<Msg_326>
+		<JPN>Print Registration control</JPN>
+	</Msg_326>
+	<Msg_327>
+		<JPN>Production Name/Template</JPN>
+	</Msg_327>
+	<Msg_328>
+		<JPN>Test features</JPN>
+	</Msg_328>
+	<Msg_329>
+		<JPN>Current area:</JPN>
+	</Msg_329>
+	<Msg_330>
+		<JPN>General information</JPN>
+	</Msg_330>
+	<Msg_331>
+		<JPN>-  SELECT / MANAGE CONTROL AREAS / LABELS -</JPN>
+	</Msg_331>
+	<Msg_332>
+		<JPN>Characters indexed from right to left.</JPN>
+	</Msg_332>
+	<Msg_333>
+		<JPN>Delta-E Area</JPN>
+	</Msg_333>
+	<Msg_334>
+		<JPN>Label number:</JPN>
+	</Msg_334>
+	<Msg_335>
+		<JPN>Next label</JPN>
+	</Msg_335>
+	<Msg_336>
+		<JPN>Previous label</JPN>
+	</Msg_336>
+	<Msg_337>
+		<JPN>New label</JPN>
+	</Msg_337>
+	<Msg_338>
+		<JPN>Edit label</JPN>
+	</Msg_338>
+	<Msg_339>
+		<JPN>Find labels</JPN>
+	</Msg_339>
+	<Msg_340>
+		<JPN>- MANAGE/SELECT LABEL'S CONTROL AREAS -</JPN>
+	</Msg_340>
+	<Msg_341>
+		<JPN>Automatic label search in progress. Please wait...</JPN>
+	</Msg_341>
+	<Msg_342>
+		<JPN>Initialization in progress. Please wait...</JPN>
+	</Msg_342>
+	<Msg_343>
+		<JPN>Data loading in progress... Please wait...</JPN>
+	</Msg_343>
+	<Msg_344>
+		<JPN>Data saving in progress... Please wait...</JPN>
+	</Msg_344>
+	<Msg_345>
+		<JPN>RUN WHITE BALANCE</JPN>
+	</Msg_345>
+	<Msg_346>
+		<JPN>LOAD WHITE BALANCE</JPN>
+	</Msg_346>
+	<Msg_347>
+		<JPN>WHITE BALANCE ON</JPN>
+	</Msg_347>
+	<Msg_348>
+		<JPN>WHITE BALANCE OFF</JPN>
+	</Msg_348>
+	<Msg_349>
+		<JPN>BASIC OPERATOR</JPN>
+	</Msg_349>
+	<Msg_350>
+		<JPN>KEY OPERATOR</JPN>
+	</Msg_350>
+	<Msg_351>
+		<JPN>Figures:</JPN>
+	</Msg_351>
+	<Msg_352>
+		<JPN>Frozen image</JPN>
+	</Msg_352>
+	<Msg_353>
+		<JPN>Unfrozen image</JPN>
+	</Msg_353>
+	<Msg_354>
+		<JPN>+X Encapsulation</JPN>
+	</Msg_354>
+	<Msg_355>
+		<JPN>-X Encapsulation</JPN>
+	</Msg_355>
+	<Msg_356>
+		<JPN>+Y Encapsulation</JPN>
+	</Msg_356>
+	<Msg_357>
+		<JPN>Control parameters</JPN>
+	</Msg_357>
+	<Msg_358>
+		<JPN>Number of Control Areas</JPN>
+	</Msg_358>
+	<Msg_359>
+		<JPN>Number of matching checks</JPN>
+	</Msg_359>
+	<Msg_360>
+		<JPN>Number of sequence controls</JPN>
+	</Msg_360>
+	<Msg_361>
+		<JPN>-Y encapsulation</JPN>
+	</Msg_361>
+	<Msg_362>
+		<JPN>Template settings</JPN>
+	</Msg_362>
+	<Msg_363>
+		<JPN>Production parameters</JPN>
+	</Msg_363>
+	<Msg_364>
+		<JPN>Production name</JPN>
+	</Msg_364>
+	<Msg_365>
+		<JPN>Selected page length (inch)</JPN>
+	</Msg_365>
+	<Msg_366>
+		<JPN>Line selection</JPN>
+	</Msg_366>
+	<Msg_367>
+		<JPN>1-UP</JPN>
+	</Msg_367>
+	<Msg_368>
+		<JPN>2-UP</JPN>
+	</Msg_368>
+	<Msg_369>
+		<JPN>Rotate image (180°)</JPN>
+	</Msg_369>
+	<Msg_370>
+		<JPN>Font type</JPN>
+	</Msg_370>
+	<Msg_371>
+		<JPN>Font type</JPN>
+	</Msg_371>
+	<Msg_372>
+		<JPN>Font type %c</JPN>
+	</Msg_372>
+	<Msg_373>
+		<JPN>UNDEFINED</JPN>
+	</Msg_373>
+	<Msg_374>
+		<JPN>- DEFINE 1D BARCODE -</JPN>
+	</Msg_374>
+	<Msg_375>
+		<JPN>- CHARACTERS ENCAPSULATION/READING TEST -</JPN>
+	</Msg_375>
+	<Msg_376>
+		<JPN>- ALL AREAS -</JPN>
+	</Msg_376>
+	<Msg_377>
+		<JPN>SELECT CAMERA</JPN>
+	</Msg_377>
+	<Msg_378>
+		<JPN>Camera selection</JPN>
+	</Msg_378>
+	<Msg_379>
+		<JPN>Camera %d</JPN>
+	</Msg_379>
+	<Msg_380>
+		<JPN>-  TEST FEATURE SELECTION -</JPN>
+	</Msg_380>
+	<Msg_381>
+		<JPN>ID Code:</JPN>
+	</Msg_381>
+	<Msg_382>
+		<JPN>Recto on Camera 2</JPN>
+	</Msg_382>
+	<Msg_383>
+		<JPN>L*a*b color reference menu</JPN>
+	</Msg_383>
+	<Msg_384>
+		<JPN>WARNING!</JPN>
+	</Msg_384>
+	<Msg_385>
+		<JPN>Select production</JPN>
+	</Msg_385>
+	<Msg_386>
+		<JPN>Template Selection</JPN>
+	</Msg_386>
+	<Msg_387>
+		<JPN>AREA n°%d OUTSIDE OF IMAGE</JPN>
+	</Msg_387>
+	<Msg_388>
+		<JPN>WARNING!   ANCHOR POINT TEST FAILED.</JPN>
+	</Msg_388>
+	<Msg_389>
+		<JPN>Selected templates must belong to different controlled pages</JPN>
+	</Msg_389>
+	<Msg_390>
+		<JPN>ERROR PATTERN ENCAPSULATION.  FOUND %d/%d MARKERS</JPN>
+	</Msg_390>
+	<Msg_391>
+		<JPN>ERROR: UNRECOGNIZED TEMPLATE</JPN>
+	</Msg_391>
+	<Msg_392>
+		<JPN>ERROR: PRINT REGISTRATION CONTROL</JPN>
+	</Msg_392>
+	<Msg_393>
+		<JPN>ERROR: REGISTRATION MARK NOT RECOGNIZED</JPN>
+	</Msg_393>
+	<Msg_394>
+		<JPN>- CONTROL ACTIVATION AREA DEFINITION  -</JPN>
+	</Msg_394>
+	<Msg_395>
+		<JPN>Brightness:</JPN>
+	</Msg_395>
+	<Msg_396>
+		<JPN>POSTAL BARCODE SETTINGS</JPN>
+	</Msg_396>
+	<Msg_397>
+		<JPN>Resource release in progress... Please wait.</JPN>
+	</Msg_397>
+	<Msg_398>
+		<JPN>- CONFIRM CONTROL ACTIVATION AREA %s -</JPN>
+	</Msg_398>
+	<Msg_399>
+		<JPN>Register mark area:</JPN>
+	</Msg_399>
+	<Msg_400>
+		<JPN>Edit L*a*b patch</JPN>
+	</Msg_400>
+	<Msg_401>
+		<JPN>CMC7 decoding inconsistency (%s/%s)</JPN>
+	</Msg_401>
+	<Msg_402>
+		<JPN>Density</JPN>
+	</Msg_402>
+	<Msg_403>
+		<JPN>Gain:</JPN>
+	</Msg_403>
+	<Msg_404>
+		<JPN>- DEFINE FONT ACQUISITION AREA -</JPN>
+	</Msg_404>
+	<Msg_405>
+		<JPN>- DEFINE STRING -</JPN>
+	</Msg_405>
+	<Msg_406>
+		<JPN>- FONT VISUALIZATION -</JPN>
+	</Msg_406>
+	<Msg_407>
+		<JPN>- FONT ACQUISITION IN PROGRESS -</JPN>
+	</Msg_407>
+	<Msg_408>
+		<JPN>- FONT DATABASE SAVING IN PROGRESS -</JPN>
+	</Msg_408>
+	<Msg_409>
+		<JPN>- CHARACTER ENCAPSULATION TEST -</JPN>
+	</Msg_409>
+	<Msg_410>
+		<JPN>Continue</JPN>
+	</Msg_410>
+	<Msg_411>
+		<JPN>RED gain +</JPN>
+	</Msg_411>
+	<Msg_412>
+		<JPN>RED gain -</JPN>
+	</Msg_412>
+	<Msg_413>
+		<JPN>GREEN gain +</JPN>
+	</Msg_413>
+	<Msg_414>
+		<JPN>GREEN gain -</JPN>
+	</Msg_414>
+	<Msg_415>
+		<JPN>BLUE gain +</JPN>
+	</Msg_415>
+	<Msg_416>
+		<JPN>Configuration</JPN>
+	</Msg_416>
+	<Msg_417>
+		<JPN>Serial port</JPN>
+	</Msg_417>
+	<Msg_418>
+		<JPN>Save full image</JPN>
+	</Msg_418>
+	<Msg_419>
+		<JPN>Save control areas</JPN>
+	</Msg_419>
+	<Msg_420>
+		<JPN>Save labels</JPN>
+	</Msg_420>
+	<Msg_421>
+		<JPN>Predefined code</JPN>
+	</Msg_421>
+	<Msg_422>
+		<JPN>Step +</JPN>
+	</Msg_422>
+	<Msg_423>
+		<JPN>Step -</JPN>
+	</Msg_423>
+	<Msg_424>
+		<JPN>DECODING FAILED</JPN>
+	</Msg_424>
+	<Msg_425>
+		<JPN>- VERIFY IDENTIFIED LABELS -</JPN>
+	</Msg_425>
+	<Msg_426>
+		<JPN>Wait [ESC] to acquire</JPN>
+	</Msg_426>
+	<Msg_427>
+		<JPN>Auxiliary keyboard</JPN>
+	</Msg_427>
+	<Msg_428>
+		<JPN>Tolerances</JPN>
+	</Msg_428>
+	<Msg_429>
+		<JPN>Density tolerances</JPN>
+	</Msg_429>
+	<Msg_430>
+		<JPN>Position tolerances</JPN>
+	</Msg_430>
+	<Msg_431>
+		<JPN>X Position tolerance</JPN>
+	</Msg_431>
+	<Msg_432>
+		<JPN>Y Position tolerance</JPN>
+	</Msg_432>
+	<Msg_433>
+		<JPN>- TEMPLATE SAVING IN PROGRESS -</JPN>
+	</Msg_433>
+	<Msg_434>
+		<JPN>Enable position control</JPN>
+	</Msg_434>
+	<Msg_435>
+		<JPN>Enable density control</JPN>
+	</Msg_435>
+	<Msg_436>
+		<JPN>- MATCHING DEFINITION -</JPN>
+	</Msg_436>
+	<Msg_437>
+		<JPN>Edges Tolerance</JPN>
+	</Msg_437>
+	<Msg_438>
+		<JPN>White balance tolerance</JPN>
+	</Msg_438>
+	<Msg_439>
+		<JPN>PATCH</JPN>
+	</Msg_439>
+	<Msg_440>
+		<JPN>Define uniformity tolerances</JPN>
+	</Msg_440>
+	<Msg_441>
+		<JPN>Uniformity control</JPN>
+	</Msg_441>
+	<Msg_442>
+		<JPN>Enable uniformity control</JPN>
+	</Msg_442>
+	<Msg_443>
+		<JPN>Contrast variation</JPN>
+	</Msg_443>
+	<Msg_444>
+		<JPN>Defect dimension (pixels)</JPN>
+	</Msg_444>
+	<Msg_445>
+		<JPN>Areas positioning</JPN>
+	</Msg_445>
+	<Msg_446>
+		<JPN>New name</JPN>
+	</Msg_446>
+	<Msg_447>
+		<JPN>%s Missing</JPN>
+	</Msg_447>
+	<Msg_448>
+		<JPN>%s Not valid</JPN>
+	</Msg_448>
+	<Msg_449>
+		<JPN>BLUE gain -</JPN>
+	</Msg_449>
+	<Msg_450>
+		<JPN>Select gain band</JPN>
+	</Msg_450>
+	<Msg_451>
+		<JPN>The two selected areas must be different</JPN>
+	</Msg_451>
+	<Msg_452>
+		<JPN>BARCODE %s TOLERANCES</JPN>
+	</Msg_452>
+	<Msg_453>
+		<JPN>%s Barcode decoding parameters...</JPN>
+	</Msg_453>
+	<Msg_454>
+		<JPN>Filter noise +</JPN>
+	</Msg_454>
+	<Msg_455>
+		<JPN>Enable ANSI control</JPN>
+	</Msg_455>
+	<Msg_456>
+		<JPN>Filter noise -</JPN>
+	</Msg_456>
+	<Msg_457>
+		<JPN>POSTAL BARCODE TOLERANCES</JPN>
+	</Msg_457>
+	<Msg_458>
+		<JPN>Image saving menu</JPN>
+	</Msg_458>
+	<Msg_459>
+		<JPN>Font acquisition menu</JPN>
+	</Msg_459>
+	<Msg_460>
+		<JPN>Areas selection for matching control</JPN>
+	</Msg_460>
+	<Msg_461>
+		<JPN>N. of comparisons:</JPN>
+	</Msg_461>
+	<Msg_462>
+		<JPN>First area</JPN>
+	</Msg_462>
+	<Msg_463>
+		<JPN>Second area</JPN>
+	</Msg_463>
+	<Msg_464>
+		<JPN>Area number</JPN>
+	</Msg_464>
+	<Msg_465>
+		<JPN>Image Number</JPN>
+	</Msg_465>
+	<Msg_466>
+		<JPN>Cell size (pixel)</JPN>
+	</Msg_466>
+	<Msg_467>
+		<JPN>Template coding area</JPN>
+	</Msg_467>
+	<Msg_468>
+		<JPN>Acquisition parameters</JPN>
+	</Msg_468>
+	<Msg_469>
+		<JPN>Enable image saving on HD</JPN>
+	</Msg_469>
+	<Msg_470>
+		<JPN>Filter discontinuous symbols</JPN>
+	</Msg_470>
+	<Msg_471>
+		<JPN>-%s- Value</JPN>
+	</Msg_471>
+	<Msg_472>
+		<JPN>Enable errors to be saved</JPN>
+	</Msg_472>
+	<Msg_473>
+		<JPN>White balance calibration for camera %d in progress...</JPN>
+	</Msg_473>
+	<Msg_474>
+		<JPN>Spectro photometer calibration in progress...</JPN>
+	</Msg_474>
+	<Msg_475>
+		<JPN>Calibration failed. Please ensure that the calibration target is correctly placed bellow the spectro photometer</JPN>
+	</Msg_475>
+	<Msg_476>
+		<JPN>Error spectro photometer communication. Please try again...</JPN>
+	</Msg_476>
+	<Msg_477>
+		<JPN>Local Locator parameters</JPN>
+	</Msg_477>
+	<Msg_478>
+		<JPN>Horiz. locator activation</JPN>
+	</Msg_478>
+	<Msg_479>
+		<JPN>Vert. locator activation</JPN>
+	</Msg_479>
+	<Msg_480>
+		<JPN>Area</JPN>
+	</Msg_480>
+	<Msg_481>
+		<JPN>L*a*b patch bar setup</JPN>
+	</Msg_481>
+	<Msg_482>
+		<JPN>Patch number</JPN>
+	</Msg_482>
+	<Msg_483>
+		<JPN>Enable L*a*b patch bar (Spectro photometers)</JPN>
+	</Msg_483>
+	<Msg_484>
+		<JPN>Patch dimension</JPN>
+	</Msg_484>
+	<Msg_485>
+		<JPN>Line speed</JPN>
+	</Msg_485>
+	<Msg_486>
+		<JPN>Area number</JPN>
+	</Msg_486>
+	<Msg_487>
+		<JPN>Rows:</JPN>
+	</Msg_487>
+	<Msg_488>
+		<JPN>Columns:</JPN>
+	</Msg_488>
+	<Msg_489>
+		<JPN>Code</JPN>
+	</Msg_489>
+	<Msg_490>
+		<JPN>First template</JPN>
+	</Msg_490>
+	<Msg_491>
+		<JPN>Second template</JPN>
+	</Msg_491>
+	<Msg_492>
+		<JPN>Scroll up</JPN>
+	</Msg_492>
+	<Msg_493>
+		<JPN>Scroll down</JPN>
+	</Msg_493>
+	<Msg_494>
+		<JPN>Production code</JPN>
+	</Msg_494>
+	<Msg_495>
+		<JPN>Template code</JPN>
+	</Msg_495>
+	<Msg_496>
+		<JPN>Define dynamic template qualifier field</JPN>
+	</Msg_496>
+	<Msg_497>
+		<JPN>Dynamic template qualifier field :</JPN>
+	</Msg_497>
+	<Msg_498>
+		<JPN>Field start digit number</JPN>
+	</Msg_498>
+	<Msg_499>
+		<JPN>Field length</JPN>
+	</Msg_499>
+	<Msg_500>
+		<JPN>Define dynamic production qualifier field</JPN>
+	</Msg_500>
+	<Msg_501>
+		<JPN>Dynamic production qualifier field :</JPN>
+	</Msg_501>
+	<Msg_502>
+		<JPN>Format of the Text to be read </JPN>
+	</Msg_502>
+	<Msg_503>
+		<JPN>Legend:</JPN>
+	</Msg_503>
+	<Msg_504>
+		<JPN>A = Alphabetic character</JPN>
+	</Msg_504>
+	<Msg_505>
+		<JPN>0 = Numeric  character</JPN>
+	</Msg_505>
+	<Msg_506>
+		<JPN>B = Alphanumeric character</JPN>
+	</Msg_506>
+	<Msg_507>
+		<JPN>String format</JPN>
+	</Msg_507>
+	<Msg_508>
+		<JPN>Calibrate image</JPN>
+	</Msg_508>
+	<Msg_509>
+		<JPN>Define No. of labels</JPN>
+	</Msg_509>
+	<Msg_510>
+		<JPN>No. of labels</JPN>
+	</Msg_510>
+	<Msg_511>
+		<JPN>Label number</JPN>
+	</Msg_511>
+	<Msg_512>
+		<JPN>Result OK/KO</JPN>
+	</Msg_512>
+	<Msg_513>
+		<JPN>REGISTRATION TOLERANCES</JPN>
+	</Msg_513>
+	<Msg_514>
+		<JPN>Nominal dimensions</JPN>
+	</Msg_514>
+	<Msg_515>
+		<JPN>Mark diameter</JPN>
+	</Msg_515>
+	<Msg_516>
+		<JPN>Start-Stop mark distance</JPN>
+	</Msg_516>
+	<Msg_517>
+		<JPN>Mark distance</JPN>
+	</Msg_517>
+	<Msg_518>
+		<JPN>Marks sequence</JPN>
+	</Msg_518>
+	<Msg_519>
+		<JPN>Patch_%d setup</JPN>
+	</Msg_519>
+	<Msg_520>
+		<JPN>Loading user settings for Camera %d  in progress...</JPN>
+	</Msg_520>
+	<Msg_521>
+		<JPN>Loading white balance camera coefficients %d in progress...</JPN>
+	</Msg_521>
+	<Msg_522>
+		<JPN>White balance (Black) camera %d in progress...</JPN>
+	</Msg_522>
+	<Msg_523>
+		<JPN>White balance (White) camera %d in progress...</JPN>
+	</Msg_523>
+	<Msg_524>
+		<JPN>Saving user settings for camera %d in progress...</JPN>
+	</Msg_524>
+	<Msg_525>
+		<JPN>Saving white balance coefficients for Camera %d in progress...</JPN>
+	</Msg_525>
+	<Msg_526>
+		<JPN>Close the diaphragm completely, or put the cover onto the lens, and confirm.</JPN>
+	</Msg_526>
+	<Msg_527>
+		<JPN>Open diaphragm or remove the cover from the lens, put a white background in front of the cameras and confirm.</JPN>
+	</Msg_527>
+	<Msg_528>
+		<JPN>Do you want to reset the black/white calibration?</JPN>
+	</Msg_528>
+	<Msg_529>
+		<JPN>Area type selection</JPN>
+	</Msg_529>
+	<Msg_530>
+		<JPN>OCR code</JPN>
+	</Msg_530>
+	<Msg_531>
+		<JPN>Bar code</JPN>
+	</Msg_531>
+	<Msg_532>
+		<JPN>DataMatrix code</JPN>
+	</Msg_532>
+	<Msg_533>
+		<JPN>Area type</JPN>
+	</Msg_533>
+	<Msg_534>
+		<JPN>Enter character string</JPN>
+	</Msg_534>
+	<Msg_535>
+		<JPN>Character string</JPN>
+	</Msg_535>
+	<Msg_536>
+		<JPN>Enable Log file recording</JPN>
+	</Msg_536>
+	<Msg_537>
+		<JPN>Log file parameters</JPN>
+	</Msg_537>
+	<Msg_538>
+		<JPN>SpectroPhotometer L*a*b patches Acq.</JPN>
+	</Msg_538>
+	<Msg_539>
+		<JPN>Perforation pitch</JPN>
+	</Msg_539>
+	<Msg_540>
+		<JPN>L*a*b patch reference</JPN>
+	</Msg_540>
+	<Msg_541>
+		<JPN>-  PATCH REGION DEFINITION -</JPN>
+	</Msg_541>
+	<Msg_542>
+		<JPN>Log file created on:</JPN>
+	</Msg_542>
+	<Msg_543>
+		<JPN>Threshold +</JPN>
+	</Msg_543>
+	<Msg_544>
+		<JPN>Threshold -</JPN>
+	</Msg_544>
+	<Msg_545>
+		<JPN>Auto. templates search</JPN>
+	</Msg_545>
+	<Msg_546>
+		<JPN>Production wizard</JPN>
+	</Msg_546>
+	<Msg_547>
+		<JPN>-  PERFORATION CONTROL VERIFICATION -</JPN>
+	</Msg_547>
+	<Msg_548>
+		<JPN>Error while writing file %s</JPN>
+	</Msg_548>
+	<Msg_549>
+		<JPN>Error while reading file %s.  File missing or corrupt.</JPN>
+	</Msg_549>
+	<Msg_550>
+		<JPN>Vertical offset</JPN>
+	</Msg_550>
+	<Msg_551>
+		<JPN>Horizontal overlapping</JPN>
+	</Msg_551>
+	<Msg_552>
+		<JPN>CONTROL ENABLED</JPN>
+	</Msg_552>
+	<Msg_553>
+		<JPN>CONTROL DISABLED</JPN>
+	</Msg_553>
+	<Msg_554>
+		<JPN>ADVANCED</JPN>
+	</Msg_554>
+	<Msg_555>
+		<JPN>Image name composition</JPN>
+	</Msg_555>
+	<Msg_556>
+		<JPN>Font database dimension</JPN>
+	</Msg_556>
+	<Msg_557>
+		<JPN>- SAVING IN PROGRESS -</JPN>
+	</Msg_557>
+	<Msg_558>
+		<JPN>Register mark status:</JPN>
+	</Msg_558>
+	<Msg_559>
+		<JPN>Production wizard menu</JPN>
+	</Msg_559>
+	<Msg_560>
+		<JPN>Encoder Status:</JPN>
+	</Msg_560>
+	<Msg_561>
+		<JPN>Camera (TAcq):</JPN>
+	</Msg_561>
+	<Msg_562>
+		<JPN>3-UP</JPN>
+	</Msg_562>
+	<Msg_563>
+		<JPN>Digital gain:</JPN>
+	</Msg_563>
+	<Msg_564>
+		<JPN>Encoder resolution</JPN>
+	</Msg_564>
+	<Msg_565>
+		<JPN>Image name composition not valid or ambiguous.</JPN>
+	</Msg_565>
+	<Msg_566>
+		<JPN>Position tolerance</JPN>
+	</Msg_566>
+	<Msg_567>
+		<JPN>Page selection</JPN>
+	</Msg_567>
+	<Msg_568>
+		<JPN>Page %d</JPN>
+	</Msg_568>
+	<Msg_569>
+		<JPN>Error memory allocation</JPN>
+	</Msg_569>
+	<Msg_570>
+		<JPN>COUNTERS RESET</JPN>
+	</Msg_570>
+	<Msg_571>
+		<JPN>Image sync.</JPN>
+	</Msg_571>
+	<Msg_572>
+		<JPN>Image sync. [F8]</JPN>
+	</Msg_572>
+	<Msg_573>
+		<JPN>Measurement duration</JPN>
+	</Msg_573>
+	<Msg_574>
+		<JPN>Enable dynamic production coding</JPN>
+	</Msg_574>
+	<Msg_575>
+		<JPN>Disable dynamic production coding</JPN>
+	</Msg_575>
+	<Msg_576>
+		<JPN>Enable dynamic template coding</JPN>
+	</Msg_576>
+	<Msg_577>
+		<JPN>CAMERA SETTINGS</JPN>
+	</Msg_577>
+	<Msg_578>
+		<JPN>%s is too long. Max. length  %d characters.</JPN>
+	</Msg_578>
+	<Msg_579>
+		<JPN>Characters</JPN>
+	</Msg_579>
+	<Msg_580>
+		<JPN>Template name selection</JPN>
+	</Msg_580>
+	<Msg_581>
+		<JPN>OCV control</JPN>
+	</Msg_581>
+	<Msg_582>
+		<JPN>Enable OCV control</JPN>
+	</Msg_582>
+	<Msg_583>
+		<JPN>String to be verified</JPN>
+	</Msg_583>
+	<Msg_584>
+		<JPN>Max. no. of faulty characters</JPN>
+	</Msg_584>
+	<Msg_585>
+		<JPN>Advanced settings</JPN>
+	</Msg_585>
+	<Msg_586>
+		<JPN>View report</JPN>
+	</Msg_586>
+	<Msg_587>
+		<JPN>Horizontal Encapsulation</JPN>
+	</Msg_587>
+	<Msg_588>
+		<JPN>Vertical Encapsulation</JPN>
+	</Msg_588>
+	<Msg_589>
+		<JPN>Horizontal shift</JPN>
+	</Msg_589>
+	<Msg_590>
+		<JPN>Vertical shift</JPN>
+	</Msg_590>
+	<Msg_591>
+		<JPN>Subsampling</JPN>
+	</Msg_591>
+	<Msg_592>
+		<JPN>Copy production...</JPN>
+	</Msg_592>
+	<Msg_593>
+		<JPN>Delete production...</JPN>
+	</Msg_593>
+	<Msg_594>
+		<JPN>Copy template...</JPN>
+	</Msg_594>
+	<Msg_595>
+		<JPN>Delete template...</JPN>
+	</Msg_595>
+	<Msg_596>
+		<JPN>The entered name has invalid characters.</JPN>
+	</Msg_596>
+	<Msg_597>
+		<JPN>Max. allowed name length is %d</JPN>
+	</Msg_597>
+	<Msg_598>
+		<JPN>Do you really want to stop 'Edit tolerance' ?</JPN>
+	</Msg_598>
+	<Msg_599>
+		<JPN>Production wizard</JPN>
+	</Msg_599>
+	<Msg_600>
+		<JPN>No camera selected</JPN>
+	</Msg_600>
+	<Msg_601>
+		<JPN>Template memory allocation problems</JPN>
+	</Msg_601>
+	<Msg_602>
+		<JPN>Frame grabber initialization problem</JPN>
+	</Msg_602>
+	<Msg_603>
+		<JPN>Frame buffers memory allocation problem</JPN>
+	</Msg_603>
+	<Msg_604>
+		<JPN>Digital gain +</JPN>
+	</Msg_604>
+	<Msg_605>
+		<JPN>Digital gain -</JPN>
+	</Msg_605>
+	<Msg_606>
+		<JPN>- MARGINS DEFINITION -</JPN>
+	</Msg_606>
+	<Msg_607>
+		<JPN>VIS. L*a*b PATCHES</JPN>
+	</Msg_607>
+	<Msg_608>
+		<JPN>Physical Form length (inches)</JPN>
+	</Msg_608>
+	<Msg_609>
+		<JPN>Saving time (ms) :</JPN>
+	</Msg_609>
+	<Msg_610>
+		<JPN>Parameter value must be within the range</JPN>
+	</Msg_610>
+	<Msg_611>
+		<JPN>Total SAVED/ACQ :</JPN>
+	</Msg_611>
+	<Msg_612>
+		<JPN>Incorrect number of marks found</JPN>
+	</Msg_612>
+	<Msg_613>
+		<JPN>Y Mark distance:</JPN>
+	</Msg_613>
+	<Msg_614>
+		<JPN>Density / intensity control</JPN>
+	</Msg_614>
+	<Msg_615>
+		<JPN>Max. variation</JPN>
+	</Msg_615>
+	<Msg_616>
+		<JPN>DENSITY  TOLERANCES</JPN>
+	</Msg_616>
+	<Msg_617>
+		<JPN>Font selection</JPN>
+	</Msg_617>
+	<Msg_618>
+		<JPN>Required pattern offset</JPN>
+	</Msg_618>
+	<Msg_619>
+		<JPN>Register type</JPN>
+	</Msg_619>
+	<Msg_620>
+		<JPN>Line pattern</JPN>
+	</Msg_620>
+	<Msg_621>
+		<JPN>Triple pattern</JPN>
+	</Msg_621>
+	<Msg_622>
+		<JPN>Overlapping</JPN>
+	</Msg_622>
+	<Msg_623>
+		<JPN>Camera %d serial port is not correctly configured. The application will close.</JPN>
+	</Msg_623>
+	<Msg_624>
+		<JPN>Physical form length must be equal or larger than the page length.</JPN>
+	</Msg_624>
+	<Msg_625>
+		<JPN>Msg_625</JPN>
+	</Msg_625>
+	<Msg_626>
+		<JPN>Too many regions</JPN>
+	</Msg_626>
+	<Msg_627>
+		<JPN>Temporary image allocation problems</JPN>
+	</Msg_627>
+	<Msg_628>
+		<JPN>Do you want to save the modified tolerances?</JPN>
+	</Msg_628>
+	<Msg_629>
+		<JPN>Msg_629</JPN>
+	</Msg_629>
+	<Msg_630>
+		<JPN>Message file Missing or corrupt</JPN>
+	</Msg_630>
+	<Msg_631>
+		<JPN>Do you want to stop editing the template?</JPN>
+	</Msg_631>
+	<Msg_632>
+		<JPN>C = Special character</JPN>
+	</Msg_632>
+	<Msg_633>
+		<JPN>D = Any character</JPN>
+	</Msg_633>
+	<Msg_634>
+		<JPN>It's impossible to execute shut down</JPN>
+	</Msg_634>
+	<Msg_635>
+		<JPN>Messages memory allocation error</JPN>
+	</Msg_635>
+	<Msg_636>
+		<JPN>Error template models memory allocation</JPN>
+	</Msg_636>
+	<Msg_637>
+		<JPN>Error running resources memory allocation</JPN>
+	</Msg_637>
+	<Msg_638>
+		<JPN>Thread initialization problem.</JPN>
+	</Msg_638>
+	<Msg_639>
+		<JPN>Density scale control area</JPN>
+	</Msg_639>
+	<Msg_640>
+		<JPN>Enable all images storing</JPN>
+	</Msg_640>
+	<Msg_641>
+		<JPN>Enable report file recording</JPN>
+	</Msg_641>
+	<Msg_642>
+		<JPN>Msg_642</JPN>
+	</Msg_642>
+	<Msg_643>
+		<JPN>Msg_643</JPN>
+	</Msg_643>
+	<Msg_644>
+		<JPN>Msg_644</JPN>
+	</Msg_644>
+	<Msg_645>
+		<JPN>Msg_645</JPN>
+	</Msg_645>
+	<Msg_646>
+		<JPN>Image saving parameters</JPN>
+	</Msg_646>
+	<Msg_647>
+		<JPN>Select max. no. °%d of register areas.</JPN>
+	</Msg_647>
+	<Msg_648>
+		<JPN>AREA OUTSIDE OF IMAGE BOUNDARIES</JPN>
+	</Msg_648>
+	<Msg_649>
+		<JPN>2D CODE ADVANCED PARAMETERS</JPN>
+	</Msg_649>
+	<Msg_650>
+		<JPN>Image</JPN>
+	</Msg_650>
+	<Msg_651>
+		<JPN>Character</JPN>
+	</Msg_651>
+	<Msg_652>
+		<JPN>Gain</JPN>
+	</Msg_652>
+	<Msg_653>
+		<JPN>Camera Selection</JPN>
+	</Msg_653>
+	<Msg_654>
+		<JPN>Enable function</JPN>
+	</Msg_654>
+	<Msg_655>
+		<JPN>Enable CMC7</JPN>
+	</Msg_655>
+	<Msg_656>
+		<JPN>Enable E13B</JPN>
+	</Msg_656>
+	<Msg_657>
+		<JPN>Msg_657</JPN>
+	</Msg_657>
+	<Msg_658>
+		<JPN>Bar</JPN>
+	</Msg_658>
+	<Msg_659>
+		<JPN>Msg_659</JPN>
+	</Msg_659>
+	<Msg_660>
+		<JPN>/ : S1 (CMC7)</JPN>
+	</Msg_660>
+	<Msg_661>
+		<JPN>&lt; : S2 (CMC7)</JPN>
+	</Msg_661>
+	<Msg_662>
+		<JPN>= : S3 (CMC7)</JPN>
+	</Msg_662>
+	<Msg_663>
+		<JPN>&gt; : S4 (CMC7)</JPN>
+	</Msg_663>
+	<Msg_664>
+		<JPN>^ : S5 (CMC7)</JPN>
+	</Msg_664>
+	<Msg_665>
+		<JPN>Code readability threshold</JPN>
+	</Msg_665>
+	<Msg_666>
+		<JPN>4-UP</JPN>
+	</Msg_666>
+	<Msg_667>
+		<JPN>DELTA-E TOLERANCE PARAMETERS</JPN>
+	</Msg_667>
+	<Msg_668>
+		<JPN>Enable delta-E verification</JPN>
+	</Msg_668>
+	<Msg_669>
+		<JPN>Delta-E tolerance</JPN>
+	</Msg_669>
+	<Msg_670>
+		<JPN>Existing font</JPN>
+	</Msg_670>
+	<Msg_671>
+		<JPN>Enable CMC7 bars count control</JPN>
+	</Msg_671>
+	<Msg_672>
+		<JPN>Insert area</JPN>
+	</Msg_672>
+	<Msg_673>
+		<JPN>Enable CMC7 bars intensity control</JPN>
+	</Msg_673>
+	<Msg_674>
+		<JPN>CMC7 bars intensity tolerance</JPN>
+	</Msg_674>
+	<Msg_675>
+		<JPN>Enable CMC7 chars distance tolerance</JPN>
+	</Msg_675>
+	<Msg_676>
+		<JPN>CMC7 chars distance tolerance</JPN>
+	</Msg_676>
+	<Msg_677>
+		<JPN>Chars distance tolerance</JPN>
+	</Msg_677>
+	<Msg_678>
+		<JPN>strings distance tolerance</JPN>
+	</Msg_678>
+	<Msg_679>
+		<JPN>CMC7 chars separation threshold</JPN>
+	</Msg_679>
+	<Msg_680>
+		<JPN>CMC7 parameters</JPN>
+	</Msg_680>
+	<Msg_681>
+		<JPN>Dimension measurement area</JPN>
+	</Msg_681>
+	<Msg_682>
+		<JPN>DIMENSION MEASUREMENT TOLERANCES</JPN>
+	</Msg_682>
+	<Msg_683>
+		<JPN>THREAD ERROR</JPN>
+	</Msg_683>
+	<Msg_684>
+		<JPN>Enable X dimension control</JPN>
+	</Msg_684>
+	<Msg_685>
+		<JPN>Enable Y dimension control</JPN>
+	</Msg_685>
+	<Msg_686>
+		<JPN>X Area Dimension Control</JPN>
+	</Msg_686>
+	<Msg_687>
+		<JPN>X nominal dimension</JPN>
+	</Msg_687>
+	<Msg_688>
+		<JPN>X dimension tolerance</JPN>
+	</Msg_688>
+	<Msg_689>
+		<JPN>Y Area Dimension Control</JPN>
+	</Msg_689>
+	<Msg_690>
+		<JPN>Y nominal dimension</JPN>
+	</Msg_690>
+	<Msg_691>
+		<JPN>Y dimension tolerance</JPN>
+	</Msg_691>
+	<Msg_692>
+		<JPN>Encoder ON</JPN>
+	</Msg_692>
+	<Msg_693>
+		<JPN>Encoder OFF</JPN>
+	</Msg_693>
+	<Msg_694>
+		<JPN>Trigger ON</JPN>
+	</Msg_694>
+	<Msg_695>
+		<JPN>Trigger OFF</JPN>
+	</Msg_695>
+	<Msg_696>
+		<JPN>Font type class</JPN>
+	</Msg_696>
+	<Msg_697>
+		<JPN>Numeric font</JPN>
+	</Msg_697>
+	<Msg_698>
+		<JPN>General font</JPN>
+	</Msg_698>
+	<Msg_699>
+		<JPN>"%s" is a reserved word. Saving not performed.</JPN>
+	</Msg_699>
+	<Msg_700>
+		<JPN>5-UP</JPN>
+	</Msg_700>
+	<Msg_701>
+		<JPN>Msg_701</JPN>
+	</Msg_701>
+	<Msg_702>
+		<JPN>Msg_702</JPN>
+	</Msg_702>
+	<Msg_703>
+		<JPN>Host port address</JPN>
+	</Msg_703>
+	<Msg_704>
+		<JPN>Label</JPN>
+	</Msg_704>
+	<Msg_705>
+		<JPN>Area</JPN>
+	</Msg_705>
+	<Msg_706>
+		<JPN>Specified directory does not exist! Do you want to create it?</JPN>
+	</Msg_706>
+	<Msg_707>
+		<JPN>Msg_707</JPN>
+	</Msg_707>
+	<Msg_708>
+		<JPN>Unable to completely remove the directory</JPN>
+	</Msg_708>
+	<Msg_709>
+		<JPN>Allows connection to HCP platform</JPN>
+	</Msg_709>
+	<Msg_710>
+		<JPN>Add account</JPN>
+	</Msg_710>
+	<Msg_711>
+		<JPN>Delete font</JPN>
+	</Msg_711>
+	<Msg_712>
+		<JPN>Image synch. schema "%s" is existing! Overwrite?</JPN>
+	</Msg_712>
+	<Msg_713>
+		<JPN>Color channel offset</JPN>
+	</Msg_713>
+	<Msg_714>
+		<JPN>Selected directory cannot be created.</JPN>
+	</Msg_714>
+	<Msg_715>
+		<JPN>Font CMC7</JPN>
+	</Msg_715>
+	<Msg_716>
+		<JPN>Character set</JPN>
+	</Msg_716>
+	<Msg_717>
+		<JPN>Reference area</JPN>
+	</Msg_717>
+	<Msg_718>
+		<JPN>Blue channel gain</JPN>
+	</Msg_718>
+	<Msg_719>
+		<JPN>Green channel gain</JPN>
+	</Msg_719>
+	<Msg_720>
+		<JPN>Red channel gain</JPN>
+	</Msg_720>
+	<Msg_721>
+		<JPN>Image saving folder</JPN>
+	</Msg_721>
+	<Msg_722>
+		<JPN>Login password</JPN>
+	</Msg_722>
+	<Msg_723>
+		<JPN>Login account</JPN>
+	</Msg_723>
+	<Msg_724>
+		<JPN>Login access</JPN>
+	</Msg_724>
+	<Msg_725>
+		<JPN>Hunkeler AG</JPN>
+	</Msg_725>
+	<Msg_726>
+		<JPN>Bahnhofstrasse 31</JPN>
+	</Msg_726>
+	<Msg_727>
+		<JPN>CH-4806 Wikon - SWITZERLAND</JPN>
+	</Msg_727>
+	<Msg_728>
+		<JPN>www.hunkeler.ch</JPN>
+	</Msg_728>
+	<Msg_729>
+		<JPN>Perforation control</JPN>
+	</Msg_729>
+	<Msg_730>
+		<JPN>Camera fine adjustment</JPN>
+	</Msg_730>
+	<Msg_731>
+		<JPN>Perforation area</JPN>
+	</Msg_731>
+	<Msg_732>
+		<JPN>Image Left margin</JPN>
+	</Msg_732>
+	<Msg_733>
+		<JPN>Image right margin</JPN>
+	</Msg_733>
+	<Msg_734>
+		<JPN>Postal barcode type</JPN>
+	</Msg_734>
+	<Msg_735>
+		<JPN>Compression quality</JPN>
+	</Msg_735>
+	<Msg_736>
+		<JPN>Logo tolerances</JPN>
+	</Msg_736>
+	<Msg_737>
+		<JPN>Do you want to delete the selected font/characters ("%s")?</JPN>
+	</Msg_737>
+	<Msg_738>
+		<JPN>Do you really want to delete the selected template ("%s")?</JPN>
+	</Msg_738>
+	<Msg_739>
+		<JPN>Do you want to delete the selected production ("%s")?</JPN>
+	</Msg_739>
+	<Msg_740>
+		<JPN>Do You want to delete selected region?</JPN>
+	</Msg_740>
+	<Msg_741>
+		<JPN>Production "%s" already exists! Overwrite?</JPN>
+	</Msg_741>
+	<Msg_742>
+		<JPN>Do you want to delete the selected label or all labels?</JPN>
+	</Msg_742>
+	<Msg_743>
+		<JPN>Enable density control</JPN>
+	</Msg_743>
+	<Msg_744>
+		<JPN>Perforation control</JPN>
+	</Msg_744>
+	<Msg_745>
+		<JPN>Enable perforation control</JPN>
+	</Msg_745>
+	<Msg_746>
+		<JPN>Contrast tolerance (bright/dark)</JPN>
+	</Msg_746>
+	<Msg_747>
+		<JPN>Perforation tolerance</JPN>
+	</Msg_747>
+	<Msg_748>
+		<JPN>Only selected label</JPN>
+	</Msg_748>
+	<Msg_749>
+		<JPN>All labels</JPN>
+	</Msg_749>
+	<Msg_750>
+		<JPN>Do you want to delete the selected label?</JPN>
+	</Msg_750>
+	<Msg_751>
+		<JPN>Delete label</JPN>
+	</Msg_751>
+	<Msg_752>
+		<JPN>Do you want to change the selected area on the selected label or on all labels?</JPN>
+	</Msg_752>
+	<Msg_753>
+		<JPN>Position result</JPN>
+	</Msg_753>
+	<Msg_754>
+		<JPN>Perforation result</JPN>
+	</Msg_754>
+	<Msg_755>
+		<JPN>Perforation Error</JPN>
+	</Msg_755>
+	<Msg_756>
+		<JPN>Disable streakers' control</JPN>
+	</Msg_756>
+	<Msg_757>
+		<JPN>Error position</JPN>
+	</Msg_757>
+	<Msg_758>
+		<JPN>Barcode %s Type</JPN>
+	</Msg_758>
+	<Msg_759>
+		<JPN>Copy area</JPN>
+	</Msg_759>
+	<Msg_760>
+		<JPN>Template "%s" already exists! Overwrite?</JPN>
+	</Msg_760>
+	<Msg_761>
+		<JPN>Advanced</JPN>
+	</Msg_761>
+	<Msg_762>
+		<JPN>Modify area</JPN>
+	</Msg_762>
+	<Msg_763>
+		<JPN>Delete area</JPN>
+	</Msg_763>
+	<Msg_764>
+		<JPN>Add area (at last)</JPN>
+	</Msg_764>
+	<Msg_765>
+		<JPN>Save template</JPN>
+	</Msg_765>
+	<Msg_766>
+		<JPN>Cancel template</JPN>
+	</Msg_766>
+	<Msg_767>
+		<JPN>Value matching</JPN>
+	</Msg_767>
+	<Msg_768>
+		<JPN>Warning: offline version...</JPN>
+	</Msg_768>
+	<Msg_769>
+		<JPN>Enable reliability reading</JPN>
+	</Msg_769>
+	<Msg_770>
+		<JPN>CMC7 Parameters</JPN>
+	</Msg_770>
+	<Msg_771>
+		<JPN>String filtering</JPN>
+	</Msg_771>
+	<Msg_772>
+		<JPN>OCV settings</JPN>
+	</Msg_772>
+	<Msg_773>
+		<JPN>CMC7 parameters</JPN>
+	</Msg_773>
+	<Msg_774>
+		<JPN>Anchor point</JPN>
+	</Msg_774>
+	<Msg_775>
+		<JPN>Enable function anchor point</JPN>
+	</Msg_775>
+	<Msg_776>
+		<JPN>On each page</JPN>
+	</Msg_776>
+	<Msg_777>
+		<JPN>On left page only</JPN>
+	</Msg_777>
+	<Msg_778>
+		<JPN>Jetout detection area</JPN>
+	</Msg_778>
+	<Msg_779>
+		<JPN>Jetout tolerances</JPN>
+	</Msg_779>
+	<Msg_780>
+		<JPN>Jetout line control</JPN>
+	</Msg_780>
+	<Msg_781>
+		<JPN>Jetout control activation</JPN>
+	</Msg_781>
+	<Msg_782>
+		<JPN>Defect persistence</JPN>
+	</Msg_782>
+	<Msg_783>
+		<JPN>Streakers' tolerance</JPN>
+	</Msg_783>
+	<Msg_784>
+		<JPN>Limit control area</JPN>
+	</Msg_784>
+	<Msg_785>
+		<JPN>Number of regions</JPN>
+	</Msg_785>
+	<Msg_786>
+		<JPN>Enable register mark</JPN>
+	</Msg_786>
+	<Msg_787>
+		<JPN>No. of color channels</JPN>
+	</Msg_787>
+	<Msg_788>
+		<JPN>Channel sequence</JPN>
+	</Msg_788>
+	<Msg_789>
+		<JPN>Number of color bands</JPN>
+	</Msg_789>
+	<Msg_790>
+		<JPN>Colour band index</JPN>
+	</Msg_790>
+	<Msg_791>
+		<JPN>Parameter '%s' must be within the limits</JPN>
+	</Msg_791>
+	<Msg_792>
+		<JPN>JetOut control region</JPN>
+	</Msg_792>
+	<Msg_793>
+		<JPN>Parameter string '%s' contains invalid characters.</JPN>
+	</Msg_793>
+	<Msg_794>
+		<JPN>Parameter string '%s' must contain a number of characters in the range [%d-%d]</JPN>
+	</Msg_794>
+	<Msg_795>
+		<JPN>The dynamic template activation sequence '%s' must contain tokens with %d characters.</JPN>
+	</Msg_795>
+	<Msg_796>
+		<JPN>Image saving cannot be completed. Selected directory '%s' does not exist.</JPN>
+	</Msg_796>
+	<Msg_797>
+		<JPN>Only master channel</JPN>
+	</Msg_797>
+	<Msg_798>
+		<JPN>Jetout tolerance</JPN>
+	</Msg_798>
+	<Msg_799>
+		<JPN>Streakers' profile</JPN>
+	</Msg_799>
+	<Msg_800>
+		<JPN>Jetout profile [%c]</JPN>
+	</Msg_800>
+	<Msg_801>
+		<JPN>Control</JPN>
+	</Msg_801>
+	<Msg_802>
+		<JPN>Result</JPN>
+	</Msg_802>
+	<Msg_803>
+		<JPN>Uniformity result</JPN>
+	</Msg_803>
+	<Msg_804>
+		<JPN>Density result</JPN>
+	</Msg_804>
+	<Msg_805>
+		<JPN>Reliability result</JPN>
+	</Msg_805>
+	<Msg_806>
+		<JPN>Tonality Result</JPN>
+	</Msg_806>
+	<Msg_807>
+		<JPN>Code read</JPN>
+	</Msg_807>
+	<Msg_808>
+		<JPN>Jetout result</JPN>
+	</Msg_808>
+	<Msg_809>
+		<JPN>Streakers' result</JPN>
+	</Msg_809>
+	<Msg_810>
+		<JPN>Uniformity Error</JPN>
+	</Msg_810>
+	<Msg_811>
+		<JPN>Density error</JPN>
+	</Msg_811>
+	<Msg_812>
+		<JPN>Reliability</JPN>
+	</Msg_812>
+	<Msg_813>
+		<JPN>Tonality Error</JPN>
+	</Msg_813>
+	<Msg_814>
+		<JPN>ANSI grading</JPN>
+	</Msg_814>
+	<Msg_815>
+		<JPN>Jetout error</JPN>
+	</Msg_815>
+	<Msg_816>
+		<JPN>Error Streakers'</JPN>
+	</Msg_816>
+	<Msg_817>
+		<JPN>Delta-E result</JPN>
+	</Msg_817>
+	<Msg_818>
+		<JPN>Error delta-E</JPN>
+	</Msg_818>
+	<Msg_819>
+		<JPN>X pos. result</JPN>
+	</Msg_819>
+	<Msg_820>
+		<JPN>Error X pos.</JPN>
+	</Msg_820>
+	<Msg_821>
+		<JPN>Y pos. result</JPN>
+	</Msg_821>
+	<Msg_822>
+		<JPN>Error Y pos.</JPN>
+	</Msg_822>
+	<Msg_823>
+		<JPN>X dim. result</JPN>
+	</Msg_823>
+	<Msg_824>
+		<JPN>Error X dim.</JPN>
+	</Msg_824>
+	<Msg_825>
+		<JPN>Y dim. result</JPN>
+	</Msg_825>
+	<Msg_826>
+		<JPN>Error Y dim.</JPN>
+	</Msg_826>
+	<Msg_827>
+		<JPN>Error pattern</JPN>
+	</Msg_827>
+	<Msg_828>
+		<JPN>Contrast result</JPN>
+	</Msg_828>
+	<Msg_829>
+		<JPN>Contrast</JPN>
+	</Msg_829>
+	<Msg_830>
+		<JPN>Format result</JPN>
+	</Msg_830>
+	<Msg_831>
+		<JPN>Matching result</JPN>
+	</Msg_831>
+	<Msg_832>
+		<JPN>Bar height tolerance</JPN>
+	</Msg_832>
+	<Msg_833>
+		<JPN>Bar width tolerance</JPN>
+	</Msg_833>
+	<Msg_834>
+		<JPN>Bars interspace tolerance</JPN>
+	</Msg_834>
+	<Msg_835>
+		<JPN>Selected rotation does not match selected area</JPN>
+	</Msg_835>
+	<Msg_836>
+		<JPN>Unable to recognize the barcode!</JPN>
+	</Msg_836>
+	<Msg_837>
+		<JPN>Incorrect barcode length</JPN>
+	</Msg_837>
+	<Msg_838>
+		<JPN>Barcode corrupt</JPN>
+	</Msg_838>
+	<Msg_839>
+		<JPN>F Bar nominal height : %.2f ± %.2f</JPN>
+	</Msg_839>
+	<Msg_840>
+		<JPN>A/D Bar nominal height : %.2f ± %.2f</JPN>
+	</Msg_840>
+	<Msg_841>
+		<JPN>T Bar nominal height : %.2f ± %.2f</JPN>
+	</Msg_841>
+	<Msg_842>
+		<JPN>Bars nominal width : %.2f ± %.2f</JPN>
+	</Msg_842>
+	<Msg_843>
+		<JPN>Bar nominal pitch: %.2f ± %.2f</JPN>
+	</Msg_843>
+	<Msg_844>
+		<JPN>Enable bars height verification</JPN>
+	</Msg_844>
+	<Msg_845>
+		<JPN>Enable bars width verification</JPN>
+	</Msg_845>
+	<Msg_846>
+		<JPN>Enable bars interspace verification</JPN>
+	</Msg_846>
+	<Msg_847>
+		<JPN>Error barcode delimiter</JPN>
+	</Msg_847>
+	<Msg_848>
+		<JPN>Error barcode checksum</JPN>
+	</Msg_848>
+	<Msg_849>
+		<JPN>Bar too wide</JPN>
+	</Msg_849>
+	<Msg_850>
+		<JPN>Bar too high</JPN>
+	</Msg_850>
+	<Msg_851>
+		<JPN>Bar too small</JPN>
+	</Msg_851>
+	<Msg_852>
+		<JPN>Bar too narrow</JPN>
+	</Msg_852>
+	<Msg_853>
+		<JPN>Bars pitch too large</JPN>
+	</Msg_853>
+	<Msg_854>
+		<JPN>Bars pitch too small</JPN>
+	</Msg_854>
+	<Msg_855>
+		<JPN>PRD below tolerance limit</JPN>
+	</Msg_855>
+	<Msg_856>
+		<JPN>Polarity</JPN>
+	</Msg_856>
+	<Msg_857>
+		<JPN>Mirrored</JPN>
+	</Msg_857>
+	<Msg_858>
+		<JPN>Min. contrast</JPN>
+	</Msg_858>
+	<Msg_859>
+		<JPN>Min. module size</JPN>
+	</Msg_859>
+	<Msg_860>
+		<JPN>Max. module size</JPN>
+	</Msg_860>
+	<Msg_861>
+		<JPN>Min. module aspect</JPN>
+	</Msg_861>
+	<Msg_862>
+		<JPN>Max. module aspect</JPN>
+	</Msg_862>
+	<Msg_863>
+		<JPN>Module gaps</JPN>
+	</Msg_863>
+	<Msg_864>
+		<JPN>Max slant</JPN>
+	</Msg_864>
+	<Msg_865>
+		<JPN>Module grid</JPN>
+	</Msg_865>
+	<Msg_866>
+		<JPN>Code rebuilding rate</JPN>
+	</Msg_866>
+	<Msg_867>
+		<JPN>Level of pattern finder tolerance</JPN>
+	</Msg_867>
+	<Msg_868>
+		<JPN>NO</JPN>
+	</Msg_868>
+	<Msg_869>
+		<JPN>YES</JPN>
+	</Msg_869>
+	<Msg_870>
+		<JPN>Both</JPN>
+	</Msg_870>
+	<Msg_871>
+		<JPN>Small</JPN>
+	</Msg_871>
+	<Msg_872>
+		<JPN>Large</JPN>
+	</Msg_872>
+	<Msg_873>
+		<JPN>Low</JPN>
+	</Msg_873>
+	<Msg_874>
+		<JPN>High</JPN>
+	</Msg_874>
+	<Msg_875>
+		<JPN>Fixed</JPN>
+	</Msg_875>
+	<Msg_876>
+		<JPN>Variable</JPN>
+	</Msg_876>
+	<Msg_877>
+		<JPN>Enable time-out</JPN>
+	</Msg_877>
+	<Msg_878>
+		<JPN>Dark on light</JPN>
+	</Msg_878>
+	<Msg_879>
+		<JPN>Light on dark</JPN>
+	</Msg_879>
+	<Msg_880>
+		<JPN>Registration mark reader settings</JPN>
+	</Msg_880>
+	<Msg_881>
+		<JPN>Registration mark reader distance</JPN>
+	</Msg_881>
+	<Msg_882>
+		<JPN>Pre trigger</JPN>
+	</Msg_882>
+	<Msg_883>
+		<JPN>Post trigger</JPN>
+	</Msg_883>
+	<Msg_884>
+		<JPN>Number of repetitions</JPN>
+	</Msg_884>
+	<Msg_885>
+		<JPN>Rpt trigger distance</JPN>
+	</Msg_885>
+	<Msg_886>
+		<JPN>Camera trigger enabling/ management</JPN>
+	</Msg_886>
+	<Msg_887>
+		<JPN>Enable Register mark reader</JPN>
+	</Msg_887>
+	<Msg_888>
+		<JPN>Reader 1</JPN>
+	</Msg_888>
+	<Msg_889>
+		<JPN>Reader 2</JPN>
+	</Msg_889>
+	<Msg_890>
+		<JPN>Camera 1</JPN>
+	</Msg_890>
+	<Msg_891>
+		<JPN>Camera 2</JPN>
+	</Msg_891>
+	<Msg_892>
+		<JPN>Select registration mark reader</JPN>
+	</Msg_892>
+	<Msg_893>
+		<JPN>Select camera</JPN>
+	</Msg_893>
+	<Msg_894>
+		<JPN>Trigger start</JPN>
+	</Msg_894>
+	<Msg_895>
+		<JPN>Marking device setting</JPN>
+	</Msg_895>
+	<Msg_896>
+		<JPN>Marking device Sensor  Setup</JPN>
+	</Msg_896>
+	<Msg_897>
+		<JPN>Trigger to result distance</JPN>
+	</Msg_897>
+	<Msg_898>
+		<JPN>Trigger to marking device distance</JPN>
+	</Msg_898>
+	<Msg_899>
+		<JPN>Marking length</JPN>
+	</Msg_899>
+	<Msg_900>
+		<JPN>Select marking device</JPN>
+	</Msg_900>
+	<Msg_901>
+		<JPN>Register mark  %d</JPN>
+	</Msg_901>
+	<Msg_902>
+		<JPN>STOP line if WI6 NOT READY</JPN>
+	</Msg_902>
+	<Msg_903>
+		<JPN>Value Matching</JPN>
+	</Msg_903>
+	<Msg_904>
+		<JPN>Image margins menu</JPN>
+	</Msg_904>
+	<Msg_905>
+		<JPN>Overflow/LostSync alarms:</JPN>
+	</Msg_905>
+	<Msg_906>
+		<JPN>Last errors history</JPN>
+	</Msg_906>
+	<Msg_907>
+		<JPN>Spot marker</JPN>
+	</Msg_907>
+	<Msg_908>
+		<JPN>Master/Slave Inter distance</JPN>
+	</Msg_908>
+	<Msg_909>
+		<JPN>Setup</JPN>
+	</Msg_909>
+	<Msg_910>
+		<JPN>Language selection</JPN>
+	</Msg_910>
+	<Msg_911>
+		<JPN>The two passwords are different. Operation failed.</JPN>
+	</Msg_911>
+	<Msg_912>
+		<JPN>Software management</JPN>
+	</Msg_912>
+	<Msg_913>
+		<JPN>Data controls (DPKG)</JPN>
+	</Msg_913>
+	<Msg_914>
+		<JPN>Graphic controls (GPKG)</JPN>
+	</Msg_914>
+	<Msg_915>
+		<JPN>Label controls (PPKG)</JPN>
+	</Msg_915>
+	<Msg_916>
+		<JPN>Lottery controls (LPKG)</JPN>
+	</Msg_916>
+	<Msg_917>
+		<JPN>Spectro photometer controls (SPKG)</JPN>
+	</Msg_917>
+	<Msg_918>
+		<JPN>Image saving controls (IPKG)</JPN>
+	</Msg_918>
+	<Msg_919>
+		<JPN>Accounts management</JPN>
+	</Msg_919>
+	<Msg_920>
+		<JPN>Accounts list</JPN>
+	</Msg_920>
+	<Msg_921>
+		<JPN>Create new account</JPN>
+	</Msg_921>
+	<Msg_922>
+		<JPN>Basic operator</JPN>
+	</Msg_922>
+	<Msg_923>
+		<JPN>Key operator</JPN>
+	</Msg_923>
+	<Msg_924>
+		<JPN>Administrator</JPN>
+	</Msg_924>
+	<Msg_925>
+		<JPN>Field engineer</JPN>
+	</Msg_925>
+	<Msg_926>
+		<JPN>HCP_HAG developer</JPN>
+	</Msg_926>
+	<Msg_927>
+		<JPN>Account level</JPN>
+	</Msg_927>
+	<Msg_928>
+		<JPN>Account already exists.</JPN>
+	</Msg_928>
+	<Msg_929>
+		<JPN>Selected setup '%s' doesn't contain any control area. Would you like to select another setup?</JPN>
+	</Msg_929>
+	<Msg_930>
+		<JPN>Next matching</JPN>
+	</Msg_930>
+	<Msg_931>
+		<JPN>Prev. matching</JPN>
+	</Msg_931>
+	<Msg_932>
+		<JPN>Level/User Account:</JPN>
+	</Msg_932>
+	<Msg_933>
+		<JPN>NONE</JPN>
+	</Msg_933>
+	<Msg_934>
+		<JPN>User authorization</JPN>
+	</Msg_934>
+	<Msg_935>
+		<JPN>Overflow control</JPN>
+	</Msg_935>
+	<Msg_936>
+		<JPN>Lost Master/Slave sync</JPN>
+	</Msg_936>
+	<Msg_937>
+		<JPN>Add user</JPN>
+	</Msg_937>
+	<Msg_938>
+		<JPN>Authorizations</JPN>
+	</Msg_938>
+	<Msg_939>
+		<JPN>Delete user</JPN>
+	</Msg_939>
+	<Msg_940>
+		<JPN>Dynamic qualifier area</JPN>
+	</Msg_940>
+	<Msg_941>
+		<JPN>Dynamic qualifier area menu</JPN>
+	</Msg_941>
+	<Msg_942>
+		<JPN>Do you really want to stop Dynamic qualifier area setup?</JPN>
+	</Msg_942>
+	<Msg_943>
+		<JPN>Login [F5]</JPN>
+	</Msg_943>
+	<Msg_944>
+		<JPN>Enable MultiColor line</JPN>
+	</Msg_944>
+	<Msg_945>
+		<JPN>Page</JPN>
+	</Msg_945>
+	<Msg_946>
+		<JPN>Web</JPN>
+	</Msg_946>
+	<Msg_947>
+		<JPN>With control areas</JPN>
+	</Msg_947>
+	<Msg_948>
+		<JPN>Errors only (history)</JPN>
+	</Msg_948>
+	<Msg_949>
+		<JPN>With control areas</JPN>
+	</Msg_949>
+	<Msg_950>
+		<JPN>Errors only (history)</JPN>
+	</Msg_950>
+	<Msg_951>
+		<JPN>JOB %s has no PAGE TEMPLATE. creating default PAGE TEMPLATE.</JPN>
+	</Msg_951>
+	<Msg_952>
+		<JPN>JOB %s has no CAMERA TEMPLATE. Creating default CAMERA TEMPLATE.</JPN>
+	</Msg_952>
+	<Msg_953>
+		<JPN>Error template memory allocation  %s.  Loading default template.</JPN>
+	</Msg_953>
+	<Msg_954>
+		<JPN>Camera %d dynamic template decoding setup</JPN>
+	</Msg_954>
+	<Msg_955>
+		<JPN>Dynamic production recognition</JPN>
+	</Msg_955>
+	<Msg_956>
+		<JPN>Page tracking code</JPN>
+	</Msg_956>
+	<Msg_957>
+		<JPN>Setup for Dynamic decoding recognition for Line %d page %d</JPN>
+	</Msg_957>
+	<Msg_958>
+		<JPN>Dynamic page template decoding</JPN>
+	</Msg_958>
+	<Msg_959>
+		<JPN>Dynamic web template decoding</JPN>
+	</Msg_959>
+	<Msg_960>
+		<JPN>Enable tracking code</JPN>
+	</Msg_960>
+	<Msg_961>
+		<JPN>Define tracking code field extraction</JPN>
+	</Msg_961>
+	<Msg_962>
+		<JPN>Tracking code field between the following code characters:</JPN>
+	</Msg_962>
+	<Msg_963>
+		<JPN>Decoding area wizard procedure selection</JPN>
+	</Msg_963>
+	<Msg_964>
+		<JPN>- DECODING AREA WIZARD PROCEDURE SELECTION-</JPN>
+	</Msg_964>
+	<Msg_965>
+		<JPN>SETTING DYNAMIC JOB/TEMPLATE DECODING -TRACKING CODE-</JPN>
+	</Msg_965>
+	<Msg_966>
+		<JPN>Job wizard procedure selection</JPN>
+	</Msg_966>
+	<Msg_967>
+		<JPN>Image adjustment</JPN>
+	</Msg_967>
+	<Msg_968>
+		<JPN>- JOB WIZARD PROCEDURE SELECTION-</JPN>
+	</Msg_968>
+	<Msg_969>
+		<JPN>Start PreFlight</JPN>
+	</Msg_969>
+	<Msg_970>
+		<JPN>PreFlight running...</JPN>
+	</Msg_970>
+	<Msg_971>
+		<JPN>Line speed:</JPN>
+	</Msg_971>
+	<Msg_972>
+		<JPN>Bright defects contrast variation</JPN>
+	</Msg_972>
+	<Msg_973>
+		<JPN>Bright defects dimension</JPN>
+	</Msg_973>
+	<Msg_974>
+		<JPN>Dark defects contrast variation</JPN>
+	</Msg_974>
+	<Msg_975>
+		<JPN>Dark defects dimension</JPN>
+	</Msg_975>
+	<Msg_976>
+		<JPN>Edge regions defect dimension</JPN>
+	</Msg_976>
+	<Msg_977>
+		<JPN>User Log directory</JPN>
+	</Msg_977>
+	<Msg_978>
+		<JPN>Log management</JPN>
+	</Msg_978>
+	<Msg_979>
+		<JPN>User Log list</JPN>
+	</Msg_979>
+	<Msg_980>
+		<JPN>User Log export</JPN>
+	</Msg_980>
+	<Msg_981>
+		<JPN>Folder name</JPN>
+	</Msg_981>
+	<Msg_982>
+		<JPN>Destination folder name</JPN>
+	</Msg_982>
+	<Msg_983>
+		<JPN>Export PRODUCTION</JPN>
+	</Msg_983>
+	<Msg_984>
+		<JPN>WARNING! Some templates are not compatible with Line speed :</JPN>
+	</Msg_984>
+	<Msg_985>
+		<JPN>Running PreFligth report</JPN>
+	</Msg_985>
+	<Msg_986>
+		<JPN>Enable marking devices</JPN>
+	</Msg_986>
+	<Msg_987>
+		<JPN>Default configurations</JPN>
+	</Msg_987>
+	<Msg_988>
+		<JPN>Default configurations management</JPN>
+	</Msg_988>
+	<Msg_989>
+		<JPN>Start/Stop position tolerances</JPN>
+	</Msg_989>
+	<Msg_990>
+		<JPN>Error start position</JPN>
+	</Msg_990>
+	<Msg_991>
+		<JPN>Error stop position</JPN>
+	</Msg_991>
+	<Msg_992>
+		<JPN>Start position result</JPN>
+	</Msg_992>
+	<Msg_993>
+		<JPN>Stop position result</JPN>
+	</Msg_993>
+	<Msg_994>
+		<JPN>- MASTER IMAGE IS MISSING -</JPN>
+	</Msg_994>
+	<Msg_995>
+		<JPN>- IMAGE ACQUISITION IN PROGRESS -</JPN>
+	</Msg_995>
+	<Msg_996>
+		<JPN>- IMAGE ACQUISITION IN PROGRESS - DYNAMIC TEMPLATE ACTIVE -</JPN>
+	</Msg_996>
+	<Msg_997>
+		<JPN>- IMAGE SAVING DEFINITION -</JPN>
+	</Msg_997>
+	<Msg_998>
+		<JPN>Cameras inter distance</JPN>
+	</Msg_998>
+	<Msg_999>
+		<JPN>Repeat password</JPN>
+	</Msg_999>
+	<Msg_1000>
+		<JPN>READY release</JPN>
+	</Msg_1000>
+	<Msg_1001>
+		<JPN>Do you really want to delete account '%s' ?</JPN>
+	</Msg_1001>
+	<Msg_1002>
+		<JPN>ERROR!   HOOKING TEST FAILED.</JPN>
+	</Msg_1002>
+	<Msg_1003>
+		<JPN>ERROR!   MASTER CHANNEL SYNCHRONIZATION TEST FAILED.</JPN>
+	</Msg_1003>
+	<Msg_1004>
+		<JPN>SETTING DYNAMIC PAGE TEMPLATE DECODING</JPN>
+	</Msg_1004>
+	<Msg_1005>
+		<JPN>SETTING TRACKING CODE</JPN>
+	</Msg_1005>
+	<Msg_1006>
+		<JPN>SETTING DYNAMIC WEB TEMPLATE DECODING</JPN>
+	</Msg_1006>
+	<Msg_1007>
+		<JPN>SETTING DYNAMIC PRODUCTION DECODING</JPN>
+	</Msg_1007>
+	<Msg_1008>
+		<JPN>No Link to Decoding Area</JPN>
+	</Msg_1008>
+	<Msg_1009>
+		<JPN>DECODING ENABLED</JPN>
+	</Msg_1009>
+	<Msg_1010>
+		<JPN>DECODING DISABLED</JPN>
+	</Msg_1010>
+	<Msg_1011>
+		<JPN>Setting dynamic PRODUCTION decoding web %d'</JPN>
+	</Msg_1011>
+	<Msg_1012>
+		<JPN>Setting tracking code decoding - web %d page %d</JPN>
+	</Msg_1012>
+	<Msg_1013>
+		<JPN>No dynamic decoding areas present. To perform this task, dynamic decoding areas definition procedure is needed.</JPN>
+	</Msg_1013>
+	<Msg_1014>
+		<JPN>Enable front/rear color reference (spectrophotometer)</JPN>
+	</Msg_1014>
+	<Msg_1015>
+		<JPN>Dynamic decoding area</JPN>
+	</Msg_1015>
+	<Msg_1016>
+		<JPN>Images/Warnings:</JPN>
+	</Msg_1016>
+	<Msg_1017>
+		<JPN>Definition of master camera is needed to run front/rear comparison.</JPN>
+	</Msg_1017>
+	<Msg_1018>
+		<JPN>OffsetX</JPN>
+	</Msg_1018>
+	<Msg_1019>
+		<JPN>OffsetY</JPN>
+	</Msg_1019>
+	<Msg_1020>
+		<JPN>Reliability</JPN>
+	</Msg_1020>
+	<Msg_1021>
+		<JPN>Total images</JPN>
+	</Msg_1021>
+	<Msg_1022>
+		<JPN>Overflow</JPN>
+	</Msg_1022>
+	<Msg_1023>
+		<JPN>Lost Sync</JPN>
+	</Msg_1023>
+	<Msg_1024>
+		<JPN>Enable socket</JPN>
+	</Msg_1024>
+	<Msg_1025>
+		<JPN>STOP line if socket is DISCONNECTED</JPN>
+	</Msg_1025>
+	<Msg_1026>
+		<JPN>Missing postal barcode doesn't generate an Error</JPN>
+	</Msg_1026>
+	<Msg_1027>
+		<JPN>Postal Barcode is Missing !</JPN>
+	</Msg_1027>
+	<Msg_1028>
+		<JPN>Dynamic production list</JPN>
+	</Msg_1028>
+	<Msg_1029>
+		<JPN>Enable dynamic production list</JPN>
+	</Msg_1029>
+	<Msg_1030>
+		<JPN>Add production</JPN>
+	</Msg_1030>
+	<Msg_1031>
+		<JPN>Move up</JPN>
+	</Msg_1031>
+	<Msg_1032>
+		<JPN>Move down</JPN>
+	</Msg_1032>
+	<Msg_1033>
+		<JPN>Delete production</JPN>
+	</Msg_1033>
+	<Msg_1034>
+		<JPN>The dynamically decoded production is out of sequence. The control will terminate.</JPN>
+	</Msg_1034>
+	<Msg_1035>
+		<JPN>Incoherent system configuration. Verify the following parameters in the Config.xml file: %s %s.</JPN>
+	</Msg_1035>
+	<Msg_1036>
+		<JPN>Incoherent system configuration. The presence of 2 cameras is incompatible with the DUAL_SIMPLE-SINGLE_DUPLEX mode</JPN>
+	</Msg_1036>
+	<Msg_1037>
+		<JPN>SINGLE DUPLEX mode</JPN>
+	</Msg_1037>
+	<Msg_1038>
+		<JPN>DUAL SIMPLEX mode</JPN>
+	</Msg_1038>
+	<Msg_1039>
+		<JPN>COMMUNICATION ERROR</JPN>
+	</Msg_1039>
+	<Msg_1040>
+		<JPN>SYNCHRONIZATION ERROR</JPN>
+	</Msg_1040>
+	<Msg_1041>
+		<JPN>Enable variable size</JPN>
+	</Msg_1041>
+	<Msg_1042>
+		<JPN>Do you want to proceed in DUAL SIMPLEX mode</JPN>
+	</Msg_1042>
+	<Msg_1043>
+		<JPN>The PC'%s' is not responding or has refused the current request.</JPN>
+	</Msg_1043>
+	<Msg_1044>
+		<JPN>The PC'%s' has refused the current request due to data incompatibility. Do you want to proceed with the production  synchronization?</JPN>
+	</Msg_1044>
+	<Msg_1045>
+		<JPN>Production synchronization '%s' in progress...</JPN>
+	</Msg_1045>
+	<Msg_1046>
+		<JPN>Impossible to complete the operation.</JPN>
+	</Msg_1046>
+	<Msg_1047>
+		<JPN>Interrupt the current operation.</JPN>
+	</Msg_1047>
+	<Msg_1048>
+		<JPN>The dynamic coding sequence for the Model '%s' must contain different strings from those of Model '%s'.</JPN>
+	</Msg_1048>
+	<Msg_1049>
+		<JPN>Sending PC '%s' and completion of current operation in progress.</JPN>
+	</Msg_1049>
+	<Msg_1050>
+		<JPN>Operation in progress '%s' on '%s' side. Please wait...</JPN>
+	</Msg_1050>
+	<Msg_1051>
+		<JPN>White balance camera %d in progress...</JPN>
+	</Msg_1051>
+	<Msg_1052>
+		<JPN>Connection with PC '%s'  not present</JPN>
+	</Msg_1052>
+	<Msg_1053>
+		<JPN>The PC '%s'  is busy by another process (%s).</JPN>
+	</Msg_1053>
+	<Msg_1054>
+		<JPN>The remote system is set on a different configuration (%s).</JPN>
+	</Msg_1054>
+	<Msg_1055>
+		<JPN>MASTER</JPN>
+	</Msg_1055>
+	<Msg_1056>
+		<JPN>SLAVE</JPN>
+	</Msg_1056>
+	<Msg_1057>
+		<JPN>Operation not allowed. Impossible to set two equal productions consecutively.</JPN>
+	</Msg_1057>
+	<Msg_1058>
+		<JPN>The  current production (%s) does not match the first defined in the dynamic list (%s). If you decide to proceed the dynamic list will be ignored.</JPN>
+	</Msg_1058>
+	<Msg_1059>
+		<JPN>Size variation</JPN>
+	</Msg_1059>
+	<Msg_1060>
+		<JPN>Invalid operation. In this phase it is only possible to add a production</JPN>
+	</Msg_1060>
+	<Msg_1061>
+		<JPN>The production '%s' is not present in the PC '%s'. Proceed with transfering the production?</JPN>
+	</Msg_1061>
+	<Msg_1062>
+		<JPN>Enable visualization</JPN>
+	</Msg_1062>
+	<Msg_1063>
+		<JPN>Visualization Setup</JPN>
+	</Msg_1063>
+	<Msg_1064>
+		<JPN>Enabled for selected Setups</JPN>
+	</Msg_1064>
+	<Msg_1065>
+		<JPN>VISUALIZE SELECTIVE SETUPS</JPN>
+	</Msg_1065>
+	<Msg_1066>
+		<JPN>RemoteAssist folder</JPN>
+	</Msg_1066>
+	<Msg_1067>
+		<JPN>RemoteAssist folder name</JPN>
+	</Msg_1067>
+	<Msg_1068>
+		<JPN>Open RemoteAssist</JPN>
+	</Msg_1068>
+	<Msg_1069>
+		<JPN>Number of images/folder</JPN>
+	</Msg_1069>
+	<Msg_1070>
+		<JPN>Images not saved</JPN>
+	</Msg_1070>
+	<Msg_1071>
+		<JPN>Max. total rejects</JPN>
+	</Msg_1071>
+	<Msg_1072>
+		<JPN>Lost Save image</JPN>
+	</Msg_1072>
+	<Msg_1073>
+		<JPN>Special controls</JPN>
+	</Msg_1073>
+	<Msg_1074>
+		<JPN>DI Mark area</JPN>
+	</Msg_1074>
+	<Msg_1075>
+		<JPN>DI MARK TOLLERANCE</JPN>
+	</Msg_1075>
+	<Msg_1076>
+		<JPN>DI Mark number</JPN>
+	</Msg_1076>
+	<Msg_1077>
+		<JPN>DI Mark width</JPN>
+	</Msg_1077>
+	<Msg_1078>
+		<JPN>Thickness variation tolerance</JPN>
+	</Msg_1078>
+	<Msg_1079>
+		<JPN>ERROR: DI MARK CONTROL</JPN>
+	</Msg_1079>
+	<Msg_1080>
+		<JPN>Thickness</JPN>
+	</Msg_1080>
+	<Msg_1081>
+		<JPN>Thickness variation</JPN>
+	</Msg_1081>
+	<Msg_1082>
+		<JPN>Number of congruency controls  DI Mark</JPN>
+	</Msg_1082>
+	<Msg_1083>
+		<JPN>DI Mark packet</JPN>
+	</Msg_1083>
+	<Msg_1084>
+		<JPN>Uniform regions defect dimension</JPN>
+	</Msg_1084>
+	<Msg_1085>
+		<JPN>Enable On/Off Logo Control</JPN>
+	</Msg_1085>
+	<Msg_1086>
+		<JPN>Defect dimension</JPN>
+	</Msg_1086>
+	<Msg_1087>
+		<JPN>Enable Multi_Threading Logo Control</JPN>
+	</Msg_1087>
+	<Msg_1088>
+		<JPN>Enable Cells_Overlap Logo Control</JPN>
+	</Msg_1088>
+	<Msg_1089>
+		<JPN>Model acquisition in progress. Please wait...</JPN>
+	</Msg_1089>
+	<Msg_1090>
+		<JPN>Enable PDF Proofing</JPN>
+	</Msg_1090>
+	<Msg_1091>
+		<JPN>Setup PDF proofing parameters</JPN>
+	</Msg_1091>
+	<Msg_1092>
+		<JPN>X cell dimension</JPN>
+	</Msg_1092>
+	<Msg_1093>
+		<JPN>Y cell dimension</JPN>
+	</Msg_1093>
+	<Msg_1094>
+		<JPN>X scale ratio</JPN>
+	</Msg_1094>
+	<Msg_1095>
+		<JPN>Y scale ratio</JPN>
+	</Msg_1095>
+	<Msg_1096>
+		<JPN>WARNING !!  Invalid Matching</JPN>
+	</Msg_1096>
+	<Msg_1097>
+		<JPN>Reliability: Fine</JPN>
+	</Msg_1097>
+	<Msg_1098>
+		<JPN>Reliability: Coarse</JPN>
+	</Msg_1098>
+	<Msg_1099>
+		<JPN>Scale consistency check failed. Do you wish anyway to proceed ?</JPN>
+	</Msg_1099>
+	<Msg_1100>
+		<JPN>PROCESSING</JPN>
+	</Msg_1100>
+	<Msg_1101>
+		<JPN>Processing in progress. Please wait...</JPN>
+	</Msg_1101>
+	<Msg_1102>
+		<JPN>ERROR: SCALE CONSISTENCY CHECK FAILED</JPN>
+	</Msg_1102>
+	<Msg_1103>
+		<JPN>COMPARE</JPN>
+	</Msg_1103>
+	<Msg_1104>
+		<JPN>Mark type</JPN>
+	</Msg_1104>
+	<Msg_1105>
+		<JPN>X-Y Dimensions</JPN>
+	</Msg_1105>
+	<Msg_1106>
+		<JPN>X Dimension</JPN>
+	</Msg_1106>
+	<Msg_1107>
+		<JPN>Y Dimension</JPN>
+	</Msg_1107>
+	<Msg_1108>
+		<JPN>Coding field Range overruns code length (string length %d). Do you wish anyway to proceed ?</JPN>
+	</Msg_1108>
+	<Msg_1109>
+		<JPN>Jet-Out Locator definition</JPN>
+	</Msg_1109>
+	<Msg_1110>
+		<JPN>Traditional Locator</JPN>
+	</Msg_1110>
+	<Msg_1111>
+		<JPN>Single Locator</JPN>
+	</Msg_1111>
+	<Msg_1112>
+		<JPN>Double Locator</JPN>
+	</Msg_1112>
+	<Msg_1113>
+		<JPN>Enable Horizontal Anchor</JPN>
+	</Msg_1113>
+	<Msg_1114>
+		<JPN>DEFINE  JETOUT CONTROL LOCATOR AREA %d/%d -</JPN>
+	</Msg_1114>
+	<Msg_1115>
+		<JPN>Pattern locator Configuration</JPN>
+	</Msg_1115>
+	<Msg_1116>
+		<JPN>Connection status %S:</JPN>
+	</Msg_1116>
+	<Msg_1117>
+		<JPN>disconnected</JPN>
+	</Msg_1117>
+	<Msg_1118>
+		<JPN>connected (normal mode)</JPN>
+	</Msg_1118>
+	<Msg_1119>
+		<JPN>connected (override mode)</JPN>
+	</Msg_1119>
+	<Msg_1120>
+		<JPN>Suppress reading distance</JPN>
+	</Msg_1120>
+	<Msg_1121>
+		<JPN>minimum mark length</JPN>
+	</Msg_1121>
+	<Msg_1122>
+		<JPN>maximum mark length</JPN>
+	</Msg_1122>
+	<Msg_1123>
+		<JPN>distance between mark readers</JPN>
+	</Msg_1123>
+	<Msg_1124>
+		<JPN>White area for print stop detection</JPN>
+	</Msg_1124>
+	<Msg_1125>
+		<JPN>Stop time for print stop detection</JPN>
+	</Msg_1125>
+	<Msg_1126>
+		<JPN>The current situation doesn't allow modifications of PLC (B&amp;R) parameters.</JPN>
+	</Msg_1126>
+	<Msg_1127>
+		<JPN>Do you want to start paper transport?</JPN>
+	</Msg_1127>
+	<Msg_1128>
+		<JPN>connected (wait handshake)</JPN>
+	</Msg_1128>
+	<Msg_1129>
+		<JPN>Report of status messages of the PLC (B&amp;R)</JPN>
+	</Msg_1129>
+	<Msg_1130>
+		<JPN>Clear report</JPN>
+	</Msg_1130>
+	<Msg_1131>
+		<JPN>Reset queue</JPN>
+	</Msg_1131>
+	<Msg_1132>
+		<JPN>Custom resolution</JPN>
+	</Msg_1132>
+	<Msg_1133>
+		<JPN>WEB MONITORING</JPN>
+	</Msg_1133>
+	<Msg_1134>
+		<JPN>Enable exclusion areas</JPN>
+	</Msg_1134>
+	<Msg_1135>
+		<JPN>Rotate</JPN>
+	</Msg_1135>
+	<Msg_1136>
+		<JPN>Speed</JPN>
+	</Msg_1136>
+	<Msg_1137>
+		<JPN>Replay Visualization</JPN>
+	</Msg_1137>
+	<Msg_1138>
+		<JPN>High resolution (600X600 DPI)</JPN>
+	</Msg_1138>
+	<Msg_1139>
+		<JPN>Standard resolution (300x300 DPI)</JPN>
+	</Msg_1139>
+	<Msg_1140>
+		<JPN>Resolution</JPN>
+	</Msg_1140>
+	<Msg_1141>
+		<JPN>Option Packages activation file absent or corrupt. The application will start in 'Web Monitoring' mode.</JPN>
+	</Msg_1141>
+	<Msg_1142>
+		<JPN>Speed Kit</JPN>
+	</Msg_1142>
+	<Msg_1143>
+		<JPN>Record + Replay</JPN>
+	</Msg_1143>
+	<Msg_1144>
+		<JPN>Archiving</JPN>
+	</Msg_1144>
+	<Msg_1145>
+		<JPN>Scan to Inspect</JPN>
+	</Msg_1145>
+	<Msg_1146>
+		<JPN>Barcodes</JPN>
+	</Msg_1146>
+	<Msg_1147>
+		<JPN>OCR+MICR</JPN>
+	</Msg_1147>
+	<Msg_1148>
+		<JPN>Printer Oriented Graphics</JPN>
+	</Msg_1148>
+	<Msg_1149>
+		<JPN>User Oriented Graphics</JPN>
+	</Msg_1149>
+	<Msg_1150>
+		<JPN>Full Page Image Verification</JPN>
+	</Msg_1150>
+	<Msg_1151>
+		<JPN>High resolution or large formats</JPN>
+	</Msg_1151>
+	<Msg_1152>
+		<JPN>Labels Verification</JPN>
+	</Msg_1152>
+	<Msg_1153>
+		<JPN>Lottery Verification</JPN>
+	</Msg_1153>
+	<Msg_1154>
+		<JPN>Licensing visualization</JPN>
+	</Msg_1154>
+	<Msg_1155>
+		<JPN>Printer Oriented Controls</JPN>
+	</Msg_1155>
+	<Msg_1156>
+		<JPN>User Oriented controls</JPN>
+	</Msg_1156>
+	<Msg_1157>
+		<JPN>Barcode Controls</JPN>
+	</Msg_1157>
+	<Msg_1158>
+		<JPN>expired</JPN>
+	</Msg_1158>
+	<Msg_1159>
+		<JPN>Record &amp; Replay</JPN>
+	</Msg_1159>
+	<Msg_1160>
+		<JPN>Scan Mode To Inspect: Dongle absent or absent or corrupt license file. All associated packages will be disabled.</JPN>
+	</Msg_1160>
+	<Msg_1161>
+		<JPN>OPTION PACKAGES ACTIVATION FAILED!</JPN>
+	</Msg_1161>
+	<Msg_1162>
+		<JPN>Option packets activation file authentication failed. Application will run in 'Web monitoring' mode.</JPN>
+	</Msg_1162>
+	<Msg_1163>
+		<JPN>Following option packages are expired:</JPN>
+	</Msg_1163>
+	<Msg_1164>
+		<JPN>Line speed limit overrun [ %d m/min ]. Impossible to proceed.</JPN>
+	</Msg_1164>
+	<Msg_1165>
+		<JPN>Keyfile Dongle missing, all Options are disabled. Application will run in 'Web monitoring' mode.</JPN>
+	</Msg_1165>
+	<Msg_1166>
+		<JPN>Register mark offset</JPN>
+	</Msg_1166>
+	<Msg_1167>
+		<JPN>STOP line if WI8 NOT READY</JPN>
+	</Msg_1167>
+	<Msg_1168>
+		<JPN>New DynaScan production...</JPN>
+	</Msg_1168>
+	<Msg_1169>
+		<JPN>Production '%s' is already present in the list.</JPN>
+	</Msg_1169>
+	<Msg_1170>
+		<JPN>Module length tolerance</JPN>
+	</Msg_1170>
+	<Msg_1171>
+		<JPN>DynaScan production Parameters</JPN>
+	</Msg_1171>
+	<Msg_1172>
+		<JPN>DynaScan productions list</JPN>
+	</Msg_1172>
+	<Msg_1173>
+		<JPN>Productions list</JPN>
+	</Msg_1173>
+	<Msg_1174>
+		<JPN>Production '%s' Has different characteristics respect to actual configuration. Do you want to proceed anyway?</JPN>
+	</Msg_1174>
+	<Msg_1175>
+		<JPN>SELECT CAMERA/PAGE</JPN>
+	</Msg_1175>
+	<Msg_1176>
+		<JPN>Delete DynaScan production...</JPN>
+	</Msg_1176>
+	<Msg_1177>
+		<JPN>Do you really want to delete the selected DynaScan production ('%s')?</JPN>
+	</Msg_1177>
+	<Msg_1178>
+		<JPN>JPEG compression memory allocation problem</JPN>
+	</Msg_1178>
+	<Msg_1179>
+		<JPN>Select portion</JPN>
+	</Msg_1179>
+	<Msg_1180>
+		<JPN>JetOut quantity for error</JPN>
+	</Msg_1180>
+	<Msg_1181>
+		<JPN>Allowed characters: C/c M/m Y/y K/k</JPN>
+	</Msg_1181>
+	<Msg_1182>
+		<JPN>Critical Uniform defect size</JPN>
+	</Msg_1182>
+	<Msg_1183>
+		<JPN>Non-critical Uniform defect size</JPN>
+	</Msg_1183>
+	<Msg_1184>
+		<JPN>Max. number of non-critical defects</JPN>
+	</Msg_1184>
+	<Msg_1185>
+		<JPN>Non-uniform defect size</JPN>
+	</Msg_1185>
+	<Msg_1186>
+		<JPN>Error writing file for DynaScan production '%s'</JPN>
+	</Msg_1186>
+	<Msg_1187>
+		<JPN>Max. Physical Form length (inches)</JPN>
+	</Msg_1187>
+	<Msg_1188>
+		<JPN>DynaScan Production "%s" already exists! Overwrite?</JPN>
+	</Msg_1188>
+	<Msg_1189>
+		<JPN>Edit DynaScan production...</JPN>
+	</Msg_1189>
+	<Msg_1190>
+		<JPN>DynaScan</JPN>
+	</Msg_1190>
+	<Msg_1191>
+		<JPN>Color Symbol analysis</JPN>
+	</Msg_1191>
+	<Msg_1192>
+		<JPN>Enable Framing (JobID;DocumentID;SheetNumber;TotalSheets)</JPN>
+	</Msg_1192>
+	<Msg_1193>
+		<JPN>Job ID</JPN>
+	</Msg_1193>
+	<Msg_1194>
+		<JPN>Document ID</JPN>
+	</Msg_1194>
+	<Msg_1195>
+		<JPN>Sheet Number</JPN>
+	</Msg_1195>
+	<Msg_1196>
+		<JPN>Total Sheets</JPN>
+	</Msg_1196>
+	<Msg_1197>
+		<JPN>Blue Band</JPN>
+	</Msg_1197>
+	<Msg_1198>
+		<JPN>Green Band</JPN>
+	</Msg_1198>
+	<Msg_1199>
+		<JPN>Red Band</JPN>
+	</Msg_1199>
+	<Msg_1200>
+		<JPN>Enable Watermark</JPN>
+	</Msg_1200>
+	<Msg_1201>
+		<JPN>Cameras interdistance</JPN>
+	</Msg_1201>
+	<Msg_1202>
+		<JPN>Cameras Distance</JPN>
+	</Msg_1202>
+	<Msg_1203>
+		<JPN>Number of Images to Average </JPN>
+	</Msg_1203>
+	<Msg_1204>
+		<JPN>- IMAGE ACQUISITION IN PROGRESS... UNRECOGNIZED FORM LENGTH -</JPN>
+	</Msg_1204>
+	<Msg_1205>
+		<JPN>Preceding Image</JPN>
+	</Msg_1205>
+	<Msg_1206>
+		<JPN>Following Image</JPN>
+	</Msg_1206>
+	<Msg_1207>
+		<JPN>Image displayed %d/%d</JPN>
+	</Msg_1207>
+	<Msg_1208>
+		<JPN>IPI</JPN>
+	</Msg_1208>
+	<Msg_1209>
+		<JPN>IPI Image Verification</JPN>
+	</Msg_1209>
+	<Msg_1210>
+		<JPN>Printer</JPN>
+	</Msg_1210>
+	<Msg_1211>
+		<JPN>Intelligent Print Inspection</JPN>
+	</Msg_1211>
+	<Msg_1212>
+		<JPN>Live-Image Saving</JPN>
+	</Msg_1212>
+	<Msg_1213>
+		<JPN>Calibration menu</JPN>
+	</Msg_1213>
+	<Msg_1214>
+		<JPN>Error Reading Printer configuration file '%s'. File is missing or corrupted.</JPN>
+	</Msg_1214>
+	<Msg_1215>
+		<JPN>Intelligent Print Inspection tolerances</JPN>
+	</Msg_1215>
+	<Msg_1216>
+		<JPN>Memory allocation problems for Intelligent Print Inspection ( limited GPU resources )</JPN>
+	</Msg_1216>
+	<Msg_1217>
+		<JPN>Calibration</JPN>
+	</Msg_1217>
+	<Msg_1218>
+		<JPN>Color LUT Processing in progress. Please wait.</JPN>
+	</Msg_1218>
+	<Msg_1219>
+		<JPN>The definition of Front / Back congruences requires the activation of front-back synchronization.</JPN>
+	</Msg_1219>
+	<Msg_1220>
+		<JPN>Enable front-to-back synchronization</JPN>
+	</Msg_1220>
+	<Msg_1221>
+		<JPN>- LUT TEST %s -</JPN>
+	</Msg_1221>
+	<Msg_1222>
+		<JPN>Total Faults</JPN>
+	</Msg_1222>
+	<Msg_1223>
+		<JPN>Current template</JPN>
+	</Msg_1223>
+	<Msg_1224>
+		<JPN>P-time</JPN>
+	</Msg_1224>
+	<Msg_1225>
+		<JPN>Color LUT</JPN>
+	</Msg_1225>
+	<Msg_1226>
+		<JPN>Color LUT Menu</JPN>
+	</Msg_1226>
+	<Msg_1227>
+		<JPN>LUT grid Layout</JPN>
+	</Msg_1227>
+	<Msg_1228>
+		<JPN>X cells number</JPN>
+	</Msg_1228>
+	<Msg_1229>
+		<JPN>Y cells number</JPN>
+	</Msg_1229>
+	<Msg_1230>
+		<JPN>Cells Gap</JPN>
+	</Msg_1230>
+	<Msg_1231>
+		<JPN>Margin</JPN>
+	</Msg_1231>
+	<Msg_1232>
+		<JPN>"%s" is a reserved word. Impossibile procedere.</JPN>
+	</Msg_1232>
+	<Msg_1233>
+		<JPN>Printer Calibration</JPN>
+	</Msg_1233>
+	<Msg_1234>
+		<JPN>Color LUT</JPN>
+	</Msg_1234>
+	<Msg_1235>
+		<JPN>Modify</JPN>
+	</Msg_1235>
+	<Msg_1236>
+		<JPN>Create</JPN>
+	</Msg_1236>
+	<Msg_1237>
+		<JPN>Delete</JPN>
+	</Msg_1237>
+	<Msg_1238>
+		<JPN>LUT management</JPN>
+	</Msg_1238>
+	<Msg_1239>
+		<JPN>Selected LUT is associated to some Productions. Do you want to proceed?</JPN>
+	</Msg_1239>
+	<Msg_1240>
+		<JPN>LUT Name</JPN>
+	</Msg_1240>
+	<Msg_1241>
+		<JPN>Calibration Name</JPN>
+	</Msg_1241>
+	<Msg_1242>
+		<JPN>Calibration Management</JPN>
+	</Msg_1242>
+	<Msg_1243>
+		<JPN>Selected Calibration is associated to some Productions. Do you want to proceed?</JPN>
+	</Msg_1243>
+	<Msg_1244>
+		<JPN>Rename</JPN>
+	</Msg_1244>
+	<Msg_1245>
+		<JPN>LUT '%s' already defined. Do you want to overwrite it?</JPN>
+	</Msg_1245>
+	<Msg_1246>
+		<JPN>Calibration '%s' is already defined. Do you want to overwrite it?</JPN>
+	</Msg_1246>
+	<Msg_1247>
+		<JPN>Error reading printer LUT file '%s' (view %d). File is missing or corrupted.</JPN>
+	</Msg_1247>
+	<Msg_1248>
+		<JPN>DynaScan Production</JPN>
+	</Msg_1248>
+	<Msg_1249>
+		<JPN>Do you want to inherit parameters from job '%s'?</JPN>
+	</Msg_1249>
+	<Msg_1250>
+		<JPN>Static Production</JPN>
+	</Msg_1250>
+	<Msg_1251>
+		<JPN>WAITING FOR FRAME ACQUISITION ON BOTH VIEWS</JPN>
+	</Msg_1251>
+	<Msg_1252>
+		<JPN>Definition of number of images to be copied</JPN>
+	</Msg_1252>
+	<Msg_1253>
+		<JPN>Number of Immages</JPN>
+	</Msg_1253>
+	<Msg_1254>
+		<JPN>Page sequence inversion</JPN>
+	</Msg_1254>
+	<Msg_1255>
+		<JPN>D-Static Production</JPN>
+	</Msg_1255>
+	<Msg_1256>
+		<JPN>Enable third Register Mark reader</JPN>
+	</Msg_1256>
+	<Msg_1257>
+		<JPN>TOP Reader</JPN>
+	</Msg_1257>
+	<Msg_1258>
+		<JPN>BOTTOM Reader</JPN>
+	</Msg_1258>
+	<Msg_1259>
+		<JPN>WAITING FRAME ACQUISITION ON VIEW %d</JPN>
+	</Msg_1259>
+	<Msg_1260>
+		<JPN>Do you want to Save the data from Camera Inter-distance Calibration (Camera Distance : %d mm)?</JPN>
+	</Msg_1260>
+	<Msg_1261>
+		<JPN>Printer Saving</JPN>
+	</Msg_1261>
+	<Msg_1262>
+		<JPN>Printer +</JPN>
+	</Msg_1262>
+	<Msg_1263>
+		<JPN>Printer -</JPN>
+	</Msg_1263>
+	<Msg_1264>
+		<JPN>SELECT PRINTER</JPN>
+	</Msg_1264>
+	<Msg_1265>
+		<JPN>Printer selection</JPN>
+	</Msg_1265>
+	<Msg_1266>
+		<JPN>Printer %d</JPN>
+	</Msg_1266>
+	<Msg_1267>
+		<JPN>Printer</JPN>
+	</Msg_1267>
+	<Msg_1268>
+		<JPN>No printer selected</JPN>
+	</Msg_1268>
+	<Msg_1269>
+		<JPN>Do you want to also define the printer side Anchor Point ?</JPN>
+	</Msg_1269>
+	<Msg_1270>
+		<JPN>- LUT AREA DEFINITION -</JPN>
+	</Msg_1270>
+	<Msg_1271>
+		<JPN>Open the License Manager</JPN>
+	</Msg_1271>
+	<Msg_1272>
+		<JPN>Enable Record &amp; Replay</JPN>
+	</Msg_1272>
+	<Msg_1273>
+		<JPN>CUDA resource memory allocation problems</JPN>
+	</Msg_1273>
+	<Msg_1274>
+		<JPN>Logo parameters IPI</JPN>
+	</Msg_1274>
+	<Msg_1275>
+		<JPN>Digital gain for Camera %d</JPN>
+	</Msg_1275>
+	<Msg_1276>
+		<JPN>Web DynaScan</JPN>
+	</Msg_1276>
+	<Msg_1277>
+		<JPN>Minimum speed</JPN>
+	</Msg_1277>
+	<Msg_1278>
+		<JPN>IPI - Printer acquisition lost alarm.</JPN>
+	</Msg_1278>
+<Msg_1279>
+		<JPN>Eredita da DynaScan</JPN>
+	</Msg_1279>
+<Msg_1280>
+		<JPN>Anchor point DS</JPN>
+	</Msg_1280>
+<Msg_1281>
+		<JPN>Dynamic decoding area DS</JPN>
+	</Msg_1281>
+</Messages>
